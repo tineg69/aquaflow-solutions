@@ -1,6 +1,7 @@
 import { useState, useEffect, ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import waterLoading from "@/assets/water-loading.png";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -17,7 +18,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
     const timeout = setTimeout(() => {
       setDisplayChildren(children);
       setIsTransitioning(false);
-    }, 600);
+    }, 800);
 
     return () => clearTimeout(timeout);
   }, [location.pathname]);
@@ -33,87 +34,83 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
       {/* Water Flow Transition Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-[100] pointer-events-none overflow-hidden",
+          "fixed inset-0 z-[100] pointer-events-none overflow-hidden transition-opacity duration-300",
           isTransitioning ? "opacity-100" : "opacity-0"
         )}
-        style={{ transition: "opacity 0.3s ease" }}
       >
-        {/* Multiple wave layers for depth effect */}
+        {/* Water background image with animation */}
         <div
           className={cn(
-            "absolute inset-0 bg-background transition-transform duration-700 ease-in-out",
-            isTransitioning ? "translate-y-0" : "-translate-y-full"
+            "absolute inset-0 transition-transform duration-700 ease-out",
+            isTransitioning ? "scale-100" : "scale-110"
           )}
         >
-          {/* Animated water particles */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-aqua/30 animate-float"
-                style={{
-                  width: `${Math.random() * 20 + 5}px`,
-                  height: `${Math.random() * 20 + 5}px`,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 2}s`,
-                  animationDuration: `${Math.random() * 3 + 2}s`,
-                }}
-              />
-            ))}
-          </div>
+          {/* Main water image */}
+          <img
+            src={waterLoading}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              animation: isTransitioning ? "waterFlow 2s ease-in-out infinite" : "none",
+            }}
+          />
+          
+          {/* Overlay for depth and brand consistency */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/60" />
+          
+          {/* Animated caustics overlay */}
+          <div 
+            className="absolute inset-0 opacity-30 mix-blend-overlay"
+            style={{
+              backgroundImage: `radial-gradient(ellipse at 30% 20%, hsl(var(--aqua) / 0.4) 0%, transparent 50%),
+                               radial-gradient(ellipse at 70% 80%, hsl(var(--primary) / 0.3) 0%, transparent 50%)`,
+              animation: isTransitioning ? "caustics 3s ease-in-out infinite" : "none",
+            }}
+          />
+        </div>
 
-          {/* Main water wave SVG */}
-          <svg
-            className="absolute bottom-0 left-0 w-[200%] h-64"
-            viewBox="0 0 1440 320"
-            preserveAspectRatio="none"
+        {/* Center logo during transition */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div 
+            className={cn(
+              "flex flex-col items-center gap-4 transition-all duration-500",
+              isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            )}
           >
-            <path
-              className="animate-wave"
-              fill="hsl(var(--aqua) / 0.4)"
-              d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,133.3C672,117,768,139,864,165.3C960,192,1056,224,1152,218.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            />
-          </svg>
-          <svg
-            className="absolute bottom-0 left-0 w-[200%] h-48"
-            viewBox="0 0 1440 320"
-            preserveAspectRatio="none"
-            style={{ animationDelay: "-3s" }}
-          >
-            <path
-              className="animate-wave"
-              fill="hsl(var(--primary) / 0.5)"
-              d="M0,224L48,218.7C96,213,192,203,288,192C384,181,480,171,576,186.7C672,203,768,245,864,250.7C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            />
-          </svg>
-
-          {/* Center logo during transition */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex items-center gap-3 animate-pulse-glow">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center shadow-aqua">
-                <span className="font-display font-bold text-primary-foreground text-2xl">O</span>
-              </div>
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center shadow-aqua animate-pulse-glow">
+              <span className="font-display font-bold text-primary-foreground text-3xl">O</span>
+            </div>
+            
+            {/* Loading ripple rings */}
+            <div className="relative w-32 h-8 flex items-center justify-center">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-3 h-3 rounded-full bg-aqua/80"
+                  style={{
+                    animation: `bounce 1s ease-in-out ${i * 0.15}s infinite`,
+                    left: `${32 + i * 24}px`,
+                  }}
+                />
+              ))}
             </div>
           </div>
-
-          {/* Flowing lines */}
-          <div className="absolute inset-0">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute h-0.5 bg-gradient-to-r from-transparent via-aqua/50 to-transparent"
-                style={{
-                  width: "150%",
-                  left: "-25%",
-                  top: `${20 + i * 15}%`,
-                  animation: `flow ${2 + i * 0.5}s ease-in-out infinite`,
-                  animationDelay: `${i * 0.2}s`,
-                }}
-              />
-            ))}
-          </div>
         </div>
+
+        {/* Bottom wave accent */}
+        <svg
+          className="absolute bottom-0 left-0 w-full h-32 opacity-60"
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="hsl(var(--background))"
+            d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z"
+            style={{
+              animation: isTransitioning ? "waveMotion 2s ease-in-out infinite" : "none",
+            }}
+          />
+        </svg>
       </div>
 
       {/* Page Content */}
@@ -125,6 +122,49 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
       >
         {displayChildren}
       </div>
+
+      {/* Keyframes for water animations */}
+      <style>{`
+        @keyframes waterFlow {
+          0%, 100% {
+            transform: scale(1) translateY(0);
+          }
+          50% {
+            transform: scale(1.02) translateY(-5px);
+          }
+        }
+        
+        @keyframes caustics {
+          0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.5;
+            transform: scale(1.1);
+          }
+        }
+        
+        @keyframes waveMotion {
+          0%, 100% {
+            d: path("M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z");
+          }
+          50% {
+            d: path("M0,60 C360,0 720,120 1080,60 C1260,30 1380,90 1440,60 L1440,120 L0,120 Z");
+          }
+        }
+        
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateY(0);
+            opacity: 0.4;
+          }
+          50% {
+            transform: translateY(-12px);
+            opacity: 1;
+          }
+        }
+      `}</style>
     </>
   );
 };
