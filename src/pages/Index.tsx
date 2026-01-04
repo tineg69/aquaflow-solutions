@@ -4,6 +4,7 @@ import { StatCard } from "@/components/StatCard";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Droplets, DollarSign, AlertTriangle, Clock, ArrowRight, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-water.jpg";
 
 const Index = () => {
@@ -59,12 +60,16 @@ const Index = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up"
               style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}
             >
-              <Button variant="hero" size="xl">
-                Explore the Model
-                <ArrowRight className="w-5 h-5" />
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/model">
+                  Explore the Model
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
               </Button>
-              <Button variant="heroOutline" size="xl">
-                Learn More
+              <Button variant="heroOutline" size="xl" asChild>
+                <Link to="/branding">
+                  Learn More
+                </Link>
               </Button>
             </div>
           </div>
@@ -201,9 +206,11 @@ const Index = () => {
               This is designing self-healing systems.
             </p>
             
-            <Button variant="hero" size="xl">
-              Discover the Technology
-              <ArrowRight className="w-5 h-5" />
+            <Button variant="hero" size="xl" asChild>
+              <Link to="/model">
+                Discover the Technology
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </Button>
           </div>
         </div>
