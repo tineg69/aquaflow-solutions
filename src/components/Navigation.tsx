@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -50,9 +49,6 @@ export const Navigation = () => {
                 )}
               </Link>
             ))}
-            <Button variant="hero" size="sm">
-              Get Started
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,9 +83,6 @@ export const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-            <Button variant="hero" className="mt-2">
-              Get Started
-            </Button>
           </div>
         </div>
       </div>
