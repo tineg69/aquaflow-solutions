@@ -7,6 +7,7 @@ import { PageTransition } from "@/components/PageTransition";
 import Index from "./pages/Index";
 import Model from "./pages/Model";
 import Branding from "./pages/Branding";
+import Team from "./pages/Team";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,8 +21,9 @@ const App = () => (
         <PageTransition>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/model" element={<Model />} />
             <Route path="/branding" element={<Branding />} />
+            <Route path="/model" element={<Model />} />
+            <Route path="/team" element={<Team />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
