@@ -6,8 +6,9 @@ import oSealLogo from "@/assets/o-seal-logo-circular.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Model", path: "/model" },
-  { name: "Branding", path: "/branding" },
+  { name: "Design", path: "/branding" },
+  { name: "Demo", path: "/model" },
+  { name: "Team", path: "/team" },
 ];
 
 export const Navigation = () => {
