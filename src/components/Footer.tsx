@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import oSealLogo from "@/assets/o-seal-logo.png";
+import oSealLogo from "@/assets/o-seal-logo-circular.png";
 
 export const Footer = () => {
   return (
