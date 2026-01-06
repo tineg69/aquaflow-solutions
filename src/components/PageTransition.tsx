@@ -77,9 +77,9 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
               isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-90"
             )}
           >
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center shadow-aqua animate-pulse-glow">
-              <span className="font-display font-bold text-primary-foreground text-3xl">O</span>
-            </div>
+            <span className="font-display font-bold text-aqua text-5xl tracking-tight drop-shadow-[0_0_20px_hsl(var(--aqua)/0.6)]">
+              O-Seal
+            </span>
             
             {/* Loading ripple rings */}
             <div className="relative w-32 h-8 flex items-center justify-center">
