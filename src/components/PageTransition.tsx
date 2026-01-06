@@ -2,6 +2,7 @@ import { useState, useEffect, ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import waterLoading from "@/assets/water-loading.png";
+import oSealLogo from "@/assets/o-seal-logo.png";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -77,9 +78,11 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
               isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-90"
             )}
           >
-            <span className="font-display font-bold text-aqua text-5xl tracking-tight drop-shadow-[0_0_20px_hsl(var(--aqua)/0.6)]">
-              O-Seal
-            </span>
+            <img 
+              src={oSealLogo} 
+              alt="O-Seal" 
+              className="h-32 w-auto drop-shadow-[0_0_30px_hsl(var(--aqua)/0.5)]"
+            />
             
             {/* Loading ripple rings */}
             <div className="relative w-32 h-8 flex items-center justify-center">

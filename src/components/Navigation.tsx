@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import oSealLogo from "@/assets/o-seal-logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -20,14 +21,13 @@ export const Navigation = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 group"
           >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center shadow-aqua group-hover:animate-pulse-glow transition-all">
-              <span className="font-display font-bold text-primary-foreground text-lg">O</span>
-            </div>
-            <span className="font-display font-semibold text-xl text-foreground">
-              O-Seal
-            </span>
+            <img 
+              src={oSealLogo} 
+              alt="O-Seal" 
+              className="h-12 w-auto group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           {/* Desktop Navigation */}
