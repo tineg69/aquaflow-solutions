@@ -2,7 +2,7 @@ import { useState, useEffect, ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import waterLoading from "@/assets/water-loading.png";
-import oSealLogo from "@/assets/o-seal-logo.png";
+import oSealLogo from "@/assets/o-seal-logo-circular.png";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -78,13 +78,11 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
               isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-90"
             )}
           >
-            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-aqua/90 to-primary/80 flex items-center justify-center shadow-[0_0_60px_hsl(var(--aqua)/0.5)]">
-              <img 
-                src={oSealLogo} 
-                alt="O-Seal" 
-                className="h-36 w-auto drop-shadow-lg"
-              />
-            </div>
+            <img 
+              src={oSealLogo} 
+              alt="O-Seal" 
+              className="w-56 h-56 rounded-full shadow-[0_0_60px_hsl(var(--aqua)/0.5)]"
+            />
             
             {/* Loading ripple rings */}
             <div className="relative w-32 h-8 flex items-center justify-center">
