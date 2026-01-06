@@ -1,60 +1,22 @@
 import { Navigation } from "@/components/Navigation";
-import { WaveBackground } from "@/components/WaveBackground";
 import { Footer } from "@/components/Footer";
+import { Section } from "@/components/Section";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { cn } from "@/lib/utils";
 
 const colorPalette = [
-  { 
-    name: "Deep Navy", 
-    hex: "#0a0f1a", 
-    hsl: "220 30% 6%",
-    description: "Conveys authority, stability, and trust — ideal for infrastructure and engineering."
-  },
-  { 
-    name: "Charcoal", 
-    hex: "#171e2e", 
-    hsl: "220 25% 12%",
-    description: "Secondary background for layered depth and visual hierarchy."
-  },
-  { 
-    name: "Pure White", 
-    hex: "#fafafa", 
-    hsl: "0 0% 98%",
-    description: "Symbolizes cleanliness, clarity, and purity — echoing clean water."
-  },
-  { 
-    name: "Aqua", 
-    hex: "#22d3ee", 
-    hsl: "185 75% 45%",
-    description: "Primary accent inspired by water and advanced tech, emphasizing flow and innovation."
-  },
-  { 
-    name: "Primary Blue", 
-    hex: "#38bdf8", 
-    hsl: "200 80% 55%",
-    description: "Gradient partner to aqua, creating luminous water-like transitions."
-  },
-  { 
-    name: "Teal", 
-    hex: "#14b8a6", 
-    hsl: "175 65% 40%",
-    description: "Deeper accent for emphasis and interactive states."
-  },
+  { name: "Deep Navy", hex: "#0a0f14", hsl: "220 25% 5%", description: "Primary background" },
+  { name: "Charcoal", hex: "#141a22", hsl: "220 20% 10%", description: "Card surfaces" },
+  { name: "Pure White", hex: "#f5f5f5", hsl: "0 0% 96%", description: "Primary text" },
+  { name: "Aqua", hex: "#2dd4bf", hsl: "185 70% 48%", description: "Primary accent" },
+  { name: "Cyan", hex: "#22b8cf", hsl: "192 75% 50%", description: "Gradient partner" },
+  { name: "Muted", hex: "#7c8592", hsl: "215 10% 55%", description: "Secondary text" },
 ];
 
 const values = [
-  {
-    title: "Innovation with Purpose",
-    description: "Solving real problems, not chasing trends. Every feature serves the mission of preserving our water systems.",
-  },
-  {
-    title: "Engineering for Resilience",
-    description: "Building infrastructure that endures. Designing systems that thrive under pressure and adapt to challenges.",
-  },
-  {
-    title: "Designing Self-Healing Systems",
-    description: "Putting autonomy into every solution. Creating technology that repairs, maintains, and improves itself.",
-  },
+  { title: "Innovation with Purpose", description: "Solving real problems, not chasing trends." },
+  { title: "Engineering for Resilience", description: "Building infrastructure that endures pressure." },
+  { title: "Designing Self-Healing Systems", description: "Technology that repairs and improves itself." },
 ];
 
 const Branding = () => {
@@ -63,199 +25,149 @@ const Branding = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <WaveBackground />
-        
-        <div className="container relative z-10 px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-              Brand <span className="text-aqua text-glow">Identity</span>
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              A visual language that embodies precision, innovation, and the fluid nature 
-              of water infrastructure technology.
-            </p>
-          </div>
+      <section className="pt-28 pb-16 lg:pt-32 lg:pb-20">
+        <div className="container px-6">
+          <RevealOnScroll>
+            <div className="text-center max-w-2xl mx-auto">
+              <h1 className="font-display font-bold text-foreground mb-4">
+                Brand <span className="text-aqua">Identity</span>
+              </h1>
+              <p className="text-muted-foreground">
+                A visual language that embodies precision, innovation, and the fluid nature 
+                of water infrastructure technology.
+              </p>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Logo Section */}
-      <section className="py-16 md:py-24">
-        <div className="container px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Logo
-            </h2>
-            <p className="text-muted-foreground">Our mark represents the convergence of technology and water flow.</p>
+      <Section variant="muted">
+        <RevealOnScroll>
+          <div className="text-center mb-10">
+            <h2 className="font-display font-bold text-foreground mb-3">Logo</h2>
+            <p className="text-muted-foreground text-sm">The convergence of technology and water flow.</p>
           </div>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
-            {/* Logo on dark */}
-            <div className="p-16 rounded-3xl bg-navy-deep border border-border flex items-center justify-center">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center shadow-aqua">
-                  <span className="font-display font-bold text-primary-foreground text-3xl">O</span>
+        </RevealOnScroll>
+        
+        <RevealOnScroll delay={100}>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+            <div className="p-12 rounded-2xl bg-card border border-border/50 flex items-center justify-center">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center">
+                  <span className="font-display font-bold text-primary-foreground text-xl">O</span>
                 </div>
-                <span className="font-display font-semibold text-3xl text-foreground">O-Seal</span>
+                <span className="font-display font-semibold text-2xl text-foreground">O-Seal</span>
               </div>
             </div>
             
-            {/* Logo placeholder note */}
-            <div className="text-center md:text-left max-w-sm">
-              <p className="text-sm text-muted-foreground italic mb-4">
-                [Custom logo artwork to be inserted here]
-              </p>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+            <div className="text-center md:text-left max-w-xs">
+              <p className="text-muted-foreground text-sm">
                 The circular "O" symbolizes the capsule form factor, while the gradient 
-                represents the flow of water through infrastructure.
+                represents water flow through infrastructure.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </RevealOnScroll>
+      </Section>
 
       {/* Color Palette */}
-      <section className="py-16 md:py-24 bg-card/30">
-        <div className="container px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+      <Section>
+        <RevealOnScroll>
+          <div className="text-center mb-10">
+            <h2 className="font-display font-bold text-foreground mb-3">
               Color <span className="text-aqua">Palette</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A dark, sophisticated palette anchored by deep navy, illuminated by 
-              aqua accents that evoke water and cutting-edge technology.
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
+              A sophisticated palette anchored by deep navy, illuminated by aqua accents.
             </p>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-            {colorPalette.map((color, i) => (
-              <div 
-                key={color.name}
-                className={cn(
-                  "group rounded-2xl overflow-hidden border border-border/50 bg-card",
-                  "opacity-0 animate-fade-up hover:border-aqua/30 transition-all"
-                )}
-                style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'forwards' }}
-              >
-                <div 
-                  className="aspect-square"
-                  style={{ backgroundColor: color.hex }}
-                />
+        </RevealOnScroll>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {colorPalette.map((color, i) => (
+            <RevealOnScroll key={color.name} delay={i * 50}>
+              <div className="card-clean overflow-hidden">
+                <div className="aspect-square" style={{ backgroundColor: color.hex }} />
                 <div className="p-4">
-                  <p className="font-display font-semibold text-foreground text-sm mb-1">
-                    {color.name}
-                  </p>
-                  <p className="text-xs text-aqua font-mono mb-2">{color.hex}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed hidden group-hover:block">
-                    {color.description}
-                  </p>
+                  <p className="font-display font-semibold text-foreground text-sm mb-0.5">{color.name}</p>
+                  <p className="text-xs text-aqua font-mono">{color.hex}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </RevealOnScroll>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Typography */}
-      <section className="py-16 md:py-24">
-        <div className="container px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Typography
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Sleek, technical sans-serifs ensure readability while conveying 
-              precision and modernity.
-            </p>
+      <Section variant="muted">
+        <RevealOnScroll>
+          <div className="text-center mb-10">
+            <h2 className="font-display font-bold text-foreground mb-3">Typography</h2>
+            <p className="text-muted-foreground text-sm">Technical sans-serifs for precision and readability.</p>
           </div>
+        </RevealOnScroll>
+        
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <RevealOnScroll delay={0}>
+            <div className="card-clean p-8">
+              <p className="text-xs text-aqua font-medium mb-3 uppercase tracking-wider">Display</p>
+              <p className="font-display text-4xl font-bold text-foreground mb-3">Space Grotesk</p>
+              <p className="font-display text-xl text-muted-foreground mb-4">Aa Bb Cc 123</p>
+              <p className="text-sm text-muted-foreground">Headlines and key metrics.</p>
+            </div>
+          </RevealOnScroll>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Display Font */}
-            <div className="p-8 rounded-2xl bg-card border border-border/50">
-              <p className="text-sm text-aqua font-medium mb-4 uppercase tracking-wider">Display</p>
-              <p className="font-display text-5xl font-bold text-foreground mb-4">Space Grotesk</p>
-              <p className="font-display text-2xl text-muted-foreground mb-6">
-                Aa Bb Cc Dd Ee Ff Gg
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Used for headlines, key metrics, and impactful statements. 
-                Bold, geometric, and commanding.
-              </p>
+          <RevealOnScroll delay={100}>
+            <div className="card-clean p-8">
+              <p className="text-xs text-aqua font-medium mb-3 uppercase tracking-wider">Body</p>
+              <p className="font-sans text-4xl font-bold text-foreground mb-3">Inter</p>
+              <p className="font-sans text-xl text-muted-foreground mb-4">Aa Bb Cc 123</p>
+              <p className="text-sm text-muted-foreground">Body copy and interface text.</p>
             </div>
-            
-            {/* Body Font */}
-            <div className="p-8 rounded-2xl bg-card border border-border/50">
-              <p className="text-sm text-aqua font-medium mb-4 uppercase tracking-wider">Body</p>
-              <p className="font-sans text-5xl font-bold text-foreground mb-4">Inter</p>
-              <p className="font-sans text-2xl text-muted-foreground mb-6">
-                Aa Bb Cc Dd Ee Ff Gg
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Used for body copy, navigation, and interface elements. 
-                Optimized for screen readability.
-              </p>
-            </div>
-          </div>
+          </RevealOnScroll>
         </div>
-      </section>
+      </Section>
 
       {/* Values */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <WaveBackground />
-        
-        <div className="container relative z-10 px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+      <Section>
+        <RevealOnScroll>
+          <div className="text-center mb-10">
+            <h2 className="font-display font-bold text-foreground mb-3">
               Our <span className="text-aqua">Values</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide every decision, design, and innovation at O-Seal.
-            </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {values.map((value, i) => (
-              <div 
-                key={value.title}
-                className={cn(
-                  "p-8 rounded-2xl bg-card/50 border border-border/50 backdrop-blur-sm",
-                  "hover:border-aqua/30 hover:bg-card/80 transition-all duration-500",
-                  "opacity-0 animate-fade-up"
-                )}
-                style={{ animationDelay: `${i * 150}ms`, animationFillMode: 'forwards' }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-aqua/10 flex items-center justify-center mb-6">
-                  <span className="font-display font-bold text-aqua text-xl">{i + 1}</span>
+        </RevealOnScroll>
+        
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {values.map((value, i) => (
+            <RevealOnScroll key={value.title} delay={i * 100}>
+              <div className="card-clean p-6 text-center">
+                <div className="w-10 h-10 rounded-lg bg-aqua/10 flex items-center justify-center mx-auto mb-4">
+                  <span className="font-display font-bold text-aqua">{i + 1}</span>
                 </div>
-                <h3 className="font-display font-semibold text-xl text-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
+                <h3 className="font-display font-semibold text-foreground mb-2">{value.title}</h3>
+                <p className="text-sm text-muted-foreground">{value.description}</p>
               </div>
-            ))}
-          </div>
+            </RevealOnScroll>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Brand Voice */}
-      <section className="py-16 md:py-24 bg-card/30">
-        <div className="container px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
-              Brand Voice
-            </h2>
-            <div className="p-8 rounded-2xl bg-card border border-border/50">
-              <blockquote className="text-xl md:text-2xl font-display text-foreground italic mb-6">
-                "Calm, intelligent, and mission-driven. We speak with confidence 
-                about complex technology in accessible terms."
+      <Section variant="muted">
+        <RevealOnScroll>
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-display font-bold text-foreground mb-6">Brand Voice</h2>
+            <div className="card-clean p-8">
+              <blockquote className="text-lg md:text-xl font-display text-foreground italic mb-6">
+                "Calm, intelligent, and mission-driven."
               </blockquote>
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-2">
                 {["Precise", "Confident", "Accessible", "Forward-thinking"].map((trait) => (
                   <span 
                     key={trait}
-                    className="px-4 py-2 rounded-full bg-aqua/10 text-aqua text-sm font-medium"
+                    className="px-3 py-1.5 rounded-full bg-aqua/10 text-aqua text-sm font-medium"
                   >
                     {trait}
                   </span>
@@ -263,8 +175,8 @@ const Branding = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </RevealOnScroll>
+      </Section>
 
       <Footer />
     </div>
