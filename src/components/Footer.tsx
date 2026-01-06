@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import oSealLogo from "@/assets/o-seal-logo.png";
 
 export const Footer = () => {
   return (
@@ -8,10 +9,11 @@ export const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-aqua to-primary flex items-center justify-center">
-                <span className="font-display font-bold text-primary-foreground text-lg">O</span>
-              </div>
-              <span className="font-display font-semibold text-xl text-foreground">O-Seal</span>
+              <img 
+                src={oSealLogo} 
+                alt="O-Seal" 
+                className="h-16 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
               O-Seal: Autonomous leak-sealing technology that addresses the global 
