@@ -42,8 +42,7 @@ const Index = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight mb-6 opacity-0 animate-fade-up"
               style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
             >
-              Healing Water Infrastructure{" "}
-              <span className="text-glow text-aqua">From the Inside Out</span>
+              <span className="text-glow text-aqua">O-Seal</span>
             </h1>
             
             <p 

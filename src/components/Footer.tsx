@@ -14,8 +14,8 @@ export const Footer = () => {
               <span className="font-display font-semibold text-xl text-foreground">O-Seal</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-              Healing water infrastructure from the inside out. Autonomous leak-sealing 
-              technology that addresses the global water crisis with elegance and intelligence.
+              O-Seal: Autonomous leak-sealing technology that addresses the global 
+              water crisis with elegance and intelligence.
             </p>
           </div>
 
