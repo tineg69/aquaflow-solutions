@@ -74,15 +74,17 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div 
             className={cn(
-              "flex flex-col items-center gap-4 transition-all duration-500",
+              "flex flex-col items-center gap-6 transition-all duration-500",
               isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-90"
             )}
           >
-            <img 
-              src={oSealLogo} 
-              alt="O-Seal" 
-              className="h-32 w-auto drop-shadow-[0_0_30px_hsl(var(--aqua)/0.5)]"
-            />
+            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-aqua/90 to-primary/80 flex items-center justify-center shadow-[0_0_60px_hsl(var(--aqua)/0.5)]">
+              <img 
+                src={oSealLogo} 
+                alt="O-Seal" 
+                className="h-36 w-auto drop-shadow-lg"
+              />
+            </div>
             
             {/* Loading ripple rings */}
             <div className="relative w-32 h-8 flex items-center justify-center">
