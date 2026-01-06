@@ -1,8 +1,7 @@
 import { useState, useEffect, ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import waterLoading from "@/assets/water-loading.png";
-import oSealLogo from "@/assets/o-seal-logo-circular.png";
+import waterLoadingVideo from "@/assets/water-loading.mp4";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -39,81 +38,18 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
           isTransitioning ? "opacity-100" : "opacity-0"
         )}
       >
-        {/* Water background image with animation */}
-        <div
-          className={cn(
-            "absolute inset-0 transition-transform duration-700 ease-out",
-            isTransitioning ? "scale-100" : "scale-110"
-          )}
-        >
-          {/* Main water image */}
-          <img
-            src={waterLoading}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{
-              animation: isTransitioning ? "waterFlow 2s ease-in-out infinite" : "none",
-            }}
-          />
-          
-          {/* Overlay for depth and brand consistency */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/60" />
-          
-          {/* Animated caustics overlay */}
-          <div 
-            className="absolute inset-0 opacity-30 mix-blend-overlay"
-            style={{
-              backgroundImage: `radial-gradient(ellipse at 30% 20%, hsl(var(--aqua) / 0.4) 0%, transparent 50%),
-                               radial-gradient(ellipse at 70% 80%, hsl(var(--primary) / 0.3) 0%, transparent 50%)`,
-              animation: isTransitioning ? "caustics 3s ease-in-out infinite" : "none",
-            }}
-          />
-        </div>
-
-        {/* Center logo during transition */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div 
-            className={cn(
-              "flex flex-col items-center gap-6 transition-all duration-500",
-              isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-90"
-            )}
-          >
-            <img 
-              src={oSealLogo} 
-              alt="O-Seal" 
-              className="w-56 h-56 rounded-full shadow-[0_0_60px_hsl(var(--aqua)/0.5)]"
-            />
-            
-            {/* Loading ripple rings */}
-            <div className="relative w-32 h-8 flex items-center justify-center">
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-3 h-3 rounded-full bg-aqua/80"
-                  style={{
-                    animation: `bounce 1s ease-in-out ${i * 0.15}s infinite`,
-                    left: `${32 + i * 24}px`,
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom wave accent */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-32 opacity-60"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="hsl(var(--background))"
-            d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z"
-            style={{
-              animation: isTransitioning ? "waveMotion 2s ease-in-out infinite" : "none",
-            }}
-          />
-        </svg>
+        {/* Water video background */}
+        <video
+          src={waterLoadingVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        
+        {/* Subtle overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" />
       </div>
 
       {/* Page Content */}
