@@ -3,27 +3,27 @@ import oSealLogo from "@/assets/o-seal-logo-circular.png";
 
 export const Footer = () => {
   return (
-    <footer className="relative border-t border-border/50 bg-navy-deep/50 backdrop-blur-sm">
-      <div className="container mx-auto px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+    <footer className="border-t border-border/40 bg-background">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-4">
+            <Link to="/" className="inline-flex items-center gap-3 mb-5">
               <img 
                 src={oSealLogo} 
                 alt="O-Seal" 
-                className="h-16 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-              O-Seal: Autonomous leak-sealing technology that addresses the global 
+            <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
+              Autonomous leak-sealing technology addressing the global 
               water crisis with elegance and intelligence.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Explore</h4>
+            <h4 className="font-display font-semibold text-foreground text-sm mb-4">Explore</h4>
             <ul className="space-y-3">
               {[
                 { name: "Home", path: "/" },
@@ -34,7 +34,7 @@ export const Footer = () => {
                 <li key={link.path}>
                   <Link 
                     to={link.path}
-                    className="text-sm text-muted-foreground hover:text-aqua transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -45,26 +45,22 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li>
-                <a 
-                  href="mailto:info@o-seal.com"
-                  className="text-sm text-muted-foreground hover:text-aqua transition-colors"
-                >
-                  info@o-seal.com
-                </a>
-              </li>
-            </ul>
+            <h4 className="font-display font-semibold text-foreground text-sm mb-4">Contact</h4>
+            <a 
+              href="mailto:info@o-seal.com"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              info@o-seal.com
+            </a>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-14 pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} O-Seal. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Engineering for resilience. Designing self-healing systems.
+            Engineering for resilience.
           </p>
         </div>
       </div>
