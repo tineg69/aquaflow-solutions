@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import deviceModel from "@/assets/device-model.png";
+import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const specs = [
   { label: "Diameter Range", value: "40–200mm", bg: "box-teal" },
@@ -41,6 +42,7 @@ const Technology = () => {
 
       {/* Primary CAD Visualization */}
       <section className="py-20 md:py-28 relative section-light">
+        <NeuralWaveBackground />
         <div className="container px-6">
           <RevealOnScroll direction="left">
             <div className="max-w-6xl mx-auto">
@@ -58,6 +60,7 @@ const Technology = () => {
 
       {/* Components */}
       <section className="py-32 md:py-44 relative section-lighter">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -92,6 +95,7 @@ const Technology = () => {
 
       {/* Secondary CAD View */}
       <section className="py-20 md:py-28 relative overflow-hidden section-light">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll direction="scale">
             <div className="max-w-5xl mx-auto">

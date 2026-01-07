@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { VortexBackground } from "@/components/VortexBackground";
+import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const Mission = () => {
   return (
@@ -37,6 +38,7 @@ const Mission = () => {
 
       {/* The Problem */}
       <section className="py-32 md:py-44 relative section-light">
+        <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
@@ -74,6 +76,7 @@ const Mission = () => {
 
       {/* Why It Matters */}
       <section className="py-32 md:py-40 relative section-lighter">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -117,6 +120,7 @@ const Mission = () => {
 
       {/* Our Goal */}
       <section className="py-40 md:py-52 relative overflow-hidden section-light">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
             <RevealOnScroll>

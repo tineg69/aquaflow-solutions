@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const teamMembers = [{
   name: "Tanish Gottimukkula",
@@ -59,6 +60,7 @@ const Team = () => {
 
       {/* Team Grid */}
       <section className="py-32 md:py-40 section-light">
+        <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20">
