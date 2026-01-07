@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import oSealLogo from "@/assets/o-seal-logo-clean.png";
+import oSealLogo from "@/assets/o-seal-logo-transparent.png";
 import currentEventsLogo from "@/assets/currentevents-logo.png";
 
 const links = [
@@ -21,7 +21,7 @@ export const Footer = () => {
               <img 
                 src={oSealLogo} 
                 alt="O-Seal" 
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
