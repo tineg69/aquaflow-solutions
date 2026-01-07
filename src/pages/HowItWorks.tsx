@@ -194,8 +194,8 @@ const HowItWorks = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-teal" },
-                { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-blue" },
-                { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-teal" },
+                { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-teal" },
+                { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-blue" },
                 { title: "Scalable", desc: "Swarm deployment for networks", bg: "box-blue" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
