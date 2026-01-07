@@ -5,28 +5,20 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  variant?: "default" | "muted" | "card";
 }
 
 export const Section = forwardRef<HTMLElement, SectionProps>(
-  ({ children, className, id, variant = "default" }, ref) => {
-    const variants = {
-      default: "",
-      muted: "bg-muted/30",
-      card: "bg-card/40",
-    };
-
+  ({ children, className, id }, ref) => {
     return (
       <section
         ref={ref}
         id={id}
         className={cn(
-          "py-20 md:py-28 lg:py-32",
-          variants[variant],
+          "py-24 md:py-32",
           className
         )}
       >
-        <div className="container px-6 lg:px-8">
+        <div className="container px-6">
           {children}
         </div>
       </section>

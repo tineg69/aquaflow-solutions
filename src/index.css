@@ -2,72 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Modern Dark Theme - Clean & Professional */
-    --background: 220 20% 7%;
-    --foreground: 0 0% 96%;
+    /* High-End Studio Palette - Near Black Base */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 92%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 92%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 92%;
 
-    /* Primary - Refined Cyan */
-    --primary: 192 75% 50%;
-    --primary-foreground: 220 20% 7%;
+    /* Primary - Muted Teal (not neon) */
+    --primary: 172 35% 45%;
+    --primary-foreground: 0 0% 4%;
 
     /* Secondary - Subtle Dark */
-    --secondary: 220 15% 14%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 92%;
 
-    --muted: 220 12% 12%;
-    --muted-foreground: 215 10% 55%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;
 
-    /* Accent - Cyan */
-    --accent: 185 70% 48%;
-    --accent-foreground: 220 20% 7%;
+    /* Accent - Same muted teal */
+    --accent: 172 30% 42%;
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 96%;
+    --destructive: 0 50% 45%;
+    --destructive-foreground: 0 0% 92%;
 
-    --border: 220 12% 16%;
-    --input: 220 12% 16%;
-    --ring: 192 75% 50%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 172 35% 45%;
 
-    --radius: 0.625rem;
+    --radius: 0.5rem;
 
-    /* O-Seal Brand Colors - Refined */
-    --navy-deep: 220 25% 5%;
-    --navy: 220 20% 10%;
-    --aqua: 185 70% 48%;
-    --aqua-glow: 185 75% 58%;
-    --aqua-dark: 185 65% 38%;
-    --teal: 175 60% 42%;
-    --water-light: 195 75% 68%;
+    /* Brand Colors - Restrained */
+    --navy-deep: 0 0% 3%;
+    --navy: 0 0% 5%;
+    --aqua: 172 30% 42%;
+    --aqua-glow: 172 35% 52%;
+    --aqua-dark: 172 25% 35%;
+    --teal: 168 25% 38%;
+    --water-light: 172 30% 55%;
 
-    /* Modern Gradients */
-    --gradient-aqua: linear-gradient(135deg, hsl(185 70% 48%), hsl(192 75% 50%));
-    --gradient-deep: linear-gradient(180deg, hsl(220 25% 5%), hsl(220 20% 10%));
-    --gradient-subtle: linear-gradient(135deg, hsl(185 70% 48% / 0.08), hsl(192 75% 50% / 0.04));
-    
-    /* Professional Shadows */
-    --shadow-sm: 0 1px 2px hsl(220 25% 5% / 0.5);
-    --shadow-md: 0 4px 12px hsl(220 25% 5% / 0.4);
-    --shadow-lg: 0 12px 40px hsl(220 25% 5% / 0.5);
-    --shadow-glow: 0 0 40px hsl(185 70% 48% / 0.15);
+    /* Minimal Shadows */
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.25);
+    --shadow-lg: 0 8px 32px hsl(0 0% 0% / 0.35);
+    --shadow-glow: 0 0 40px hsl(172 30% 42% / 0.08);
 
-    --sidebar-background: 220 20% 8%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 192 75% 50%;
-    --sidebar-primary-foreground: 220 20% 7%;
-    --sidebar-accent: 220 15% 14%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 220 12% 16%;
-    --sidebar-ring: 192 75% 50%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 172 35% 45%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 172 35% 45%;
   }
 }
 
@@ -90,50 +85,36 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.02em;
-    font-weight: 600;
+    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 500;
   }
 
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1]; }
-  h2 { @apply text-3xl md:text-4xl leading-[1.15]; }
-  h3 { @apply text-xl md:text-2xl leading-[1.2]; }
+  h1 { 
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    line-height: 1.05;
+  }
+  
+  h2 { 
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    line-height: 1.1;
+  }
+  
+  h3 { 
+    @apply text-lg md:text-xl;
+    line-height: 1.2;
+  }
 
   p {
-    @apply leading-relaxed;
-    line-height: 1.7;
+    line-height: 1.75;
+    @apply text-muted-foreground;
   }
 }
 
 @layer components {
-  /* Clean text accent - no excessive glow */
-  .text-accent-glow {
+  /* Subtle accent text */
+  .text-accent-subtle {
     color: hsl(var(--aqua));
-    text-shadow: 0 0 30px hsl(var(--aqua) / 0.3);
-  }
-
-  /* Subtle border glow */
-  .border-glow {
-    box-shadow: 0 0 0 1px hsl(var(--aqua) / 0.1),
-                0 0 20px hsl(var(--aqua) / 0.08);
-  }
-
-  /* Clean card styling */
-  .card-clean {
-    @apply bg-card/60 border border-border/50 rounded-xl backdrop-blur-sm;
-    transition: all 0.3s ease;
-  }
-
-  .card-clean:hover {
-    @apply border-aqua/20 bg-card/80;
-    box-shadow: 0 8px 30px hsl(220 25% 5% / 0.4);
-  }
-
-  /* Modern gradient background */
-  .bg-gradient-subtle {
-    background: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--aqua) / 0.06) 0%, transparent 60%),
-      hsl(var(--background));
   }
 
   /* Professional hover state for links */
@@ -163,15 +144,15 @@
 
   /* Smooth focus states */
   .focus-ring {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-aqua/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply focus:outline-none focus-visible:ring-1 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
 
-/* Animation Keyframes - Clean & Professional */
+/* Animation Keyframes - Minimal & Professional */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -187,7 +168,7 @@
 @keyframes scale-in {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
   to {
     opacity: 1;
@@ -198,7 +179,7 @@
 @keyframes slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
@@ -208,15 +189,5 @@
 
 @keyframes float-gentle {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  50% { transform: translateY(-6px); }
 }
