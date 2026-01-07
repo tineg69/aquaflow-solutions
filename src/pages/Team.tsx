@@ -8,22 +8,32 @@ const teamMembers = [
   {
     name: "Dr. Sarah Chen",
     role: "CEO & Co-Founder",
-    bio: "Former MIT water systems researcher. 15+ years in infrastructure innovation.",
+    bio: "Former MIT water systems researcher with 15+ years in infrastructure innovation. Led development of autonomous monitoring systems for municipal utilities.",
+    initials: "SC",
   },
   {
     name: "Marcus Rodriguez",
     role: "CTO & Co-Founder",
-    bio: "Robotics engineer specializing in autonomous systems and sensor technology.",
+    bio: "Robotics engineer specializing in autonomous systems and embedded sensor technology. Previously developed underwater inspection drones for offshore infrastructure.",
+    initials: "MR",
   },
   {
     name: "Dr. Aisha Patel",
     role: "Head of R&D",
-    bio: "Materials scientist focused on self-healing polymers and smart materials.",
+    bio: "Materials scientist focused on self-healing polymers and smart materials. Holds 12 patents in adaptive membrane technology.",
+    initials: "AP",
   },
   {
     name: "James Okonkwo",
     role: "VP of Engineering",
-    bio: "20 years experience in municipal water infrastructure and system design.",
+    bio: "20 years experience in municipal water infrastructure and pipeline system design. Former lead engineer at American Water Works.",
+    initials: "JO",
+  },
+  {
+    name: "Dr. Emily Zhang",
+    role: "Lead Systems Engineer",
+    bio: "Expert in distributed systems and swarm robotics. PhD from Stanford in autonomous multi-agent coordination.",
+    initials: "EZ",
   },
 ];
 
@@ -33,21 +43,21 @@ const Team = () => {
       <Navigation />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
         <div className="container px-6">
           <div className="max-w-3xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-sm tracking-widest uppercase text-accent mb-6">People</p>
+              <p className="text-sm tracking-widest uppercase text-accent mb-6">Our Team</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
               <h1 className="font-display text-foreground mb-6">
-                The Team
+                The People Behind O-Seal
               </h1>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
-              <p className="text-muted-foreground text-lg">
-                Engineers, scientists, and operators united by a mission 
-                to solve the global water crisis through intelligent infrastructure.
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Engineers, scientists, and infrastructure experts united by a mission 
+                to solve the global water crisis through intelligent, autonomous systems.
               </p>
             </RevealOnScroll>
           </div>
@@ -55,23 +65,31 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section className="py-24 md:py-32 border-t border-border/50">
+      <section className="py-24 md:py-32 border-t border-border/30">
         <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
               {teamMembers.map((member, index) => (
                 <RevealOnScroll key={member.name} delay={index * 75}>
-                  <div className="border-l border-border pl-6">
-                    <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-5">
-                      <span className="font-display text-sm text-muted-foreground">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
+                  <div>
+                    {/* Photo placeholder */}
+                    <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden relative">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-display text-4xl text-muted-foreground/50">
+                          {member.initials}
+                        </span>
+                      </div>
+                      {/* Replace with actual photo: */}
+                      {/* <img src={member.photo} alt={member.name} className="w-full h-full object-cover" /> */}
                     </div>
-                    <h3 className="font-display text-foreground mb-1">
+                    
+                    <h3 className="font-display text-xl text-foreground mb-1">
                       {member.name}
                     </h3>
-                    <p className="text-accent text-sm mb-3">{member.role}</p>
-                    <p className="text-sm text-muted-foreground">{member.bio}</p>
+                    <p className="text-accent text-sm mb-4">{member.role}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {member.bio}
+                    </p>
                   </div>
                 </RevealOnScroll>
               ))}
@@ -81,18 +99,18 @@ const Team = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-40">
+      <section className="py-24 md:py-32 border-t border-border/30">
         <div className="container px-6">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-foreground mb-6">
-                Join our mission
+                Interested in our work?
               </h2>
               <p className="text-muted-foreground mb-10">
-                We're looking for people who want to make a real impact 
+                We're always looking for talented people who want to make a real impact 
                 on global water infrastructure.
               </p>
-              <Button asChild className="bg-foreground text-background hover:bg-foreground/90">
+              <Button asChild className="bg-accent text-background hover:bg-accent/90">
                 <a href="mailto:careers@o-seal.com">
                   Get in Touch
                   <ArrowRight className="w-4 h-4 ml-2" />

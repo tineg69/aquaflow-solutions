@@ -11,97 +11,134 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Minimal & Confident */}
-      <section className="min-h-screen flex items-center justify-center pt-16">
+      {/* Hero - Problem Statement Above Fold */}
+      <section className="min-h-screen flex items-center pt-16">
         <div className="container px-6">
-          <div className="max-w-4xl mx-auto">
-            <RevealOnScroll delay={0}>
-              <p className="text-sm tracking-widest uppercase text-muted-foreground mb-8">
-                Autonomous Infrastructure Repair
-              </p>
-            </RevealOnScroll>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            {/* Left - Problem & Solution */}
+            <div className="max-w-xl">
+              <RevealOnScroll>
+                <p className="text-sm tracking-widest uppercase text-accent mb-6">
+                  The Problem
+                </p>
+              </RevealOnScroll>
+              
+              <RevealOnScroll delay={100}>
+                <h1 className="font-display text-foreground mb-6">
+                  Water infrastructure is failing worldwide
+                </h1>
+              </RevealOnScroll>
+              
+              <RevealOnScroll delay={200}>
+                <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+                  Every year, aging pipelines lose <span className="text-foreground">126 billion cubic meters</span> of 
+                  treated water — causing <span className="text-foreground">$39 billion</span> in economic damage globally.
+                </p>
+              </RevealOnScroll>
+              
+              <RevealOnScroll delay={300}>
+                <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+                  Traditional repairs require excavation, weeks of disruption, and millions in costs. 
+                  <span className="text-accent"> O-Seal changes that.</span>
+                </p>
+              </RevealOnScroll>
+              
+              <RevealOnScroll delay={400}>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Button asChild className="bg-accent text-background hover:bg-accent/90">
+                    <Link to="/technology">
+                      View Technology
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground">
+                    <Link to="/how-it-works">
+                      How It Works
+                    </Link>
+                  </Button>
+                </div>
+              </RevealOnScroll>
+            </div>
             
-            <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-8">
-                Self-healing water systems for a resilient future
-              </h1>
-            </RevealOnScroll>
-            
-            <RevealOnScroll delay={200}>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-                O-Seal is an autonomous capsule that travels inside live pipes, 
-                detecting and sealing leaks in real-time — no excavation, no disruption.
-              </p>
-            </RevealOnScroll>
-            
-            <RevealOnScroll delay={300}>
-              <div className="flex flex-wrap items-center gap-4">
-                <Button asChild className="bg-foreground text-background hover:bg-foreground/90">
-                  <Link to="/model">
-                    View the Technology
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground">
-                  <Link to="/branding">
-                    Learn More
-                  </Link>
-                </Button>
+            {/* Right - Hero Visual */}
+            <RevealOnScroll direction="left" delay={200}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/8 rounded-3xl blur-3xl" />
+                <div className="relative aspect-square flex items-center justify-center">
+                  <img
+                    src={deviceModel}
+                    alt="O-Seal autonomous pipe repair device"
+                    className="max-w-full max-h-full object-contain animate-float-gentle drop-shadow-2xl"
+                  />
+                </div>
               </div>
             </RevealOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Problem Statement - Typography Focused */}
-      <section className="py-32 md:py-40">
+      {/* Value Proposition */}
+      <section className="py-24 md:py-32 border-t border-border/30">
         <div className="container px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-              <RevealOnScroll>
-                <div>
-                  <p className="text-sm tracking-widest uppercase text-accent mb-6">The Problem</p>
-                  <h2 className="font-display text-foreground mb-8">
-                    Global water infrastructure is failing
-                  </h2>
-                </div>
-              </RevealOnScroll>
-              
-              <RevealOnScroll delay={100}>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground">
-                    Every year, aging pipelines waste over 126 billion cubic meters of 
-                    treated water — enough to supply 2 billion people. The economic 
-                    toll exceeds $39 billion annually.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Traditional repairs require excavation, service shutdowns, and 
-                    weeks of disruption. Modern sensor grids cost $50,000 per kilometer 
-                    and still can't fix the leaks they find.
-                  </p>
-                </div>
-              </RevealOnScroll>
+            <RevealOnScroll>
+              <div className="text-center mb-16">
+                <p className="text-sm tracking-widest uppercase text-accent mb-6">The Solution</p>
+                <h2 className="font-display text-foreground max-w-3xl mx-auto">
+                  Autonomous leak detection and repair — from inside the pipe
+                </h2>
+              </div>
+            </RevealOnScroll>
+            
+            <div className="grid md:grid-cols-3 gap-12 md:gap-8">
+              {[
+                { 
+                  title: "No Excavation", 
+                  desc: "O-Seal operates entirely inside live water systems. No digging, no street closures, no disruption." 
+                },
+                { 
+                  title: "Real-Time Repair", 
+                  desc: "Autonomous detection and sealing happens in minutes, not weeks. Leaks are fixed as they're found." 
+                },
+                { 
+                  title: "Scalable Deploy", 
+                  desc: "Lightweight capsules can be deployed in swarms, covering complex pipe networks efficiently." 
+                },
+              ].map((item, i) => (
+                <RevealOnScroll key={item.title} delay={i * 100}>
+                  <div className="text-center">
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                      <span className="font-display font-medium text-accent">{i + 1}</span>
+                    </div>
+                    <h3 className="font-display text-foreground mb-3">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </RevealOnScroll>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats - Clean Grid */}
-      <section className="py-24 md:py-32 border-t border-border/50">
+      {/* Stats */}
+      <section className="py-24 md:py-32 border-t border-border/30">
         <div className="container px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+            <RevealOnScroll>
+              <p className="text-sm tracking-widest uppercase text-accent mb-12 text-center">The Scale</p>
+            </RevealOnScroll>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
               {[
                 { value: "126B", unit: "m³", label: "Water lost annually" },
-                { value: "$39B", unit: "+", label: "Economic damage" },
-                { value: "30", unit: "%", label: "Water wasted in aging systems" },
+                { value: "$39B", unit: "", label: "Economic damage" },
+                { value: "30", unit: "%", label: "Water lost in aging systems" },
                 { value: "2", unit: "min", label: "US main break frequency" },
               ].map((stat, i) => (
                 <RevealOnScroll key={stat.label} delay={i * 75}>
-                  <div>
+                  <div className="text-center">
                     <p className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-2">
-                      {stat.value}
-                      <span className="text-accent">{stat.unit}</span>
+                      {stat.value}<span className="text-accent">{stat.unit}</span>
                     </p>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </div>
@@ -112,94 +149,30 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CAD Showcase - Gallery Style */}
-      <section className="py-32 md:py-48">
-        <div className="container px-6">
-          <div className="max-w-6xl mx-auto">
-            <RevealOnScroll direction="scale">
-              <div className="text-center mb-16 md:mb-24">
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">The Solution</p>
-                <h2 className="font-display text-foreground max-w-2xl mx-auto">
-                  Precision-engineered autonomous repair
-                </h2>
-              </div>
-            </RevealOnScroll>
-            
-            <RevealOnScroll direction="left" delay={150}>
-              <div className="relative aspect-[16/10] md:aspect-[2/1] flex items-center justify-center">
-                <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-3xl" />
-                <img
-                  src={deviceModel}
-                  alt="O-Seal Device"
-                  className="relative max-w-full max-h-full object-contain animate-float-gentle drop-shadow-2xl"
-                />
-              </div>
-            </RevealOnScroll>
-            
-            <RevealOnScroll delay={250}>
-              <div className="mt-16 md:mt-24 max-w-2xl mx-auto text-center">
-                <p className="text-muted-foreground">
-                  A lightweight capsule with an inflatable outer torus, internal 
-                  pressure sensors, and autonomous control — designed to navigate 
-                  live pipes and seal leaks without service interruption.
-                </p>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* Capabilities - Simple List */}
-      <section className="py-24 md:py-32 border-t border-border/50">
-        <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-              <RevealOnScroll>
-                <div>
-                  <p className="text-sm tracking-widest uppercase text-accent mb-6">Capabilities</p>
-                  <h2 className="font-display text-foreground">
-                    Infrastructure that heals itself
-                  </h2>
-                </div>
-              </RevealOnScroll>
-              
-              <div className="space-y-8">
-                {[
-                  { title: "In-pipe operation", desc: "Travels through live water systems without excavation or service interruption." },
-                  { title: "Real-time detection", desc: "Miniaturized pressure sensors identify leaks with ±2mm precision." },
-                  { title: "Autonomous sealing", desc: "Inflatable torus expands to seal cracks against pipe walls on contact." },
-                  { title: "Swarm coordination", desc: "Multiple units communicate acoustically for complex network repairs." },
-                ].map((item, i) => (
-                  <RevealOnScroll key={item.title} delay={i * 75}>
-                    <div className="border-l border-border pl-6">
-                      <h3 className="font-display text-foreground mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </RevealOnScroll>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA - Minimal */}
+      {/* CTA */}
       <section className="py-32 md:py-40">
         <div className="container px-6">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-foreground mb-6">
-                Explore the technology
+                See how O-Seal works
               </h2>
               <p className="text-muted-foreground mb-10">
-                See how O-Seal works, from CAD models to technical specifications.
+                Explore the technology, understand the mechanism, and meet the team behind it.
               </p>
-              <Button asChild className="bg-foreground text-background hover:bg-foreground/90">
-                <Link to="/model">
-                  View Demo
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild className="bg-accent text-background hover:bg-accent/90">
+                  <Link to="/how-it-works">
+                    How It Works
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild className="border-border text-foreground hover:bg-muted">
+                  <Link to="/team">
+                    Meet the Team
+                  </Link>
+                </Button>
+              </div>
             </div>
           </RevealOnScroll>
         </div>
