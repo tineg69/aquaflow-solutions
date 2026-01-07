@@ -4,6 +4,7 @@ import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { VortexBackground } from "@/components/VortexBackground";
 
 const Mission = () => {
   return (
@@ -12,6 +13,7 @@ const Mission = () => {
 
       {/* Hero */}
       <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
+        <VortexBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -146,6 +148,7 @@ const Mission = () => {
 
       {/* Impact */}
       <section className="py-32 md:py-40 relative section-dark">
+        <VortexBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
