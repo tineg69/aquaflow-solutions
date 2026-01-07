@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import deviceModel from "@/assets/device-model.png";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
+import { STLViewer } from "@/components/STLViewer";
 
 const specs = [
   { label: "Diameter Range", value: "40–200mm", bg: "box-teal" },
@@ -93,19 +94,21 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* Secondary CAD View */}
+      {/* 3D Model Viewer */}
       <section className="py-20 md:py-28 relative overflow-hidden section-light">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
-          <RevealOnScroll direction="scale">
+          <RevealOnScroll>
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">3D Model</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight">
+                Interactive visualization
+              </h2>
+            </div>
+          </RevealOnScroll>
+          <RevealOnScroll direction="scale" delay={150}>
             <div className="max-w-5xl mx-auto">
-              <div className="relative aspect-square md:aspect-[4/3] flex items-center justify-center">
-                <img
-                  src={deviceModel}
-                  alt="O-Seal Device - Detail View"
-                  className="relative max-w-full max-h-full object-contain"
-                />
-              </div>
+              <STLViewer />
             </div>
           </RevealOnScroll>
         </div>
