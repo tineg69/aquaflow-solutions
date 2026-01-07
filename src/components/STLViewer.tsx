@@ -1,19 +1,19 @@
 import { useRef, useState, Suspense, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Center, Environment } from '@react-three/drei';
-import { ThreeMFLoader } from 'three/examples/jsm/loaders/3MFLoader.js';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import * as THREE from 'three';
 import { Upload } from 'lucide-react';
 
-interface ThreeMFModelProps {
+interface FBXModelProps {
   url: string;
 }
 
-const ThreeMFModel = ({ url }: ThreeMFModelProps) => {
+const FBXModel = ({ url }: FBXModelProps) => {
   const [model, setModel] = useState<THREE.Group | null>(null);
 
   useEffect(() => {
-    const loader = new ThreeMFLoader();
+    const loader = new FBXLoader();
     loader.load(url, (object) => {
       // Compute bounding box to center and scale the model
       const box = new THREE.Box3().setFromObject(object);
@@ -61,7 +61,7 @@ export const STLViewer = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
-    if (file.name.toLowerCase().endsWith('.3mf')) {
+    if (file.name.toLowerCase().endsWith('.fbx')) {
       const url = URL.createObjectURL(file);
       setFileUrl(url);
     }
@@ -101,7 +101,7 @@ export const STLViewer = () => {
           <directionalLight position={[-10, -10, -5]} intensity={0.3} />
           <Suspense fallback={<LoadingPlaceholder />}>
             <Center>
-              <ThreeMFModel url={fileUrl} />
+              <FBXModel url={fileUrl} />
             </Center>
           </Suspense>
           <OrbitControls 
@@ -126,7 +126,7 @@ export const STLViewer = () => {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".3mf"
+            accept=".fbx"
             className="hidden"
             onChange={handleFileInput}
           />
@@ -134,7 +134,7 @@ export const STLViewer = () => {
             <Upload className="w-8 h-8 text-accent" />
           </div>
           <p className="text-muted-foreground text-sm mb-2">
-            Drag & drop a 3MF file here
+            Drag & drop an FBX file here
           </p>
           <p className="text-muted-foreground/60 text-xs">
             or click to browse
