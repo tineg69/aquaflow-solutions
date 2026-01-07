@@ -11,6 +11,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
+      {/* Blank Section */}
+      <section className="min-h-screen" />
+
       {/* Hero - Problem Statement Above Fold */}
       <section className="min-h-screen flex items-center pt-16 relative overflow-hidden">
         {/* Ambient gradient */}
