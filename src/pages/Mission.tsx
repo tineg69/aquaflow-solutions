@@ -152,7 +152,8 @@ const Mission = () => {
 
       {/* Impact */}
       <section className="py-32 md:py-40 relative section-dark snap-start min-h-screen flex items-center">
-        <div className="container px-6">
+        <NeuralWaveBackground />
+        <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
               <div className="text-center mb-20 md:mb-28">
