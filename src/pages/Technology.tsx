@@ -5,7 +5,7 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import { TechGridBackground } from "@/components/TechGridBackground";
 import { STLViewer } from "@/components/STLViewer";
 import { OBJViewer } from "@/components/OBJViewer";
-
+import oSealLogo from "@/assets/o-seal-logo-full.png";
 const specs = [
   { 
     label: "Diameter Range", 
@@ -56,7 +56,13 @@ const Technology = () => {
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-sm tracking-[0.4em] uppercase text-accent/80 mb-10 font-medium">Technology</p>
+              <div className="mb-12">
+                <img 
+                  src={oSealLogo} 
+                  alt="O-Seal Logo" 
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto object-contain drop-shadow-2xl"
+                />
+              </div>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-8 tracking-tight">
