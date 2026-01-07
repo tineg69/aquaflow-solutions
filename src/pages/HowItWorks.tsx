@@ -107,7 +107,7 @@ const HowItWorks = () => {
             {/* Steps - Dynamic Flow */}
             <div className="relative">
               {/* Vertical progress line */}
-              <div className="absolute left-[27px] md:left-[39px] top-0 bottom-0 w-px bg-gradient-to-b from-accent/30 via-accent/10 to-transparent" />
+              <div className="absolute left-[27px] md:left-[39px] top-0 bottom-0 w-[2px] bg-accent/50" />
               
               <div className="space-y-20 md:space-y-28">
                 {steps.map((step, i) => (
