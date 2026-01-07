@@ -11,19 +11,21 @@ const Mission = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="container px-6">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-sm tracking-widest uppercase text-accent mb-6">Our Mission</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">Our Mission</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-8">
+              <h1 className="font-display text-foreground mb-10 tracking-tight">
                 Making water infrastructure self-healing
               </h1>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 We're building autonomous systems that detect and repair pipeline leaks 
                 from the inside — eliminating the need for excavation, reducing water loss, 
                 and protecting communities worldwide.
@@ -34,34 +36,34 @@ const Mission = () => {
       </section>
 
       {/* The Problem */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-32 md:py-44 relative">
         <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
               <RevealOnScroll>
                 <div>
-                  <p className="text-sm tracking-widest uppercase text-accent mb-6">The Problem</p>
-                  <h2 className="font-display text-foreground mb-6">
+                  <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Problem</p>
+                  <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight">
                     A crisis hiding underground
                   </h2>
                 </div>
               </RevealOnScroll>
               
               <RevealOnScroll delay={100}>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">
+                <div className="space-y-8">
+                  <p className="text-muted-foreground leading-relaxed text-lg">
                     Beneath every city lies an aging network of water pipes — many over 50 years old, 
-                    quietly deteriorating. The result: <span className="text-foreground">126 billion cubic meters</span> of 
+                    quietly deteriorating. The result: <span className="text-foreground font-medium">126 billion cubic meters</span> of 
                     treated water lost every year.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    That's enough water to supply <span className="text-foreground">2 billion people</span>. 
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    That's enough water to supply <span className="text-foreground font-medium">2 billion people</span>. 
                     Instead, it seeps into the ground while communities face shortages, utilities lose revenue, 
                     and infrastructure continues to decay.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    In the United States alone, a water main breaks <span className="text-foreground">every two minutes</span>. 
-                    Globally, the economic toll exceeds <span className="text-foreground">$39 billion annually</span>.
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    In the United States alone, a water main breaks <span className="text-foreground font-medium">every two minutes</span>. 
+                    Globally, the economic toll exceeds <span className="text-foreground font-medium">$39 billion annually</span>.
                   </p>
                 </div>
               </RevealOnScroll>
@@ -71,19 +73,21 @@ const Mission = () => {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-24 md:py-32 border-t border-border/30">
-        <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
+      <section className="py-32 md:py-40 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.015] to-transparent pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
-              <div className="text-center mb-16">
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">Why It Matters</p>
-                <h2 className="font-display text-foreground max-w-2xl mx-auto">
+              <div className="text-center mb-20 md:mb-28">
+                <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">Why It Matters</p>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground max-w-2xl mx-auto tracking-tight">
                   The stakes are rising
                 </h2>
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-16 md:gap-12">
               {[
                 { 
                   title: "Water Scarcity", 
@@ -99,8 +103,8 @@ const Mission = () => {
                 },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
-                  <div className="border-l border-border pl-6">
-                    <h3 className="font-display text-foreground mb-3">{item.title}</h3>
+                  <div className="border-l border-accent/20 pl-8">
+                    <h3 className="font-display text-xl text-foreground mb-4 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
@@ -111,29 +115,31 @@ const Mission = () => {
       </section>
 
       {/* Our Goal */}
-      <section className="py-24 md:py-32 border-t border-border/30">
-        <div className="container px-6">
+      <section className="py-40 md:py-52 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="container px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-sm tracking-widest uppercase text-accent mb-6">Our Goal</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-8">Our Goal</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
-              <h2 className="font-display text-foreground mb-8">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-10 tracking-tight">
                 Repair pipes without breaking ground
               </h2>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-14">
                 We're developing O-Seal: an autonomous capsule that travels through live water systems, 
                 detects leaks using onboard sensors, and seals them in real-time — without excavation, 
                 without service interruption, and at a fraction of traditional repair costs.
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={300}>
-              <Button asChild className="bg-accent text-background hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-background hover:bg-accent/90 px-8">
                 <Link to="/technology">
                   Explore the Technology
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-3" />
                 </Link>
               </Button>
             </RevealOnScroll>
@@ -142,19 +148,19 @@ const Mission = () => {
       </section>
 
       {/* Impact */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-32 md:py-40 relative">
         <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
-              <div className="text-center mb-16">
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">The Impact</p>
-                <h2 className="font-display text-foreground">
+              <div className="text-center mb-20 md:mb-28">
+                <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Impact</p>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight">
                   What success looks like
                 </h2>
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
               {[
                 { title: "Reduced Water Loss", desc: "Sealing leaks at scale could recover billions of cubic meters of water annually." },
                 { title: "Lower Costs", desc: "In-pipe repair eliminates excavation expenses, reducing repair costs by up to 80%." },
@@ -162,8 +168,8 @@ const Mission = () => {
                 { title: "Scalable Solution", desc: "Swarm deployment enables rapid coverage of complex pipe networks." },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75}>
-                  <div className="border-l border-border pl-6">
-                    <h3 className="font-display text-foreground mb-2">{item.title}</h3>
+                  <div className="border-l border-accent/20 pl-8">
+                    <h3 className="font-display text-xl text-foreground mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>

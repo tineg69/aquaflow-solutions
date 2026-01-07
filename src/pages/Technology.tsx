@@ -18,19 +18,21 @@ const Technology = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container px-6">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-sm tracking-widest uppercase text-accent mb-6">Technology</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">Technology</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-6">
+              <h1 className="font-display text-foreground mb-8 tracking-tight">
                 The O-Seal Device
               </h1>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
                 A precision-engineered autonomous capsule designed to detect, navigate, 
                 and seal leaks from inside live water systems.
               </p>
@@ -40,16 +42,17 @@ const Technology = () => {
       </section>
 
       {/* Primary CAD Visualization */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28 relative">
         <div className="container px-6">
           <RevealOnScroll direction="left">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <div className="relative aspect-[16/10] md:aspect-[2/1] flex items-center justify-center">
-                <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/8 to-transparent rounded-3xl blur-[80px]" />
                 <img
                   src={deviceModel}
                   alt="O-Seal Device - Primary View"
-                  className="relative max-w-full max-h-full object-contain animate-float-gentle drop-shadow-2xl"
+                  className="relative max-w-full max-h-full object-contain animate-float-gentle"
+                  style={{ filter: 'drop-shadow(0 0 60px hsl(175 65% 40% / 0.2))' }}
                 />
               </div>
             </div>
@@ -58,19 +61,21 @@ const Technology = () => {
       </section>
 
       {/* Components */}
-      <section className="py-24 md:py-32 border-t border-border/30">
-        <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
+      <section className="py-32 md:py-44 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.015] to-transparent pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
-              <div className="mb-16">
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">Components</p>
-                <h2 className="font-display text-foreground">
+              <div className="mb-20 md:mb-28">
+                <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">Components</p>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight">
                   Engineering breakdown
                 </h2>
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
+            <div className="grid md:grid-cols-2 gap-x-20 gap-y-14">
               {[
                 { title: "Rigid Inner Ring", desc: "Maintains open flow channel for normal water throughput while providing structural support for the capsule." },
                 { title: "Inflatable Outer Torus", desc: "Flexible membrane with ridged surface that expands to conform and seal against irregular pipe wall surfaces." },
@@ -80,8 +85,8 @@ const Technology = () => {
                 { title: "Flow Harvesting", desc: "Integrated turbine converts water flow into electrical power, enabling indefinite operation without batteries." },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75}>
-                  <div className="border-l border-border pl-6">
-                    <h3 className="font-display text-foreground mb-2">{item.title}</h3>
+                  <div className="border-l border-accent/20 pl-8">
+                    <h3 className="font-display text-xl text-foreground mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
@@ -92,16 +97,18 @@ const Technology = () => {
       </section>
 
       {/* Secondary CAD View */}
-      <section className="py-16 md:py-24 border-t border-border/30">
-        <div className="container px-6">
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="container px-6 relative">
           <RevealOnScroll direction="scale">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="relative aspect-square md:aspect-[4/3] flex items-center justify-center">
-                <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-3xl" />
                 <img
                   src={deviceModel}
                   alt="O-Seal Device - Detail View"
-                  className="relative max-w-full max-h-full object-contain drop-shadow-2xl"
+                  className="relative max-w-full max-h-full object-contain"
+                  style={{ filter: 'drop-shadow(0 0 50px hsl(175 65% 40% / 0.15))' }}
                 />
               </div>
             </div>
@@ -110,23 +117,23 @@ const Technology = () => {
       </section>
 
       {/* Technical Specs */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-32 md:py-40 relative">
         <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
-              <div className="mb-16">
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">Specifications</p>
-                <h2 className="font-display text-foreground">
+              <div className="mb-20 md:mb-28">
+                <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">Specifications</p>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight">
                   Technical parameters
                 </h2>
               </div>
             </RevealOnScroll>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-10">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-14">
               {specs.map((spec, i) => (
                 <RevealOnScroll key={spec.label} delay={i * 50}>
                   <div>
-                    <p className="font-display text-2xl md:text-3xl text-foreground mb-1">
+                    <p className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-2 tracking-tight">
                       {spec.value}
                     </p>
                     <p className="text-sm text-muted-foreground">{spec.label}</p>

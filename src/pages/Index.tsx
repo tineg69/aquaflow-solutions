@@ -12,40 +12,43 @@ const Index = () => {
       <Navigation />
       
       {/* Hero - Problem Statement Above Fold */}
-      <section className="min-h-screen flex items-center pt-16">
-        <div className="container px-6">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden">
+        {/* Ambient gradient */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/[0.03] rounded-full blur-[150px] pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left - Problem & Solution */}
             <div className="max-w-xl">
               <RevealOnScroll>
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">
+                <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">
                   The Problem
                 </p>
               </RevealOnScroll>
               
               <RevealOnScroll delay={100}>
-                <h1 className="font-display text-foreground mb-6">
+                <h1 className="font-display text-foreground mb-8 tracking-tight">
                   Water infrastructure is failing worldwide
                 </h1>
               </RevealOnScroll>
               
               <RevealOnScroll delay={200}>
-                <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-                  Every year, aging pipelines lose <span className="text-foreground">126 billion cubic meters</span> of 
-                  treated water — causing <span className="text-foreground">$39 billion</span> in economic damage globally.
+                <p className="text-lg text-muted-foreground mb-5 leading-relaxed">
+                  Every year, aging pipelines lose <span className="text-foreground font-medium">126 billion cubic meters</span> of 
+                  treated water — causing <span className="text-foreground font-medium">$39 billion</span> in economic damage globally.
                 </p>
               </RevealOnScroll>
               
               <RevealOnScroll delay={300}>
-                <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
                   Traditional repairs require excavation, weeks of disruption, and millions in costs. 
-                  <span className="text-accent"> O-Seal changes that.</span>
+                  <span className="text-accent font-medium"> O-Seal changes that.</span>
                 </p>
               </RevealOnScroll>
               
               <RevealOnScroll delay={400}>
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button asChild className="bg-accent text-background hover:bg-accent/90">
+                  <Button asChild size="lg" className="bg-accent text-background hover:bg-accent/90 px-8">
                     <Link to="/technology">
                       View Technology
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -63,12 +66,13 @@ const Index = () => {
             {/* Right - Hero Visual */}
             <RevealOnScroll direction="left" delay={200}>
               <div className="relative">
-                <div className="absolute inset-0 bg-accent/8 rounded-3xl blur-3xl" />
+                <div className="absolute inset-0 bg-accent/6 rounded-full blur-[80px]" />
                 <div className="relative aspect-square flex items-center justify-center">
                   <img
                     src={deviceModel}
                     alt="O-Seal autonomous pipe repair device"
-                    className="max-w-full max-h-full object-contain animate-float-gentle drop-shadow-2xl"
+                    className="max-w-full max-h-full object-contain animate-float-gentle"
+                    style={{ filter: 'drop-shadow(0 0 50px hsl(175 65% 40% / 0.2))' }}
                   />
                 </div>
               </div>
@@ -78,19 +82,21 @@ const Index = () => {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-24 md:py-32 border-t border-border/30">
-        <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
+      <section className="py-32 md:py-44 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.01] via-transparent to-transparent pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
-              <div className="text-center mb-16">
-                <p className="text-sm tracking-widest uppercase text-accent mb-6">The Solution</p>
-                <h2 className="font-display text-foreground max-w-3xl mx-auto">
+              <div className="text-center mb-20 md:mb-28">
+                <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Solution</p>
+                <h2 className="font-display text-foreground max-w-4xl mx-auto tracking-tight">
                   Autonomous leak detection and repair — from inside the pipe
                 </h2>
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-3 gap-12 md:gap-8">
+            <div className="grid md:grid-cols-3 gap-16 md:gap-12">
               {[
                 { 
                   title: "No Excavation", 
@@ -107,10 +113,10 @@ const Index = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
                   <div className="text-center">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                      <span className="font-display font-medium text-accent">{i + 1}</span>
+                    <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
+                      <span className="font-display text-lg text-accent">{String(i + 1).padStart(2, '0')}</span>
                     </div>
-                    <h3 className="font-display text-foreground mb-3">{item.title}</h3>
+                    <h3 className="font-display text-xl text-foreground mb-4 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
@@ -121,14 +127,14 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-32 md:py-40 relative">
         <div className="container px-6">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
-              <p className="text-sm tracking-widest uppercase text-accent mb-12 text-center">The Scale</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-16 text-center">The Scale</p>
             </RevealOnScroll>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
               {[
                 { value: "126B", unit: "m³", label: "Water lost annually" },
                 { value: "$39B", unit: "", label: "Economic damage" },
@@ -137,7 +143,7 @@ const Index = () => {
               ].map((stat, i) => (
                 <RevealOnScroll key={stat.label} delay={i * 75}>
                   <div className="text-center">
-                    <p className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-2">
+                    <p className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-3 tracking-tight">
                       {stat.value}<span className="text-accent">{stat.unit}</span>
                     </p>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
@@ -150,24 +156,26 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-40">
-        <div className="container px-6">
+      <section className="py-40 md:py-52 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-foreground mb-6">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 tracking-tight">
                 See how O-Seal works
               </h2>
-              <p className="text-muted-foreground mb-10">
+              <p className="text-muted-foreground text-lg mb-12 leading-relaxed">
                 Explore the technology, understand the mechanism, and meet the team behind it.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild className="bg-accent text-background hover:bg-accent/90">
+                <Button asChild size="lg" className="bg-accent text-background hover:bg-accent/90 px-8">
                   <Link to="/how-it-works">
                     How It Works
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-                <Button variant="outline" asChild className="border-border text-foreground hover:bg-muted">
+                <Button variant="outline" asChild size="lg" className="border-border text-foreground hover:bg-muted px-8">
                   <Link to="/team">
                     Meet the Team
                   </Link>

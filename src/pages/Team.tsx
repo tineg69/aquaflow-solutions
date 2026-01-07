@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+
 const teamMembers = [{
   name: "Tanish Gottimukkula",
   role: "Head of Marketing",
@@ -17,7 +18,7 @@ const teamMembers = [{
   name: "Dhruv Miriyala",
   role: "Head of R&D",
   bio: "Materials scientist focused on self-healing polymers and smart materials. Holds 12 patents in adaptive membrane technology.",
-  initials: "AP"
+  initials: "DM"
 }, {
   name: "Hatim Ghadiali",
   role: "VP of Engineering",
@@ -29,24 +30,28 @@ const teamMembers = [{
   bio: "Expert in distributed systems and swarm robotics. PhD from Stanford in autonomous multi-agent coordination.",
   initials: "EZ"
 }];
+
 const Team = () => {
-  return <div className="min-h-screen bg-background">
+  return (
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container px-6">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
+        
+        <div className="container px-6 relative">
+          <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-sm tracking-widest uppercase text-accent mb-6">Our Team</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">Our Team</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-6">
+              <h1 className="font-display text-foreground mb-8 tracking-tight">
                 The People Behind O-Seal
               </h1>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
                 A group of teenagers taking on a problem most people choose to ignore.          
               </p>
             </RevealOnScroll>
@@ -55,24 +60,25 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-32 md:py-40">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-              {teamMembers.map((member, index) => <RevealOnScroll key={member.name} delay={index * 75}>
-                  <div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20">
+              {teamMembers.map((member, index) => (
+                <RevealOnScroll key={member.name} delay={index * 75}>
+                  <div className="group">
                     {/* Photo placeholder */}
-                    <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden relative">
+                    <div className="aspect-[4/5] bg-gradient-to-br from-muted/80 to-muted/40 rounded-xl mb-8 overflow-hidden relative">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-display text-4xl text-muted-foreground/50">
+                        <span className="font-display text-5xl text-muted-foreground/30 group-hover:text-accent/30 transition-colors duration-500">
                           {member.initials}
                         </span>
                       </div>
-                      {/* Replace with actual photo: */}
-                      {/* <img src={member.photo} alt={member.name} className="w-full h-full object-cover" /> */}
+                      {/* Subtle glow on hover */}
+                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     
-                    <h3 className="font-display text-xl text-foreground mb-1">
+                    <h3 className="font-display text-xl text-foreground mb-2 tracking-tight">
                       {member.name}
                     </h3>
                     <p className="text-accent text-sm mb-4">{member.role}</p>
@@ -80,28 +86,31 @@ const Team = () => {
                       {member.bio}
                     </p>
                   </div>
-                </RevealOnScroll>)}
+                </RevealOnScroll>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 border-t border-border/30">
-        <div className="container px-6">
+      <section className="py-40 md:py-52 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-foreground mb-6">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 tracking-tight">
                 Interested in our work?
               </h2>
-              <p className="text-muted-foreground mb-10">
+              <p className="text-muted-foreground text-lg mb-12 leading-relaxed">
                 We're always looking for talented people who want to make a real impact 
                 on global water infrastructure.
               </p>
-              <Button asChild className="bg-accent text-background hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-background hover:bg-accent/90 px-8">
                 <a href="mailto:careers@o-seal.com">
                   Get in Touch
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-3" />
                 </a>
               </Button>
             </div>
@@ -110,6 +119,8 @@ const Team = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Team;
