@@ -74,7 +74,7 @@ const Technology = () => {
                 { title: "Pressure Sensors", desc: "Miniaturized sensors continuously monitor local pressure differentials to detect leak signatures with ±2mm precision.", bg: "box-blue" },
                 { title: "Acoustic Communication", desc: "Short-range underwater modems enable real-time coordination between multiple units for complex repairs.", bg: "box-teal" },
                 { title: "Autonomous Control", desc: "Onboard microcontroller regulates inflation timing, propulsion, and navigation decisions independently.", bg: "box-teal" },
-                { title: "Flow Harvesting", desc: "Integrated turbine converts water flow into electrical power, enabling indefinite operation without batteries.", bg: "box-blue" },
+                { title: "Iris Design", desc: "When a fracture is detected, the iris mechanism expands outward to anchor the capsule in place, stopping flow and sealing the fracture.", bg: "box-blue" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
                   <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col`}>
