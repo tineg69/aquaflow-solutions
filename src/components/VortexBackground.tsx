@@ -99,9 +99,9 @@ export const VortexBackground = () => {
         particle.x = centerX + Math.cos(particle.angle) * (particle.radius + waveOffset);
         particle.y = centerY + Math.sin(particle.angle) * (particle.radius + waveOffset * 0.5);
         
-        // Adjust opacity based on radius (brighter toward center)
+        // Adjust opacity based on radius (dimmer overall)
         const distanceFromCenter = particle.radius / (canvas.width * 0.4);
-        const dynamicOpacity = particle.opacity * (1 - distanceFromCenter * 0.5);
+        const dynamicOpacity = particle.opacity * (1 - distanceFromCenter * 0.5) * 0.4;
         
         // Draw particle
         ctx.beginPath();
@@ -113,18 +113,18 @@ export const VortexBackground = () => {
         if (particle.size > 1.5) {
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(56, 189, 248, ${dynamicOpacity * 0.2})`;
+          ctx.fillStyle = `rgba(56, 189, 248, ${dynamicOpacity * 0.15})`;
           ctx.fill();
         }
       });
 
-      // Draw subtle center glow
+      // Draw very subtle center glow
       const centerGlow = ctx.createRadialGradient(
         centerX, centerY, 0,
         centerX, centerY, 100
       );
-      centerGlow.addColorStop(0, 'rgba(56, 189, 248, 0.1)');
-      centerGlow.addColorStop(0.5, 'rgba(56, 189, 248, 0.03)');
+      centerGlow.addColorStop(0, 'rgba(56, 189, 248, 0.04)');
+      centerGlow.addColorStop(0.5, 'rgba(56, 189, 248, 0.01)');
       centerGlow.addColorStop(1, 'rgba(56, 189, 248, 0)');
       
       ctx.beginPath();
