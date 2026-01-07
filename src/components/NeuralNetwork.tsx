@@ -153,47 +153,18 @@ export const NeuralNetwork = () => {
         const particleX = (1 - t) * (1 - t) * fromNode.x + 2 * (1 - t) * t * midX + t * t * toNode.x;
         const particleY = (1 - t) * (1 - t) * fromNode.y + 2 * (1 - t) * t * midY + t * t * toNode.y;
 
-        // Phosphorescent glow
-        const glowGradient = ctx.createRadialGradient(
-          particleX, particleY, 0,
-          particleX, particleY, 12
-        );
-        glowGradient.addColorStop(0, `rgba(56, 189, 248, ${opacity * 1.2})`);
-        glowGradient.addColorStop(0.4, `rgba(14, 165, 233, ${opacity * 0.6})`);
-        glowGradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
-
+        // Simple particle dot (no glow)
         ctx.beginPath();
-        ctx.arc(particleX, particleY, 12, 0, Math.PI * 2);
-        ctx.fillStyle = glowGradient;
-        ctx.fill();
-
-        // Bright core
-        ctx.beginPath();
-        ctx.arc(particleX, particleY, 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(224, 242, 254, ${opacity * 1.5})`;
+        ctx.arc(particleX, particleY, 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(56, 189, 248, ${opacity * 1.5})`;
         ctx.fill();
       });
 
-      // Draw nodes (static, no pulse)
+      // Draw nodes (simple dots, no glow)
       nodesRef.current.forEach((node) => {
-        // Node glow
-        const nodeGradient = ctx.createRadialGradient(
-          node.x, node.y, 0,
-          node.x, node.y, node.radius * 5
-        );
-        nodeGradient.addColorStop(0, 'rgba(56, 189, 248, 0.7)');
-        nodeGradient.addColorStop(0.3, 'rgba(14, 165, 233, 0.35)');
-        nodeGradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
-
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius * 5, 0, Math.PI * 2);
-        ctx.fillStyle = nodeGradient;
-        ctx.fill();
-
-        // Bright core
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(224, 242, 254, 0.85)';
+        ctx.arc(node.x, node.y, node.radius * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.8)';
         ctx.fill();
       });
 
