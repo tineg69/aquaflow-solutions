@@ -2,9 +2,9 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
+import { TechGridBackground } from "@/components/TechGridBackground";
 import { STLViewer } from "@/components/STLViewer";
 import { OBJViewer } from "@/components/OBJViewer";
-
 const specs = [
   { label: "Diameter Range", value: "40–200mm", bg: "box-teal" },
   { label: "Pressure Rating", value: "16 bar", bg: "box-blue" },
@@ -21,6 +21,7 @@ const Technology = () => {
 
       {/* Hero */}
       <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
+        <TechGridBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
