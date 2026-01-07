@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import currentEventsLogo from "@/assets/currentevents-final.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -19,17 +18,16 @@ export const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/30">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-3"
+            className="flex items-center gap-2.5"
           >
-            <img 
-              src={currentEventsLogo} 
-              alt="CurrentEvents" 
-              className="h-14 lg:h-16 w-auto object-contain"
-            />
+            <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center">
+              <span className="font-display font-semibold text-background text-sm">O</span>
+            </div>
+            <span className="font-display font-medium text-foreground text-lg">O-Seal</span>
           </Link>
 
           {/* Desktop Navigation */}
