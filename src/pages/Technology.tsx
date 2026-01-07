@@ -45,6 +45,14 @@ const Technology = () => {
       <section className="py-20 md:py-28 relative section-light snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
+          <RevealOnScroll>
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">CAD Model</p>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight">
+                O-Seal Torus Design
+              </h2>
+            </div>
+          </RevealOnScroll>
           <RevealOnScroll direction="left">
             <div className="max-w-6xl mx-auto">
               <OBJViewer />
@@ -96,7 +104,7 @@ const Technology = () => {
             <div className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">3D Model</p>
               <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight">
-                Iris visualization
+                Iris Visualization
               </h2>
             </div>
           </RevealOnScroll>
