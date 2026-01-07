@@ -76,9 +76,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
-        hero: ['Anton', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        hero: ['Plus Jakarta Sans', 'sans-serif'],
       },
       fontSize: {
         'display-lg': ['3.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],

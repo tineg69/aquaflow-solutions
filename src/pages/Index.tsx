@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import deviceModel from "@/assets/device-model.png";
+import { NeuralNetwork } from "@/components/NeuralNetwork";
 
 const Index = () => {
   return (
@@ -13,12 +14,10 @@ const Index = () => {
       
       {/* Hero Brand Section */}
       <section className="min-h-screen flex items-start justify-center pt-32 md:pt-40 lg:pt-48 relative overflow-hidden section-dark">
-        {/* Animated wave background */}
-        <div className="wave-bg" />
-        <div className="wave-layer" />
-        <div className="wave-layer-2" />
+        {/* Neural Network Background */}
+        <NeuralNetwork />
         
-        <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none relative z-10">
+        <h1 className="font-hero text-[10rem] md:text-[14rem] lg:text-[18rem] text-accent uppercase tracking-tighter leading-none relative z-10 font-extralight heading-hover">
           O-Seal
         </h1>
       </section>
@@ -36,7 +35,7 @@ const Index = () => {
               </RevealOnScroll>
               
               <RevealOnScroll delay={100}>
-                <h1 className="font-display text-foreground mb-8 tracking-tight">
+                <h1 className="font-display text-foreground mb-8 tracking-tight font-light heading-hover">
                   Water infrastructure is failing worldwide
                 </h1>
               </RevealOnScroll>
@@ -93,7 +92,7 @@ const Index = () => {
             <RevealOnScroll>
               <div className="text-center mb-20 md:mb-28">
                 <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Solution</p>
-                <h2 className="font-display text-foreground max-w-4xl mx-auto tracking-tight">
+                <h2 className="font-display text-foreground max-w-4xl mx-auto tracking-tight font-light heading-hover">
                   Autonomous leak detection and repair — from inside the pipe
                 </h2>
               </div>
@@ -166,7 +165,7 @@ const Index = () => {
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 tracking-tight">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 tracking-tight font-light heading-hover">
                 See how O-Seal works
               </h2>
               <p className="text-muted-foreground text-lg mb-12 leading-relaxed">
