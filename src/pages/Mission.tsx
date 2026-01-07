@@ -148,7 +148,6 @@ const Mission = () => {
 
       {/* Impact */}
       <section className="py-32 md:py-40 relative section-dark">
-        <VortexBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
