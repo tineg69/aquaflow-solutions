@@ -12,7 +12,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Brand Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden section-dark">
+      <section className="min-h-screen flex items-start justify-center pt-32 md:pt-40 lg:pt-48 relative overflow-hidden section-dark">
         <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none">
           O-Seal
         </h1>
