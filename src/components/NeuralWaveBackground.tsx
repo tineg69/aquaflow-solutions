@@ -39,7 +39,7 @@ export const NeuralWaveBackground = () => {
         waves.push({
           amplitude: 12 + Math.random() * 20,
           frequency: 0.004 + Math.random() * 0.005,
-          speed: 0.08 + Math.random() * 0.1,
+          speed: 0.8 + Math.random() * 1.0,
           phase: Math.random() * Math.PI * 2,
           yOffset: (canvas.height / (waveCount + 1)) * (i + 1),
           opacity: 0.08 + Math.random() * 0.08,
