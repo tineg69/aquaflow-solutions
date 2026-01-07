@@ -5,11 +5,6 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import { TechGridBackground } from "@/components/TechGridBackground";
 import { STLViewer } from "@/components/STLViewer";
 import { OBJViewer } from "@/components/OBJViewer";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 
 const specs = [
   { 
@@ -172,24 +167,20 @@ const Technology = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {specs.map((spec, i) => (
                 <RevealOnScroll key={spec.label} delay={i * 50} className="h-full">
-                  <HoverCard openDelay={100} closeDelay={100}>
-                    <HoverCardTrigger asChild>
-                      <div className={`${spec.bg} p-8 rounded-lg h-full flex flex-col justify-center cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}>
-                        <p className="font-display text-2xl md:text-3xl lg:text-4xl text-white mb-2 tracking-tight">
-                          {spec.value}
-                        </p>
-                        <p className="text-sm text-white/80">{spec.label}</p>
-                      </div>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80 bg-background/95 backdrop-blur-sm border-accent/20" side="top">
-                      <div className="space-y-2">
-                        <h4 className="text-sm font-semibold text-accent">{spec.label}</h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {spec.description}
-                        </p>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
+                  <div className={`${spec.bg} p-8 rounded-lg h-full flex flex-col justify-center items-center group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-lg min-h-[160px] overflow-hidden relative`}>
+                    <div className="flex flex-col items-center justify-center opacity-100 group-hover:opacity-0 group-hover:translate-y-[-10px] transition-all duration-500 absolute">
+                      <p className="font-display text-2xl md:text-3xl lg:text-4xl text-white mb-2 tracking-tight text-center">
+                        {spec.value}
+                      </p>
+                      <p className="text-sm text-white/80 text-center">{spec.label}</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 transition-all duration-500 delay-200 px-2">
+                      <h4 className="text-sm font-semibold text-white mb-2">{spec.label}</h4>
+                      <p className="text-xs text-white/80 leading-relaxed text-center">
+                        {spec.description}
+                      </p>
+                    </div>
+                  </div>
                 </RevealOnScroll>
               ))}
             </div>
