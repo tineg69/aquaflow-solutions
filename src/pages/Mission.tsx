@@ -11,9 +11,7 @@ const Mission = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
-        
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -36,7 +34,7 @@ const Mission = () => {
       </section>
 
       {/* The Problem */}
-      <section className="py-32 md:py-44 relative">
+      <section className="py-32 md:py-44 relative section-light">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
@@ -73,9 +71,7 @@ const Mission = () => {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-32 md:py-40 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.015] to-transparent pointer-events-none" />
-        
+      <section className="py-32 md:py-40 relative section-lighter">
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -115,9 +111,7 @@ const Mission = () => {
       </section>
 
       {/* Our Goal */}
-      <section className="py-40 md:py-52 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-        
+      <section className="py-40 md:py-52 relative overflow-hidden section-light">
         <div className="container px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
             <RevealOnScroll>
@@ -148,7 +142,7 @@ const Mission = () => {
       </section>
 
       {/* Impact */}
-      <section className="py-32 md:py-40 relative">
+      <section className="py-32 md:py-40 relative section-dark">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>

@@ -40,10 +40,7 @@ const HowItWorks = () => {
       <Navigation />
 
       {/* Hero - Cinematic Opening */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
-        
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -66,7 +63,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Demo Video Section - Refined */}
-      <section className="py-20 md:py-28 relative">
+      <section className="py-20 md:py-28 relative section-light">
         <div className="container px-6">
           <RevealOnScroll direction="scale">
             <div className="max-w-5xl mx-auto">
@@ -91,10 +88,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Step-by-Step Process - Cinematic Redesign */}
-      <section className="py-32 md:py-44 relative overflow-hidden">
-        {/* Background texture/gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.015] to-transparent pointer-events-none" />
-        
+      <section className="py-32 md:py-44 relative overflow-hidden section-lighter">
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             {/* Section Title - Commanding */}
@@ -158,10 +152,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Visual Diagram - Elevated */}
-      <section className="py-32 md:py-44 relative overflow-hidden">
-        {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-        
+      <section className="py-32 md:py-44 relative overflow-hidden section-light">
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-3xl mx-auto text-center mb-20">
@@ -191,9 +182,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Key Advantages - Refined Grid */}
-      <section className="py-32 md:py-40 relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-accent/[0.02] to-transparent pointer-events-none" />
-        
+      <section className="py-32 md:py-40 relative section-dark">
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -230,10 +219,7 @@ const HowItWorks = () => {
       </section>
 
       {/* CTA - Cinematic Close */}
-      <section className="py-40 md:py-52 relative overflow-hidden">
-        {/* Gradient orb */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-        
+      <section className="py-40 md:py-52 relative overflow-hidden section-light">
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
