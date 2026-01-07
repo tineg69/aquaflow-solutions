@@ -6,63 +6,63 @@
 
 @layer base {
   :root {
-    /* Professional Dark Theme with Teal Accents */
-    --background: 210 20% 6%;
-    --foreground: 0 0% 95%;
+    /* Professional Dark Theme with Blue Accents matching O-Seal logo */
+    --background: 215 30% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 210 18% 9%;
-    --card-foreground: 0 0% 95%;
+    --card: 215 28% 11%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 210 18% 9%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 215 28% 11%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary - Vibrant Teal */
-    --primary: 175 65% 45%;
-    --primary-foreground: 210 20% 6%;
+    /* Primary - Sky Blue (from logo) */
+    --primary: 200 85% 55%;
+    --primary-foreground: 215 40% 15%;
 
-    /* Secondary - Subtle Dark */
-    --secondary: 210 15% 12%;
-    --secondary-foreground: 0 0% 95%;
+    /* Secondary - Dark Navy */
+    --secondary: 215 35% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 12% 14%;
-    --muted-foreground: 210 8% 50%;
+    --muted: 215 25% 18%;
+    --muted-foreground: 210 15% 55%;
 
-    /* Accent - Refined Teal */
-    --accent: 175 65% 40%;
-    --accent-foreground: 210 20% 6%;
+    /* Accent - Bright Sky Blue */
+    --accent: 200 90% 50%;
+    --accent-foreground: 215 40% 15%;
 
     --destructive: 0 55% 48%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 210 12% 16%;
-    --input: 210 12% 18%;
-    --ring: 175 65% 45%;
+    --border: 215 20% 18%;
+    --input: 215 20% 20%;
+    --ring: 200 85% 55%;
 
     --radius: 0.5rem;
 
-    /* Brand Colors - Teal & Deep Navy */
-    --navy-deep: 210 25% 4%;
-    --navy: 210 20% 8%;
-    --aqua: 175 65% 40%;
-    --aqua-glow: 175 70% 48%;
-    --aqua-dark: 175 55% 30%;
-    --teal: 170 55% 36%;
-    --water-light: 180 60% 52%;
+    /* Brand Colors - Blue Gradient & Navy (matching logo) */
+    --navy-deep: 215 45% 12%;
+    --navy: 215 40% 18%;
+    --aqua: 200 85% 55%;
+    --aqua-glow: 195 90% 60%;
+    --aqua-dark: 205 70% 40%;
+    --teal: 195 75% 45%;
+    --water-light: 200 80% 65%;
 
-    /* Professional Shadows with Teal Glow */
-    --shadow-sm: 0 1px 2px hsl(210 25% 4% / 0.4);
-    --shadow-md: 0 4px 16px hsl(210 25% 4% / 0.35);
-    --shadow-lg: 0 12px 40px hsl(210 25% 4% / 0.45);
-    --shadow-glow: 0 0 60px hsl(175 65% 40% / 0.12);
+    /* Professional Shadows with Blue Glow */
+    --shadow-sm: 0 1px 2px hsl(215 45% 8% / 0.5);
+    --shadow-md: 0 4px 16px hsl(215 45% 8% / 0.4);
+    --shadow-lg: 0 12px 40px hsl(215 45% 8% / 0.5);
+    --shadow-glow: 0 0 60px hsl(200 85% 55% / 0.15);
 
-    --sidebar-background: 210 20% 7%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 175 65% 45%;
-    --sidebar-primary-foreground: 210 20% 6%;
-    --sidebar-accent: 210 15% 12%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 210 12% 18%;
-    --sidebar-ring: 175 65% 45%;
+    --sidebar-background: 215 30% 9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 200 85% 55%;
+    --sidebar-primary-foreground: 215 40% 15%;
+    --sidebar-accent: 215 35% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 200 85% 55%;
   }
 }
 
@@ -182,13 +182,13 @@
     background-color: hsl(210 16% 12%);
   }
 
-  /* Box backgrounds - Teal and Blue alternating */
+  /* Box backgrounds - Blue gradient matching logo */
   .box-teal {
-    background-color: #088F8F;
+    background: linear-gradient(135deg, hsl(200 85% 55%), hsl(195 80% 45%));
   }
 
   .box-blue {
-    background-color: #4682B4;
+    background: linear-gradient(135deg, hsl(215 45% 25%), hsl(215 50% 20%));
   }
 }
 
