@@ -69,16 +69,12 @@ const Index = () => {
             
             {/* Right - Hero Visual */}
             <RevealOnScroll direction="left" delay={200}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-accent/6 rounded-full blur-[80px]" />
-                <div className="relative aspect-square flex items-center justify-center">
-                  <img
-                    src={deviceModel}
-                    alt="O-Seal autonomous pipe repair device"
-                    className="max-w-full max-h-full object-contain animate-float-gentle"
-                    style={{ filter: 'drop-shadow(0 0 50px hsl(175 65% 40% / 0.2))' }}
-                  />
-                </div>
+              <div className="relative aspect-square flex items-center justify-center">
+                <img
+                  src={deviceModel}
+                  alt="O-Seal autonomous pipe repair device"
+                  className="max-w-full max-h-full object-contain animate-float-gentle"
+                />
               </div>
             </RevealOnScroll>
           </div>
