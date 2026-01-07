@@ -94,23 +94,26 @@ const Index = () => {
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-3 gap-16 md:gap-12">
+            <div className="grid md:grid-cols-3 gap-4">
               {[
                 { 
                   title: "No Excavation", 
-                  desc: "O-Seal operates entirely inside live water systems. No digging, no street closures, no disruption." 
+                  desc: "O-Seal operates entirely inside live water systems. No digging, no street closures, no disruption.",
+                  bg: "section-light"
                 },
                 { 
                   title: "Real-Time Repair", 
-                  desc: "Autonomous detection and sealing happens in minutes, not weeks. Leaks are fixed as they're found." 
+                  desc: "Autonomous detection and sealing happens in minutes, not weeks. Leaks are fixed as they're found.",
+                  bg: "section-lighter"
                 },
                 { 
                   title: "Scalable Deploy", 
-                  desc: "Lightweight capsules can be deployed in swarms, covering complex pipe networks efficiently." 
+                  desc: "Lightweight capsules can be deployed in swarms, covering complex pipe networks efficiently.",
+                  bg: "section-light"
                 },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
-                  <div className="text-center">
+                  <div className={`${item.bg} p-8 md:p-10 rounded-lg text-center h-full`}>
                     <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
                       <span className="font-display text-lg text-accent">{String(i + 1).padStart(2, '0')}</span>
                     </div>
@@ -132,16 +135,16 @@ const Index = () => {
               <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-16 text-center">The Scale</p>
             </RevealOnScroll>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { value: "126B", unit: "m³", label: "Water lost annually" },
-                { value: "$39B", unit: "", label: "Economic damage" },
-                { value: "30", unit: "%", label: "Water lost in aging systems" },
-                { value: "2", unit: "min", label: "US main break frequency" },
+                { value: "126B", unit: "m³", label: "Water lost annually", bg: "section-light" },
+                { value: "$39B", unit: "", label: "Economic damage", bg: "section-dark" },
+                { value: "30", unit: "%", label: "Water lost in aging systems", bg: "section-dark" },
+                { value: "2", unit: "min", label: "US main break frequency", bg: "section-light" },
               ].map((stat, i) => (
                 <RevealOnScroll key={stat.label} delay={i * 75}>
-                  <div className="text-center">
-                    <p className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-3 tracking-tight">
+                  <div className={`${stat.bg} p-6 md:p-8 rounded-lg text-center`}>
+                    <p className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-3 tracking-tight">
                       {stat.value}<span className="text-accent">{stat.unit}</span>
                     </p>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>

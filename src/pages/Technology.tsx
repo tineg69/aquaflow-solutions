@@ -4,12 +4,12 @@ import { RevealOnScroll } from "@/components/RevealOnScroll";
 import deviceModel from "@/assets/device-model.png";
 
 const specs = [
-  { label: "Diameter Range", value: "40–200mm" },
-  { label: "Pressure Rating", value: "16 bar" },
-  { label: "Seal Lifespan", value: "5+ years" },
-  { label: "Detection Precision", value: "±2mm" },
-  { label: "Communication", value: "Acoustic" },
-  { label: "Power Source", value: "Flow harvesting" },
+  { label: "Diameter Range", value: "40–200mm", bg: "section-light" },
+  { label: "Pressure Rating", value: "16 bar", bg: "section-lighter" },
+  { label: "Seal Lifespan", value: "5+ years", bg: "section-light" },
+  { label: "Detection Precision", value: "±2mm", bg: "section-lighter" },
+  { label: "Communication", value: "Acoustic", bg: "section-light" },
+  { label: "Power Source", value: "Flow harvesting", bg: "section-lighter" },
 ];
 
 const Technology = () => {
@@ -69,17 +69,17 @@ const Technology = () => {
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-2 gap-x-20 gap-y-14">
+            <div className="grid md:grid-cols-2 gap-4">
               {[
-                { title: "Rigid Inner Ring", desc: "Maintains open flow channel for normal water throughput while providing structural support for the capsule." },
-                { title: "Inflatable Outer Torus", desc: "Flexible membrane with ridged surface that expands to conform and seal against irregular pipe wall surfaces." },
-                { title: "Pressure Sensors", desc: "Miniaturized sensors continuously monitor local pressure differentials to detect leak signatures with ±2mm precision." },
-                { title: "Acoustic Communication", desc: "Short-range underwater modems enable real-time coordination between multiple units for complex repairs." },
-                { title: "Autonomous Control", desc: "Onboard microcontroller regulates inflation timing, propulsion, and navigation decisions independently." },
-                { title: "Flow Harvesting", desc: "Integrated turbine converts water flow into electrical power, enabling indefinite operation without batteries." },
+                { title: "Rigid Inner Ring", desc: "Maintains open flow channel for normal water throughput while providing structural support for the capsule.", bg: "section-light" },
+                { title: "Inflatable Outer Torus", desc: "Flexible membrane with ridged surface that expands to conform and seal against irregular pipe wall surfaces.", bg: "section-dark" },
+                { title: "Pressure Sensors", desc: "Miniaturized sensors continuously monitor local pressure differentials to detect leak signatures with ±2mm precision.", bg: "section-dark" },
+                { title: "Acoustic Communication", desc: "Short-range underwater modems enable real-time coordination between multiple units for complex repairs.", bg: "section-light" },
+                { title: "Autonomous Control", desc: "Onboard microcontroller regulates inflation timing, propulsion, and navigation decisions independently.", bg: "section-light" },
+                { title: "Flow Harvesting", desc: "Integrated turbine converts water flow into electrical power, enabling indefinite operation without batteries.", bg: "section-dark" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75}>
-                  <div className="border-l border-accent/20 pl-8">
+                  <div className={`${item.bg} p-8 md:p-10 rounded-lg`}>
                     <h3 className="font-display text-xl text-foreground mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
@@ -120,11 +120,11 @@ const Technology = () => {
               </div>
             </RevealOnScroll>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-14">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {specs.map((spec, i) => (
                 <RevealOnScroll key={spec.label} delay={i * 50}>
-                  <div>
-                    <p className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-2 tracking-tight">
+                  <div className={`${spec.bg} p-6 md:p-8 rounded-lg`}>
+                    <p className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-2 tracking-tight">
                       {spec.value}
                     </p>
                     <p className="text-sm text-muted-foreground">{spec.label}</p>

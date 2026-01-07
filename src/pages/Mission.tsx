@@ -152,7 +152,7 @@ const Mission = () => {
               <div className="text-center mb-20 md:mb-28">
                 <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Impact</p>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight">
-                  What success looks like
+                  What <span className="text-accent">success</span> looks like
                 </h2>
               </div>
             </RevealOnScroll>
