@@ -43,6 +43,7 @@ const Technology = () => {
 
       {/* Primary CAD Visualization */}
       <section className="py-20 md:py-28 relative section-light snap-start min-h-screen flex items-center">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll direction="left">
             <div className="max-w-6xl mx-auto">
