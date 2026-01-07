@@ -16,11 +16,11 @@ const specs = [
 
 const Technology = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -42,7 +42,7 @@ const Technology = () => {
       </section>
 
       {/* Primary CAD Visualization */}
-      <section className="py-20 md:py-28 relative section-light">
+      <section className="py-20 md:py-28 relative section-light snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6">
           <RevealOnScroll direction="left">
@@ -60,7 +60,7 @@ const Technology = () => {
       </section>
 
       {/* Components */}
-      <section className="py-32 md:py-44 relative section-lighter">
+      <section className="py-32 md:py-44 relative section-lighter snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
@@ -95,7 +95,7 @@ const Technology = () => {
       </section>
 
       {/* 3D Model Viewer */}
-      <section className="py-20 md:py-28 relative overflow-hidden section-light">
+      <section className="py-20 md:py-28 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>
@@ -115,7 +115,7 @@ const Technology = () => {
       </section>
 
       {/* Technical Specs */}
-      <section className="py-32 md:py-40 relative section-dark">
+      <section className="py-32 md:py-40 relative section-dark snap-start min-h-screen flex items-center">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
