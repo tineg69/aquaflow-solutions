@@ -52,9 +52,6 @@ export const TechGridBackground = () => {
       
       const scrollOffset = (time * 40) % gridSpacingY;
       
-      // Store intersection points for nodes
-      const intersections: { x: number; y: number; distFromCenter: number; row: number; col: number }[] = [];
-      
       // Draw horizontal lines with wave effect
       for (let row = -gridRows; row <= gridRows; row++) {
         const baseY = centerY + row * gridSpacingY - scrollOffset;
@@ -100,57 +97,10 @@ export const TechGridBackground = () => {
           }
         }
         ctx.stroke();
-        
-        // Calculate intersection points with horizontal lines
-        for (let row = -gridRows; row <= gridRows; row++) {
-          const baseY = centerY + row * gridSpacingY - scrollOffset;
-          
-          if (baseY < -20 || baseY > canvas.height + 20) continue;
-          
-          const perspX = getPerspectiveX(baseX, baseY, centerX, centerY);
-          const { waveX, waveY } = getWaveOffset(perspX, baseY, centerX, centerY, time);
-          
-          const distFromCenter = Math.abs(baseY - centerY) / canvas.height;
-          
-          intersections.push({
-            x: perspX + waveX,
-            y: baseY + waveY,
-            distFromCenter,
-            row,
-            col
-          });
-        }
       }
       
       
-      // Add traveling light pulses along grid lines
-      for (let i = 0; i < 12; i++) {
-        const pulsePhase = (time * 0.4 + i * 0.35) % 2;
-        const pulseRow = Math.floor((pulsePhase - 1) * gridRows * 1.5);
-        const pulseBaseY = centerY + pulseRow * gridSpacingY - scrollOffset;
-        const pulseCol = Math.round(Math.sin(i * 1.8 + time * 0.3) * gridCols / 4);
-        const pulseBaseX = centerX + pulseCol * gridSpacingX;
-        
-        const perspX = getPerspectiveX(pulseBaseX, pulseBaseY, centerX, centerY);
-        const { waveX, waveY } = getWaveOffset(perspX, pulseBaseY, centerX, centerY, time);
-        
-        const pulseX = perspX + waveX;
-        const pulseY = pulseBaseY + waveY;
-        
-        if (pulseY > -50 && pulseY < canvas.height + 50) {
-          const pulseSize = 12 + Math.sin(time * 3 + i) * 4;
-          
-          const gradient = ctx.createRadialGradient(pulseX, pulseY, 0, pulseX, pulseY, pulseSize);
-          gradient.addColorStop(0, 'rgba(8, 200, 200, 0.8)');
-          gradient.addColorStop(0.3, 'rgba(8, 143, 143, 0.4)');
-          gradient.addColorStop(1, 'rgba(8, 143, 143, 0)');
-          
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(pulseX, pulseY, pulseSize, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
+      
       
       // Subtle center glow
       const centerGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, canvas.height * 0.6);
