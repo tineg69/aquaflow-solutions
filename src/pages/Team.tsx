@@ -7,7 +7,7 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const teamMembers = [{
   name: "Tanish Gottimukkula",
-  role: "Head of Marketing",
+  role: "Director of Operations",
   bio: "Former MIT water systems researcher with 15+ years in infrastructure innovation. Led development of autonomous monitoring systems for municipal utilities.",
   initials: "TG"
 }, {
