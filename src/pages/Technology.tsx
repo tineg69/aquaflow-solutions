@@ -124,9 +124,9 @@ const Technology = () => {
                 { title: "Iris Mechanism", desc: "When a fracture is detected, the iris expands outward to anchor the capsule against the pipe wall, stopping flow and creating a permanent seal at the leak site.", bg: "box-blue" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
-                  <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col justify-center items-center group cursor-pointer transition-all duration-300 hover:scale-[1.02] min-h-[140px]`}>
-                    <h3 className="font-display text-xl text-white tracking-tight text-center group-hover:hidden transition-opacity duration-300">{item.title}</h3>
-                    <p className="text-sm text-white/90 leading-relaxed text-center hidden group-hover:block transition-opacity duration-300">{item.desc}</p>
+                  <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col justify-center items-center group cursor-pointer transition-all duration-300 hover:scale-[1.02] min-h-[140px] overflow-hidden`}>
+                    <h3 className="font-display text-xl text-white tracking-tight text-center opacity-100 group-hover:opacity-0 group-hover:translate-y-[-10px] transition-all duration-500 absolute">{item.title}</h3>
+                    <p className="text-sm text-white/90 leading-relaxed text-center opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 transition-all duration-500 delay-200">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
