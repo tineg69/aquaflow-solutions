@@ -14,7 +14,7 @@ const teamMembers = [{
   bio: "Robotics engineer specializing in autonomous systems and embedded sensor technology. Previously developed underwater inspection drones for offshore infrastructure.",
   initials: "MR"
 }, {
-  name: "Dr. Aisha Patel",
+  name: "Dhruv Miriyala",
   role: "Head of R&D",
   bio: "Materials scientist focused on self-healing polymers and smart materials. Holds 12 patents in adaptive membrane technology.",
   initials: "AP"
