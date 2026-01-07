@@ -42,12 +42,13 @@ export const VortexBackground = () => {
       const particleCount = 400;
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-      const maxRadius = Math.max(canvas.width, canvas.height) * 0.6;
+      const minRadius = 80; // Minimum ring radius - stays open
+      const maxRadius = Math.max(canvas.width, canvas.height) * 0.5;
 
       for (let i = 0; i < particleCount; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const radius = Math.random() * maxRadius + 50;
-        const targetRadius = 20 + Math.random() * 80; // Where particles converge to
+        // Start particles distributed in a ring pattern
+        const radius = minRadius + Math.random() * (maxRadius - minRadius);
         
         particles.push({
           x: centerX + Math.cos(angle) * radius,
@@ -57,7 +58,7 @@ export const VortexBackground = () => {
           speed: 0.002 + Math.random() * 0.004,
           size: 1 + Math.random() * 2,
           opacity: 0.3 + Math.random() * 0.7,
-          targetRadius,
+          targetRadius: minRadius + Math.random() * 100, // Keep particles in outer ring
           phase: Math.random() * Math.PI * 2,
         });
       }
@@ -78,19 +79,19 @@ export const VortexBackground = () => {
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
+      const minRadius = 80;
 
       // Update and draw particles
       particlesRef.current.forEach((particle) => {
         // Orbital rotation
         particle.angle += particle.speed;
         
-        // Gradual convergence toward center (oscillating)
-        const convergeFactor = Math.sin(time * 0.3 + particle.phase) * 0.5 + 0.5;
-        const currentTargetRadius = particle.targetRadius + (particle.radius - particle.targetRadius) * convergeFactor;
+        // Gentle breathing motion - stays open, never closes to center
+        const breathe = Math.sin(time * 0.2 + particle.phase) * 20;
+        const currentRadius = particle.targetRadius + breathe;
         
-        // Smooth radius transition
-        const radiusLerp = 0.002;
-        particle.radius += (currentTargetRadius - particle.radius) * radiusLerp;
+        // Keep radius above minimum
+        particle.radius = Math.max(minRadius, currentRadius);
         
         // Add some wave motion for organic feel
         const waveOffset = Math.sin(particle.angle * 3 + time) * 10;
