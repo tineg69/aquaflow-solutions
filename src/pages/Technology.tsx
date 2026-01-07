@@ -45,12 +45,10 @@ const Technology = () => {
           <RevealOnScroll direction="left">
             <div className="max-w-6xl mx-auto">
               <div className="relative aspect-[16/10] md:aspect-[2/1] flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/8 to-transparent rounded-3xl blur-[80px]" />
                 <img
                   src={deviceModel}
                   alt="O-Seal Device - Primary View"
                   className="relative max-w-full max-h-full object-contain animate-float-gentle"
-                  style={{ filter: 'drop-shadow(0 0 60px hsl(175 65% 40% / 0.2))' }}
                 />
               </div>
             </div>
@@ -102,7 +100,6 @@ const Technology = () => {
                   src={deviceModel}
                   alt="O-Seal Device - Detail View"
                   className="relative max-w-full max-h-full object-contain"
-                  style={{ filter: 'drop-shadow(0 0 50px hsl(175 65% 40% / 0.15))' }}
                 />
               </div>
             </div>

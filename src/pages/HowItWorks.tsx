@@ -68,9 +68,6 @@ const HowItWorks = () => {
           <RevealOnScroll direction="scale">
             <div className="max-w-5xl mx-auto">
               <div className="relative aspect-video rounded-2xl overflow-hidden">
-                {/* Soft glow behind */}
-                <div className="absolute -inset-4 bg-accent/5 blur-3xl rounded-3xl" />
-                
                 <div className="relative h-full bg-gradient-to-br from-muted/80 to-muted/40 backdrop-blur-sm border border-border/20">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
@@ -168,12 +165,10 @@ const HowItWorks = () => {
           <RevealOnScroll direction="scale" delay={150}>
             <div className="max-w-5xl mx-auto">
               <div className="relative aspect-[16/10] flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/8 to-transparent rounded-3xl blur-3xl" />
                 <img
                   src={deviceModel}
                   alt="O-Seal operation visualization"
-                  className="relative max-w-full max-h-full object-contain drop-shadow-2xl"
-                  style={{ filter: 'drop-shadow(0 0 60px hsl(175 70% 42% / 0.15))' }}
+                  className="relative max-w-full max-h-full object-contain"
                 />
               </div>
             </div>
