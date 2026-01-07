@@ -182,6 +182,7 @@ const HowItWorks = () => {
 
       {/* Key Advantages - Refined Grid */}
       <section className="py-32 md:py-40 relative section-dark snap-start min-h-screen flex items-center">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -219,6 +220,7 @@ const HowItWorks = () => {
 
       {/* CTA - Cinematic Close */}
       <section className="py-40 md:py-52 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">
