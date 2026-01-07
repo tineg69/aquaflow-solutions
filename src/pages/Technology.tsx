@@ -82,7 +82,7 @@ const Technology = () => {
                 { title: "Flow Harvesting", desc: "Integrated turbine converts water flow into electrical power, enabling indefinite operation without batteries.", bg: "box-blue" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
-                  <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full flex flex-col`}>
+                  <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col`}>
                     <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
@@ -126,8 +126,8 @@ const Technology = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {specs.map((spec, i) => (
-                <RevealOnScroll key={spec.label} delay={i * 50}>
-                  <div className={`${spec.bg} p-6 md:p-8 rounded-lg`}>
+                <RevealOnScroll key={spec.label} delay={i * 50} className="h-full">
+                  <div className={`${spec.bg} p-8 rounded-lg h-full flex flex-col justify-center`}>
                     <p className="font-display text-2xl md:text-3xl lg:text-4xl text-white mb-2 tracking-tight">
                       {spec.value}
                     </p>

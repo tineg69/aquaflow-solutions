@@ -202,10 +202,10 @@ const HowItWorks = () => {
                 { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-teal" },
                 { title: "Scalable", desc: "Swarm deployment for networks", bg: "box-blue" },
               ].map((item, i) => (
-                <RevealOnScroll key={item.title} delay={i * 100}>
-                  <div className={`${item.bg} p-8 rounded-lg text-center group`}>
-                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
-                      <span className="font-display text-xl text-white">{String(i + 1).padStart(2, '0')}</span>
+                <RevealOnScroll key={item.title} delay={i * 100} className="h-full">
+                  <div className={`${item.bg} p-8 rounded-lg text-center h-full flex flex-col justify-start`}>
+                    <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+                      <span className="font-display text-lg text-white">{String(i + 1).padStart(2, '0')}</span>
                     </div>
                     <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
