@@ -96,7 +96,7 @@ const Technology = () => {
             <div className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">3D Model</p>
               <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight">
-                Interactive visualization
+                Iris visualization
               </h2>
             </div>
           </RevealOnScroll>
