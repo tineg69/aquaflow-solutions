@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import currentEventsLogo from "@/assets/currentevents-logo.png";
+import oSealLogo from "@/assets/o-seal-logo-full.png";
 
 const teamMembers = [{
   name: "Tanish Gottimukkula",
@@ -31,15 +32,15 @@ const Team = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Navigation />
       
-      {/* Hero - Full viewport, single screen */}
+      {/* Hero - Full viewport */}
       <section className="h-screen flex flex-col justify-center relative overflow-hidden section-dark">
         <NeuralWaveBackground />
         <div className="container px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
-            {/* CurrentEvents Logo - Premium positioning */}
+            {/* CurrentEvents branding */}
             <RevealOnScroll>
-              <div className="flex items-center justify-center mb-12">
-                <div className="flex items-center gap-4 px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+              <div className="flex items-center justify-center mb-10">
+                <div className="flex items-center gap-4">
                   <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">A Project by</span>
                   <img 
                     src={currentEventsLogo} 
@@ -50,21 +51,20 @@ const Team = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Main headline with wordplay */}
+            {/* Main headline */}
             <RevealOnScroll delay={100}>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-center text-foreground mb-6 tracking-tight leading-tight">
-                The Minds Behind the <span className="text-accent">Current</span>
+                Meet the Team
               </h1>
             </RevealOnScroll>
             
             <RevealOnScroll delay={200}>
-              <p className="text-muted-foreground text-lg md:text-xl text-center max-w-2xl mx-auto mb-16 leading-relaxed">
-                Five teenagers who decided that ignoring a trillion-dollar problem 
-                wasn't an option. We're making waves—<em className="text-accent/80">literally</em>.
+              <p className="text-muted-foreground text-lg md:text-xl text-center max-w-xl mx-auto mb-14 leading-relaxed">
+                The people building the future of water infrastructure.
               </p>
             </RevealOnScroll>
 
-            {/* Team photo placeholder - prominent */}
+            {/* Team photo placeholder */}
             <RevealOnScroll delay={300}>
               <div className="aspect-[21/9] max-w-4xl mx-auto bg-gradient-to-br from-secondary/60 to-secondary/30 rounded-2xl border border-white/10 overflow-hidden relative">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -73,16 +73,15 @@ const Team = () => {
                     <span className="text-sm text-muted-foreground/30">Coming Soon</span>
                   </div>
                 </div>
-                {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
               </div>
             </RevealOnScroll>
 
             {/* Scroll indicator */}
             <RevealOnScroll delay={400}>
-              <div className="flex justify-center mt-12">
+              <div className="flex justify-center mt-10">
                 <div className="flex flex-col items-center gap-2 text-muted-foreground/50">
-                  <span className="text-xs tracking-widest uppercase">Meet the Team</span>
+                  <span className="text-xs tracking-widest uppercase">Scroll</span>
                   <div className="w-px h-8 bg-gradient-to-b from-accent/50 to-transparent animate-pulse" />
                 </div>
               </div>
@@ -91,12 +90,12 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Team Grid - Clean pitch deck style */}
+      {/* Team Grid */}
       <section className="min-h-screen py-24 md:py-32 section-light relative">
         <NeuralWaveBackground />
         <div className="container px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
-            {/* Section header */}
+            {/* Section header with O-Seal logo */}
             <RevealOnScroll>
               <div className="flex items-center justify-between mb-16">
                 <div>
@@ -106,26 +105,24 @@ const Team = () => {
                   </h2>
                 </div>
                 <img 
-                  src={currentEventsLogo} 
-                  alt="CurrentEvents" 
-                  className="h-12 object-contain opacity-60"
+                  src={oSealLogo} 
+                  alt="O-Seal" 
+                  className="h-14 object-contain opacity-70"
                 />
               </div>
             </RevealOnScroll>
 
-            {/* Team grid - 5 members in clean layout */}
+            {/* Team grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
               {teamMembers.map((member, index) => (
                 <RevealOnScroll key={member.name} delay={index * 75}>
                   <div className="group text-center">
-                    {/* Photo placeholder - square aspect */}
                     <div className="aspect-square bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-xl mb-5 overflow-hidden relative border border-white/5 transition-all duration-500 group-hover:border-accent/30">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="font-display text-3xl md:text-4xl text-muted-foreground/25 group-hover:text-accent/30 transition-colors duration-500">
                           {member.initials}
                         </span>
                       </div>
-                      {/* Hover glow */}
                       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     
@@ -138,15 +135,13 @@ const Team = () => {
               ))}
             </div>
 
-            {/* Vision statement - pitch deck style */}
+            {/* Vision statement */}
             <RevealOnScroll delay={400}>
               <div className="mt-24 pt-16 border-t border-white/10">
                 <div className="max-w-3xl mx-auto text-center">
-                  <p className="text-muted-foreground text-lg md:text-xl leading-relaxed italic">
-                    "We're not just sealing pipes—we're sealing our commitment to 
-                    a future where no drop goes to waste."
+                  <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+                    Building technology that ensures no drop goes to waste.
                   </p>
-                  <p className="text-accent text-sm mt-6">— The O-Seal Team</p>
                 </div>
               </div>
             </RevealOnScroll>
