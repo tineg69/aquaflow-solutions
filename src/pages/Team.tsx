@@ -19,10 +19,10 @@ const teamMembers = [{
   bio: "Materials scientist focused on self-healing polymers and smart materials. Holds 12 patents in adaptive membrane technology.",
   initials: "AP"
 }, {
-  name: "James Okonkwo",
+  name: "Hatim Ghadiali",
   role: "VP of Engineering",
   bio: "20 years experience in municipal water infrastructure and pipeline system design. Former lead engineer at American Water Works.",
-  initials: "JO"
+  initials: "HG"
 }, {
   name: "Dr. Emily Zhang",
   role: "Lead Systems Engineer",
