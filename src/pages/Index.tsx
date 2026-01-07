@@ -14,7 +14,7 @@ const Index = () => {
       {/* Hero Brand Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
-        <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none italic">
+        <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none">
           O-Seal
         </h1>
       </section>
