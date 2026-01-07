@@ -83,23 +83,26 @@ const Mission = () => {
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-3 gap-16 md:gap-12">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-4">
               {[
                 { 
                   title: "Water Scarcity", 
-                  desc: "By 2030, half the world's population will face water stress. Every drop lost accelerates the crisis." 
+                  desc: "By 2030, half the world's population will face water stress. Every drop lost accelerates the crisis.",
+                  bg: "section-dark"
                 },
                 { 
                   title: "Aging Infrastructure", 
-                  desc: "Most pipe networks were built 50-100 years ago. Replacement would cost trillions and take decades." 
+                  desc: "Most pipe networks were built 50-100 years ago. Replacement would cost trillions and take decades.",
+                  bg: "section-light"
                 },
                 { 
                   title: "Climate Pressure", 
-                  desc: "Extreme weather increases pipe stress and failure rates. Traditional repair methods can't keep pace." 
+                  desc: "Extreme weather increases pipe stress and failure rates. Traditional repair methods can't keep pace.",
+                  bg: "section-dark"
                 },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
-                  <div className="border-l border-accent/20 pl-8">
+                  <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full`}>
                     <h3 className="font-display text-xl text-foreground mb-4 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
@@ -154,15 +157,15 @@ const Mission = () => {
               </div>
             </RevealOnScroll>
             
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            <div className="grid md:grid-cols-2 gap-4">
               {[
-                { title: "Reduced Water Loss", desc: "Sealing leaks at scale could recover billions of cubic meters of water annually." },
-                { title: "Lower Costs", desc: "In-pipe repair eliminates excavation expenses, reducing repair costs by up to 80%." },
-                { title: "Zero Disruption", desc: "No street closures, no service shutoffs, no weeks of construction." },
-                { title: "Scalable Solution", desc: "Swarm deployment enables rapid coverage of complex pipe networks." },
+                { title: "Reduced Water Loss", desc: "Sealing leaks at scale could recover billions of cubic meters of water annually.", bg: "section-light" },
+                { title: "Lower Costs", desc: "In-pipe repair eliminates excavation expenses, reducing repair costs by up to 80%.", bg: "section-lighter" },
+                { title: "Zero Disruption", desc: "No street closures, no service shutoffs, no weeks of construction.", bg: "section-lighter" },
+                { title: "Scalable Solution", desc: "Swarm deployment enables rapid coverage of complex pipe networks.", bg: "section-light" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75}>
-                  <div className="border-l border-accent/20 pl-8">
+                  <div className={`${item.bg} p-8 md:p-10 rounded-lg`}>
                     <h3 className="font-display text-xl text-foreground mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
