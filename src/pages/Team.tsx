@@ -37,9 +37,7 @@ const Team = () => {
       <Navigation />
       
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
-        
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -60,7 +58,7 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section className="py-32 md:py-40">
+      <section className="py-32 md:py-40 section-light">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20">
@@ -94,9 +92,7 @@ const Team = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-40 md:py-52 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-        
+      <section className="py-40 md:py-52 relative overflow-hidden section-lighter">
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">

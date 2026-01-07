@@ -12,18 +12,14 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Brand Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden section-dark">
         <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none">
           O-Seal
         </h1>
       </section>
 
       {/* Hero - Problem Statement Above Fold */}
-      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden">
-        {/* Ambient gradient */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/[0.03] rounded-full blur-[150px] pointer-events-none" />
-        
+      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden section-light">
         <div className="container px-6 relative">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left - Problem & Solution */}
@@ -90,9 +86,7 @@ const Index = () => {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-32 md:py-44 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.01] via-transparent to-transparent pointer-events-none" />
-        
+      <section className="py-32 md:py-44 relative section-dark">
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -135,7 +129,7 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-32 md:py-40 relative">
+      <section className="py-32 md:py-40 relative section-lighter">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -164,9 +158,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-40 md:py-52 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-        
+      <section className="py-40 md:py-52 relative overflow-hidden section-light">
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">

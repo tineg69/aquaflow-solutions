@@ -145,6 +145,19 @@
   .section-padding-lg {
     @apply py-32 md:py-44 lg:py-52;
   }
+
+  /* Alternating section backgrounds - Blue shades */
+  .section-dark {
+    background-color: hsl(210 20% 6%);
+  }
+
+  .section-light {
+    background-color: hsl(210 18% 9%);
+  }
+
+  .section-lighter {
+    background-color: hsl(210 16% 12%);
+  }
 }
 
 @layer utilities {
