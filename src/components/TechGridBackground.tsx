@@ -18,23 +18,42 @@ export const TechGridBackground = () => {
       canvas.height = window.innerHeight;
     };
 
+    // Helper function to calculate wave distortion at any point
+    const getWaveOffset = (x: number, y: number, centerX: number, centerY: number, t: number) => {
+      const distX = (x - centerX) / canvas.width;
+      const distY = (y - centerY) / canvas.height;
+      
+      const waveX = Math.sin(y * 0.025 + t * 2 + distX * 3) * 3;
+      const waveY = Math.sin(distX * 8 + t * 2.5 + y * 0.015) * 4;
+      
+      return { waveX, waveY };
+    };
+
+    // Helper to get perspective-adjusted X position
+    const getPerspectiveX = (baseX: number, y: number, centerX: number, centerY: number) => {
+      const distFromCenterY = (y - centerY) / canvas.height;
+      const perspectiveFactor = 1 - Math.abs(distFromCenterY) * 0.3;
+      return centerX + (baseX - centerX) * perspectiveFactor;
+    };
+
     const animate = () => {
       time += 0.008;
       
-      // Clear canvas
       ctx.fillStyle = 'rgba(10, 15, 20, 1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const centerX = canvas.width / 2;
-      const centerY = canvas.height * 0.4; // Vanishing point
+      const centerY = canvas.height * 0.4;
       
       const gridSpacingX = 80;
       const gridSpacingY = 50;
       const gridCols = Math.ceil(canvas.width / gridSpacingX) + 10;
       const gridRows = Math.ceil(canvas.height / gridSpacingY) + 10;
       
-      // Continuous scroll offset (loops seamlessly)
       const scrollOffset = (time * 40) % gridSpacingY;
+      
+      // Store intersection points for nodes
+      const intersections: { x: number; y: number; distFromCenter: number; row: number; col: number }[] = [];
       
       // Draw horizontal lines with wave effect
       for (let row = -gridRows; row <= gridRows; row++) {
@@ -42,30 +61,27 @@ export const TechGridBackground = () => {
         
         if (baseY < -50 || baseY > canvas.height + 50) continue;
         
-        // Calculate distance from center for perspective effect
         const distFromCenter = Math.abs(baseY - centerY) / canvas.height;
-        const perspectiveScale = 0.3 + distFromCenter * 0.7;
         const opacity = Math.max(0.1, 0.5 - distFromCenter * 0.3);
         
         ctx.beginPath();
         ctx.strokeStyle = `rgba(8, 143, 143, ${opacity})`;
         ctx.lineWidth = Math.max(0.5, (1 - distFromCenter) * 1.5);
         
-        // Draw wavy horizontal line
         for (let x = 0; x <= canvas.width; x += 4) {
-          const distX = (x - centerX) / canvas.width;
-          const wave = Math.sin(distX * 8 + time * 2.5 + row * 0.2) * (3 + distFromCenter * 5);
+          const { waveX, waveY } = getWaveOffset(x, baseY, centerX, centerY, time);
+          const perspX = getPerspectiveX(x, baseY, centerX, centerY);
           
           if (x === 0) {
-            ctx.moveTo(x, baseY + wave);
+            ctx.moveTo(perspX + waveX, baseY + waveY);
           } else {
-            ctx.lineTo(x, baseY + wave);
+            ctx.lineTo(perspX + waveX, baseY + waveY);
           }
         }
         ctx.stroke();
       }
       
-      // Draw vertical lines with perspective convergence
+      // Draw vertical lines and calculate intersections
       for (let col = -gridCols / 2; col <= gridCols / 2; col++) {
         const baseX = centerX + col * gridSpacingX;
         
@@ -74,74 +90,75 @@ export const TechGridBackground = () => {
         ctx.lineWidth = 0.8;
         
         for (let y = 0; y <= canvas.height; y += 4) {
-          const distFromCenterY = (y - centerY) / canvas.height;
-          const perspectiveFactor = 1 - Math.abs(distFromCenterY) * 0.3;
-          const x = centerX + (baseX - centerX) * perspectiveFactor;
-          
-          // Add wave distortion
-          const wave = Math.sin(y * 0.02 + time * 2 + col * 0.3) * 2;
+          const perspX = getPerspectiveX(baseX, y, centerX, centerY);
+          const { waveX, waveY } = getWaveOffset(perspX, y, centerX, centerY, time);
           
           if (y === 0) {
-            ctx.moveTo(x + wave, y);
+            ctx.moveTo(perspX + waveX, y + waveY);
           } else {
-            ctx.lineTo(x + wave, y);
+            ctx.lineTo(perspX + waveX, y + waveY);
           }
         }
         ctx.stroke();
-      }
-      
-      // Draw grid intersection nodes
-      for (let row = -gridRows; row <= gridRows; row++) {
-        const baseY = centerY + row * gridSpacingY - scrollOffset;
         
-        if (baseY < -20 || baseY > canvas.height + 20) continue;
-        
-        const distFromCenterY = Math.abs(baseY - centerY) / canvas.height;
-        const perspectiveFactor = 1 - distFromCenterY * 0.3;
-        
-        for (let col = -gridCols / 2; col <= gridCols / 2; col += 1) {
-          const baseX = centerX + col * gridSpacingX;
-          const x = centerX + (baseX - centerX) * perspectiveFactor;
+        // Calculate intersection points with horizontal lines
+        for (let row = -gridRows; row <= gridRows; row++) {
+          const baseY = centerY + row * gridSpacingY - scrollOffset;
           
-          // Wave distortion for nodes
-          const waveX = Math.sin(baseY * 0.02 + time * 2 + col * 0.3) * 2;
-          const waveY = Math.sin((x - centerX) / canvas.width * 8 + time * 2.5 + row * 0.2) * 3;
+          if (baseY < -20 || baseY > canvas.height + 20) continue;
           
-          const nodeX = x + waveX;
-          const nodeY = baseY + waveY;
+          const perspX = getPerspectiveX(baseX, baseY, centerX, centerY);
+          const { waveX, waveY } = getWaveOffset(perspX, baseY, centerX, centerY, time);
           
-          const brightness = Math.sin(time * 2.5 + row * 0.4 + col * 0.25) * 0.3 + 0.5;
-          const nodeOpacity = Math.max(0.15, (1 - distFromCenterY) * brightness * 0.7);
-          const nodeSize = Math.max(1.5, (1 - distFromCenterY * 0.5) * 2.5);
+          const distFromCenter = Math.abs(baseY - centerY) / canvas.height;
           
-          // Glow
-          const gradient = ctx.createRadialGradient(nodeX, nodeY, 0, nodeX, nodeY, nodeSize * 4);
-          gradient.addColorStop(0, `rgba(8, 143, 143, ${nodeOpacity * 0.6})`);
-          gradient.addColorStop(0.5, `rgba(8, 143, 143, ${nodeOpacity * 0.2})`);
-          gradient.addColorStop(1, 'rgba(8, 143, 143, 0)');
-          
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(nodeX, nodeY, nodeSize * 4, 0, Math.PI * 2);
-          ctx.fill();
-          
-          // Core dot
-          ctx.fillStyle = `rgba(8, 143, 143, ${nodeOpacity})`;
-          ctx.beginPath();
-          ctx.arc(nodeX, nodeY, nodeSize, 0, Math.PI * 2);
-          ctx.fill();
+          intersections.push({
+            x: perspX + waveX,
+            y: baseY + waveY,
+            distFromCenter,
+            row,
+            col
+          });
         }
       }
       
-      // Add traveling light pulses
+      // Draw nodes at intersection points
+      intersections.forEach(({ x, y, distFromCenter, row, col }) => {
+        const brightness = Math.sin(time * 2.5 + row * 0.4 + col * 0.25) * 0.3 + 0.5;
+        const nodeOpacity = Math.max(0.15, (1 - distFromCenter) * brightness * 0.7);
+        const nodeSize = Math.max(1.5, (1 - distFromCenter * 0.5) * 2.5);
+        
+        // Glow
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, nodeSize * 4);
+        gradient.addColorStop(0, `rgba(8, 143, 143, ${nodeOpacity * 0.6})`);
+        gradient.addColorStop(0.5, `rgba(8, 143, 143, ${nodeOpacity * 0.2})`);
+        gradient.addColorStop(1, 'rgba(8, 143, 143, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, nodeSize * 4, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Core dot
+        ctx.fillStyle = `rgba(8, 143, 143, ${nodeOpacity})`;
+        ctx.beginPath();
+        ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      // Add traveling light pulses along grid lines
       for (let i = 0; i < 12; i++) {
         const pulsePhase = (time * 0.4 + i * 0.35) % 2;
-        const pulseY = centerY + (pulsePhase - 1) * canvas.height * 1.2;
-        const pulseCol = Math.sin(i * 1.8 + time * 0.3) * gridCols / 4;
+        const pulseRow = Math.floor((pulsePhase - 1) * gridRows * 1.5);
+        const pulseBaseY = centerY + pulseRow * gridSpacingY - scrollOffset;
+        const pulseCol = Math.round(Math.sin(i * 1.8 + time * 0.3) * gridCols / 4);
+        const pulseBaseX = centerX + pulseCol * gridSpacingX;
         
-        const distFromCenterY = (pulseY - centerY) / canvas.height;
-        const perspectiveFactor = 1 - Math.abs(distFromCenterY) * 0.3;
-        const pulseX = centerX + pulseCol * gridSpacingX * perspectiveFactor;
+        const perspX = getPerspectiveX(pulseBaseX, pulseBaseY, centerX, centerY);
+        const { waveX, waveY } = getWaveOffset(perspX, pulseBaseY, centerX, centerY, time);
+        
+        const pulseX = perspX + waveX;
+        const pulseY = pulseBaseY + waveY;
         
         if (pulseY > -50 && pulseY < canvas.height + 50) {
           const pulseSize = 12 + Math.sin(time * 3 + i) * 4;
