@@ -1,118 +1,156 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
+import currentEventsLogo from "@/assets/currentevents-logo.png";
 
 const teamMembers = [{
   name: "Tanish Gottimukkula",
   role: "Director of Operations",
-  bio: "Former MIT water systems researcher with 15+ years in infrastructure innovation. Led development of autonomous monitoring systems for municipal utilities.",
   initials: "TG"
 }, {
   name: "Maneesh Vaddi",
   role: "CTO & Co-Founder",
-  bio: "Robotics engineer specializing in autonomous systems and embedded sensor technology. Previously developed underwater inspection drones for offshore infrastructure.",
   initials: "MV"
 }, {
   name: "Dhruv Miriyala",
   role: "Head of R&D",
-  bio: "Materials scientist focused on self-healing polymers and smart materials. Holds 12 patents in adaptive membrane technology.",
   initials: "DM"
 }, {
   name: "Hatim Ghadiali",
   role: "Chief Financial Officer",
-  bio: "20 years experience in municipal water infrastructure and pipeline system design. Former lead engineer at American Water Works.",
   initials: "HG"
 }, {
   name: "Zoeb Izzi",
   role: "Lead Systems Engineer",
-  bio: "Expert in distributed systems and swarm robotics. PhD from Stanford in autonomous multi-agent coordination.",
   initials: "ZI"
 }];
 
 const Team = () => {
   return (
-    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
+    <div className="min-h-screen bg-background overflow-hidden">
       <Navigation />
       
-      {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
-        <div className="container px-6 relative">
-          <div className="max-w-4xl mx-auto text-center">
+      {/* Hero - Full viewport, single screen */}
+      <section className="h-screen flex flex-col justify-center relative overflow-hidden section-dark">
+        <NeuralWaveBackground />
+        <div className="container px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            {/* CurrentEvents Logo - Premium positioning */}
             <RevealOnScroll>
-              <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">Our Team</p>
+              <div className="flex items-center justify-center mb-12">
+                <div className="flex items-center gap-4 px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+                  <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">A Project by</span>
+                  <img 
+                    src={currentEventsLogo} 
+                    alt="CurrentEvents" 
+                    className="h-10 object-contain"
+                  />
+                </div>
+              </div>
             </RevealOnScroll>
+
+            {/* Main headline with wordplay */}
             <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-8 tracking-tight">
-                The People Behind O-Seal
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-center text-foreground mb-6 tracking-tight leading-tight">
+                The Minds Behind the <span className="text-accent">Current</span>
               </h1>
             </RevealOnScroll>
+            
             <RevealOnScroll delay={200}>
-              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                A group of teenagers taking on a problem most people choose to ignore.          
+              <p className="text-muted-foreground text-lg md:text-xl text-center max-w-2xl mx-auto mb-16 leading-relaxed">
+                Five teenagers who decided that ignoring a trillion-dollar problem 
+                wasn't an option. We're making waves—<em className="text-accent/80">literally</em>.
               </p>
+            </RevealOnScroll>
+
+            {/* Team photo placeholder - prominent */}
+            <RevealOnScroll delay={300}>
+              <div className="aspect-[21/9] max-w-4xl mx-auto bg-gradient-to-br from-secondary/60 to-secondary/30 rounded-2xl border border-white/10 overflow-hidden relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="block font-display text-2xl text-muted-foreground/40 mb-2">Team Photo</span>
+                    <span className="text-sm text-muted-foreground/30">Coming Soon</span>
+                  </div>
+                </div>
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              </div>
+            </RevealOnScroll>
+
+            {/* Scroll indicator */}
+            <RevealOnScroll delay={400}>
+              <div className="flex justify-center mt-12">
+                <div className="flex flex-col items-center gap-2 text-muted-foreground/50">
+                  <span className="text-xs tracking-widest uppercase">Meet the Team</span>
+                  <div className="w-px h-8 bg-gradient-to-b from-accent/50 to-transparent animate-pulse" />
+                </div>
+              </div>
             </RevealOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="py-32 md:py-40 section-light snap-start min-h-screen flex items-center">
+      {/* Team Grid - Clean pitch deck style */}
+      <section className="min-h-screen py-24 md:py-32 section-light relative">
         <NeuralWaveBackground />
-        <div className="container px-6">
+        <div className="container px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20">
+            {/* Section header */}
+            <RevealOnScroll>
+              <div className="flex items-center justify-between mb-16">
+                <div>
+                  <p className="text-xs tracking-[0.3em] uppercase text-accent mb-3">Leadership</p>
+                  <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight">
+                    Our Team
+                  </h2>
+                </div>
+                <img 
+                  src={currentEventsLogo} 
+                  alt="CurrentEvents" 
+                  className="h-12 object-contain opacity-60"
+                />
+              </div>
+            </RevealOnScroll>
+
+            {/* Team grid - 5 members in clean layout */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
               {teamMembers.map((member, index) => (
                 <RevealOnScroll key={member.name} delay={index * 75}>
-                  <div className="group">
-                    {/* Photo placeholder */}
-                    <div className="aspect-[4/5] bg-gradient-to-br from-muted/80 to-muted/40 rounded-xl mb-8 overflow-hidden relative">
+                  <div className="group text-center">
+                    {/* Photo placeholder - square aspect */}
+                    <div className="aspect-square bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-xl mb-5 overflow-hidden relative border border-white/5 transition-all duration-500 group-hover:border-accent/30">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-display text-5xl text-muted-foreground/30 group-hover:text-accent/30 transition-colors duration-500">
+                        <span className="font-display text-3xl md:text-4xl text-muted-foreground/25 group-hover:text-accent/30 transition-colors duration-500">
                           {member.initials}
                         </span>
                       </div>
-                      {/* Subtle glow on hover */}
+                      {/* Hover glow */}
                       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     
-                    <h3 className="font-display text-xl text-foreground mb-2 tracking-tight">
+                    <h3 className="font-display text-base md:text-lg text-foreground mb-1 tracking-tight">
                       {member.name}
                     </h3>
-                    <p className="text-accent text-sm mb-4">{member.role}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {member.bio}
-                    </p>
+                    <p className="text-accent text-xs md:text-sm">{member.role}</p>
                   </div>
                 </RevealOnScroll>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-lighter snap-start min-h-screen flex items-center">
-        <div className="container px-6 relative">
-          <RevealOnScroll>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 tracking-tight">
-                Interested in our work?
-              </h2>
-              <p className="text-muted-foreground text-lg mb-12 leading-relaxed">
-                We're always looking for talented people who want to make a real impact 
-                on global water infrastructure.
-              </p>
-              <Button asChild size="lg" className="bg-accent text-background hover:bg-accent/90 px-8">
-                <a href="mailto:careers@o-seal.com">
-                  Get in Touch
-                  <ArrowRight className="w-5 h-5 ml-3" />
-                </a>
-              </Button>
-            </div>
-          </RevealOnScroll>
+            {/* Vision statement - pitch deck style */}
+            <RevealOnScroll delay={400}>
+              <div className="mt-24 pt-16 border-t border-white/10">
+                <div className="max-w-3xl mx-auto text-center">
+                  <p className="text-muted-foreground text-lg md:text-xl leading-relaxed italic">
+                    "We're not just sealing pipes—we're sealing our commitment to 
+                    a future where no drop goes to waste."
+                  </p>
+                  <p className="text-accent text-sm mt-6">— The O-Seal Team</p>
+                </div>
+              </div>
+            </RevealOnScroll>
+          </div>
         </div>
       </section>
 
