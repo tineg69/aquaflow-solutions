@@ -24,7 +24,7 @@ const Technology = () => {
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">Technology</p>
+              <p className="text-sm tracking-[0.4em] uppercase text-accent/80 mb-10 font-medium">Technology</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
               <h1 className="font-display text-foreground mb-8 tracking-tight">
