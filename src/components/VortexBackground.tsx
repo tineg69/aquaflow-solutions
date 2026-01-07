@@ -43,11 +43,11 @@ export const VortexBackground = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
       const minRadius = 80; // Minimum ring radius - stays open
-      const maxRadius = Math.max(canvas.width, canvas.height) * 0.5;
+      const maxRadius = Math.max(canvas.width, canvas.height) * 0.8;
 
       for (let i = 0; i < particleCount; i++) {
         const angle = Math.random() * Math.PI * 2;
-        // Start particles distributed in a ring pattern
+        // Start particles distributed across the full area
         const radius = minRadius + Math.random() * (maxRadius - minRadius);
         
         particles.push({
@@ -58,7 +58,7 @@ export const VortexBackground = () => {
           speed: 0.002 + Math.random() * 0.004,
           size: 1 + Math.random() * 2,
           opacity: 0.3 + Math.random() * 0.7,
-          targetRadius: minRadius + Math.random() * 100, // Keep particles in outer ring
+          targetRadius: minRadius + Math.random() * (maxRadius - minRadius), // Spread to edges
           phase: Math.random() * Math.PI * 2,
         });
       }
