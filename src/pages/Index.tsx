@@ -10,11 +10,11 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
       <Navigation />
       
       {/* Hero Brand Section */}
-      <section className="min-h-screen flex items-start justify-center pt-32 md:pt-40 lg:pt-48 relative overflow-hidden section-dark">
+      <section className="min-h-screen flex items-start justify-center pt-32 md:pt-40 lg:pt-48 relative overflow-hidden section-dark snap-start">
         {/* Neural Network Background */}
         <NeuralNetwork />
         
@@ -24,7 +24,7 @@ const Index = () => {
       </section>
 
       {/* Hero - Problem Statement Above Fold */}
-      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden section-light">
+      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden section-light snap-start">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -88,7 +88,7 @@ const Index = () => {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-32 md:py-44 relative section-dark">
+      <section className="py-32 md:py-44 relative section-dark snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
@@ -135,7 +135,7 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-32 md:py-40 relative section-lighter">
+      <section className="py-32 md:py-40 relative section-lighter snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
@@ -165,7 +165,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-light">
+      <section className="py-40 md:py-52 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">

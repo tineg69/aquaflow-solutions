@@ -34,11 +34,11 @@ const teamMembers = [{
 
 const Team = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
       <Navigation />
       
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -59,7 +59,7 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section className="py-32 md:py-40 section-light">
+      <section className="py-32 md:py-40 section-light snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
@@ -94,7 +94,7 @@ const Team = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-lighter">
+      <section className="py-40 md:py-52 relative overflow-hidden section-lighter snap-start min-h-screen flex items-center">
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-2xl mx-auto text-center">

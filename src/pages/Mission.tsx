@@ -9,11 +9,11 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const Mission = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
         <VortexBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
@@ -37,7 +37,7 @@ const Mission = () => {
       </section>
 
       {/* The Problem */}
-      <section className="py-32 md:py-44 relative section-light">
+      <section className="py-32 md:py-44 relative section-light snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
@@ -75,7 +75,7 @@ const Mission = () => {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-32 md:py-40 relative section-lighter">
+      <section className="py-32 md:py-40 relative section-lighter snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
@@ -119,7 +119,7 @@ const Mission = () => {
       </section>
 
       {/* Our Goal */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-light">
+      <section className="py-40 md:py-52 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
@@ -151,7 +151,7 @@ const Mission = () => {
       </section>
 
       {/* Impact */}
-      <section className="py-32 md:py-40 relative section-dark">
+      <section className="py-32 md:py-40 relative section-dark snap-start min-h-screen flex items-center">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
