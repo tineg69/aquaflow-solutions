@@ -27,8 +27,10 @@ const Technology = () => {
               <p className="text-sm tracking-[0.4em] uppercase text-accent/80 mb-10 font-medium">Technology</p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-8 tracking-tight">
-                The O-Seal Device
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-8 tracking-tight">
+                <span className="text-accent">The O-Seal</span>
+                <br />
+                <span className="text-foreground">Device</span>
               </h1>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
