@@ -174,17 +174,15 @@ export const NeuralNetwork = () => {
         ctx.fill();
       });
 
-      // Draw nodes with wave motion
+      // Draw nodes (static, no pulse)
       nodesRef.current.forEach((node) => {
-        const pulse = Math.sin(time * 2 + node.phaseOffset) * 0.3 + 0.7;
-
         // Node glow
         const nodeGradient = ctx.createRadialGradient(
           node.x, node.y, 0,
           node.x, node.y, node.radius * 5
         );
-        nodeGradient.addColorStop(0, `rgba(56, 189, 248, ${0.8 * pulse})`);
-        nodeGradient.addColorStop(0.3, `rgba(14, 165, 233, ${0.4 * pulse})`);
+        nodeGradient.addColorStop(0, 'rgba(56, 189, 248, 0.7)');
+        nodeGradient.addColorStop(0.3, 'rgba(14, 165, 233, 0.35)');
         nodeGradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
 
         ctx.beginPath();
@@ -195,7 +193,7 @@ export const NeuralNetwork = () => {
         // Bright core
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(224, 242, 254, ${0.9 * pulse})`;
+        ctx.fillStyle = 'rgba(224, 242, 254, 0.85)';
         ctx.fill();
       });
 
