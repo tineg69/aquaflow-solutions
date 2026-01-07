@@ -158,6 +158,15 @@
   .section-lighter {
     background-color: hsl(210 16% 12%);
   }
+
+  /* Box backgrounds - Teal and Blue alternating */
+  .box-teal {
+    background-color: #40B5AD;
+  }
+
+  .box-blue {
+    background-color: #6495ED;
+  }
 }
 
 @layer utilities {

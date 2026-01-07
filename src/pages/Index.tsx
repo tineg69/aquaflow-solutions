@@ -99,26 +99,26 @@ const Index = () => {
                 { 
                   title: "No Excavation", 
                   desc: "O-Seal operates entirely inside live water systems. No digging, no street closures, no disruption.",
-                  bg: "section-light"
+                  bg: "box-teal"
                 },
                 { 
                   title: "Real-Time Repair", 
                   desc: "Autonomous detection and sealing happens in minutes, not weeks. Leaks are fixed as they're found.",
-                  bg: "section-lighter"
+                  bg: "box-blue"
                 },
                 { 
                   title: "Scalable Deploy", 
                   desc: "Lightweight capsules can be deployed in swarms, covering complex pipe networks efficiently.",
-                  bg: "section-light"
+                  bg: "box-teal"
                 },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
                   <div className={`${item.bg} p-8 md:p-10 rounded-lg text-center h-full`}>
-                    <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                      <span className="font-display text-lg text-accent">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+                      <span className="font-display text-lg text-white">{String(i + 1).padStart(2, '0')}</span>
                     </div>
-                    <h3 className="font-display text-xl text-foreground mb-4 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-white mb-4 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
@@ -137,17 +137,17 @@ const Index = () => {
             
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { value: "126B", unit: "m³", label: "Water lost annually", bg: "section-light" },
-                { value: "$39B", unit: "", label: "Economic damage", bg: "section-dark" },
-                { value: "30", unit: "%", label: "Water lost in aging systems", bg: "section-dark" },
-                { value: "2", unit: "min", label: "US main break frequency", bg: "section-light" },
+                { value: "126B", unit: "m³", label: "Water lost annually", bg: "box-teal" },
+                { value: "$39B", unit: "", label: "Economic damage", bg: "box-blue" },
+                { value: "30", unit: "%", label: "Water lost in aging systems", bg: "box-blue" },
+                { value: "2", unit: "min", label: "US main break frequency", bg: "box-teal" },
               ].map((stat, i) => (
                 <RevealOnScroll key={stat.label} delay={i * 75}>
                   <div className={`${stat.bg} p-6 md:p-8 rounded-lg text-center`}>
-                    <p className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-3 tracking-tight">
-                      {stat.value}<span className="text-accent">{stat.unit}</span>
+                    <p className="font-display text-3xl md:text-4xl lg:text-5xl text-white mb-3 tracking-tight">
+                      {stat.value}<span className="text-white/80">{stat.unit}</span>
                     </p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-sm text-white/80">{stat.label}</p>
                   </div>
                 </RevealOnScroll>
               ))}
