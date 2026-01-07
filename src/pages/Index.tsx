@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import deviceModel from "@/assets/device-model.png";
 import { NeuralNetwork } from "@/components/NeuralNetwork";
+import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
 
       {/* Hero - Problem Statement Above Fold */}
       <section className="min-h-screen flex items-center pt-16 relative overflow-hidden section-light">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left - Problem & Solution */}
@@ -87,6 +89,7 @@ const Index = () => {
 
       {/* Value Proposition */}
       <section className="py-32 md:py-44 relative section-dark">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>
@@ -133,6 +136,7 @@ const Index = () => {
 
       {/* Stats */}
       <section className="py-32 md:py-40 relative section-lighter">
+        <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
             <RevealOnScroll>

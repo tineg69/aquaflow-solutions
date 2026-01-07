@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import deviceModel from "@/assets/device-model.png";
+import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const steps = [
   {
@@ -64,6 +65,7 @@ const HowItWorks = () => {
 
       {/* Demo Video Section - Refined */}
       <section className="py-20 md:py-28 relative section-light">
+        <NeuralWaveBackground />
         <div className="container px-6">
           <RevealOnScroll direction="scale">
             <div className="max-w-5xl mx-auto">
@@ -86,6 +88,7 @@ const HowItWorks = () => {
 
       {/* Step-by-Step Process - Cinematic Redesign */}
       <section className="py-32 md:py-44 relative overflow-hidden section-lighter">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             {/* Section Title - Commanding */}
@@ -150,6 +153,7 @@ const HowItWorks = () => {
 
       {/* Visual Diagram - Elevated */}
       <section className="py-32 md:py-44 relative overflow-hidden section-light">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>
             <div className="max-w-3xl mx-auto text-center mb-20">
