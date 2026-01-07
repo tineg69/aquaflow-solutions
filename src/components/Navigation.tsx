@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import oSealLogo from "@/assets/o-seal-logo-clean.png";
+import oSealLogo from "@/assets/o-seal-logo-transparent.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -28,7 +28,7 @@ export const Navigation = () => {
             <img 
               src={oSealLogo} 
               alt="O-Seal" 
-              className="h-10 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
             <div className="hidden sm:flex flex-col items-start">
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-light">by CurrentEvents</span>
