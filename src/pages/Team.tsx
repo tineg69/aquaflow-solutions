@@ -9,10 +9,10 @@ const teamMembers = [{
   bio: "Former MIT water systems researcher with 15+ years in infrastructure innovation. Led development of autonomous monitoring systems for municipal utilities.",
   initials: "TG"
 }, {
-  name: "Marcus Rodriguez",
+  name: "Maneesh Vaddi",
   role: "CTO & Co-Founder",
   bio: "Robotics engineer specializing in autonomous systems and embedded sensor technology. Previously developed underwater inspection drones for offshore infrastructure.",
-  initials: "MR"
+  initials: "MV"
 }, {
   name: "Dhruv Miriyala",
   role: "Head of R&D",
