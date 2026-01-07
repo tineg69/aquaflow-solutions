@@ -204,11 +204,11 @@ const HowItWorks = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
                   <div className={`${item.bg} p-8 rounded-lg text-center group`}>
-                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
-                      <span className="font-display text-xl text-white">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="w-16 h-16 rounded-full bg-sky-300/20 flex items-center justify-center mx-auto mb-6">
+                      <span className="font-display text-xl text-sky-200">{String(i + 1).padStart(2, '0')}</span>
                     </div>
-                    <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-sky-200 mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-sky-100/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
