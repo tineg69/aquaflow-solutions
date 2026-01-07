@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import oSealLogo from "@/assets/o-seal-logo-transparent.png";
-import currentEventsLogo from "@/assets/currentevents-logo.png";
+import currentEventsLogo from "@/assets/currentevents-final.png";
+import oSealLogo from "@/assets/o-seal-final.png";
 
 const links = [
   { name: "Home", path: "/" },
@@ -19,14 +19,22 @@ export const Footer = () => {
           <div className="max-w-sm">
             <Link to="/" className="inline-flex items-center gap-3 mb-5">
               <img 
-                src={oSealLogo} 
-                alt="O-Seal" 
+                src={currentEventsLogo} 
+                alt="CurrentEvents" 
                 className="h-16 w-auto object-contain"
               />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Autonomous leak-sealing technology for resilient water infrastructure.
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              Engineering solutions for tomorrow's infrastructure challenges.
             </p>
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-muted-foreground/60">Our Product:</span>
+              <img 
+                src={oSealLogo} 
+                alt="O-Seal" 
+                className="h-8 w-auto object-contain opacity-80"
+              />
+            </div>
           </div>
 
           {/* Links */}
@@ -50,31 +58,19 @@ export const Footer = () => {
             <div>
               <p className="text-sm text-foreground mb-4">Contact</p>
               <a 
-                href="mailto:info@o-seal.com"
+                href="mailto:info@currentevents.team"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                info@o-seal.com
+                info@currentevents.team
               </a>
             </div>
           </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} O-Seal
-            </p>
-            <span className="text-muted-foreground/30">·</span>
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground/70">A</span>
-              <img 
-                src={currentEventsLogo} 
-                alt="CurrentEvents" 
-                className="h-5 w-auto object-contain opacity-80"
-              />
-              <span className="text-xs text-muted-foreground/70">Innovation</span>
-            </div>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} CurrentEvents
+          </p>
           <p className="text-sm text-muted-foreground">
             Engineering for resilience
           </p>
