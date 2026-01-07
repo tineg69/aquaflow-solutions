@@ -26,10 +26,10 @@ const teamMembers = [{
   bio: "20 years experience in municipal water infrastructure and pipeline system design. Former lead engineer at American Water Works.",
   initials: "HG"
 }, {
-  name: "Dr. Emily Zhang",
+  name: "Zoeb Izzi",
   role: "Lead Systems Engineer",
   bio: "Expert in distributed systems and swarm robotics. PhD from Stanford in autonomous multi-agent coordination.",
-  initials: "EZ"
+  initials: "ZI"
 }];
 
 const Team = () => {
