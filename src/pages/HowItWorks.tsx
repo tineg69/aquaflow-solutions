@@ -193,18 +193,18 @@ const HowItWorks = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "section-light" },
-                { title: "No Shutdown", desc: "Operates in live water systems", bg: "section-lighter" },
-                { title: "Real-Time", desc: "Detects and seals in minutes", bg: "section-light" },
-                { title: "Scalable", desc: "Swarm deployment for networks", bg: "section-lighter" },
+                { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-teal" },
+                { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-blue" },
+                { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-teal" },
+                { title: "Scalable", desc: "Swarm deployment for networks", bg: "box-blue" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
                   <div className={`${item.bg} p-8 rounded-lg text-center group`}>
-                    <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/15 transition-colors duration-500">
-                      <span className="font-display text-xl text-accent">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+                      <span className="font-display text-xl text-white">{String(i + 1).padStart(2, '0')}</span>
                     </div>
-                    <h3 className="font-display text-xl text-foreground mb-3 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
