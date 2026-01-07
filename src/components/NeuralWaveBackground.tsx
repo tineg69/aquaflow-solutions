@@ -85,12 +85,12 @@ export const NeuralWaveBackground = () => {
           }
         }
         
-        // Wave stroke style - grey color
-        ctx.strokeStyle = `rgba(140, 150, 160, ${wave.opacity})`;
-        ctx.lineWidth = 1;
+        // Wave stroke style - sky blue matching O-Seal logo
+        ctx.strokeStyle = `rgba(56, 189, 248, ${wave.opacity})`;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
         
-        // Add subtle glow effect with second stroke
+        // Add glow effect with gradient blue
         ctx.beginPath();
         for (let x = 0; x <= canvas.width; x += 2) {
           const y1 = Math.sin(x * wave.frequency + time * wave.speed + wave.phase) * currentAmplitude;
@@ -105,26 +105,10 @@ export const NeuralWaveBackground = () => {
             ctx.lineTo(x, y);
           }
         }
-        ctx.strokeStyle = `rgba(140, 150, 160, ${wave.opacity * 0.2})`;
-        ctx.lineWidth = 3;
+        ctx.strokeStyle = `rgba(14, 165, 233, ${wave.opacity * 0.4})`;
+        ctx.lineWidth = 4;
         ctx.stroke();
       });
-
-      // Draw connecting pulses between waves - grey
-      const pulseCount = 3;
-      for (let i = 0; i < pulseCount; i++) {
-        const pulseX = ((time * 80 + i * (canvas.width / pulseCount)) % (canvas.width + 100)) - 50;
-        const pulseOpacity = 0.06 * (1 - Math.abs(pulseX - canvas.width / 2) / (canvas.width / 2));
-        
-        if (pulseOpacity > 0.01) {
-          ctx.beginPath();
-          ctx.moveTo(pulseX, 0);
-          ctx.lineTo(pulseX, canvas.height);
-          ctx.strokeStyle = `rgba(140, 150, 160, ${pulseOpacity})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
