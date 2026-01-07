@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 const teamMembers = [{
   name: "Tanish Gottimukkula",
-  role: "CEO & Co-Founder",
+  role: "Head of Marketing",
   bio: "Former MIT water systems researcher with 15+ years in infrastructure innovation. Led development of autonomous monitoring systems for municipal utilities.",
   initials: "TG"
 }, {
