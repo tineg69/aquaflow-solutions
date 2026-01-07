@@ -1,20 +1,22 @@
 import { useRef, useState, Suspense, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Center, Environment } from '@react-three/drei';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
 import { Upload } from 'lucide-react';
 
-interface FBXModelProps {
+interface GLBModelProps {
   url: string;
 }
 
-const FBXModel = ({ url }: FBXModelProps) => {
+const GLBModel = ({ url }: GLBModelProps) => {
   const [model, setModel] = useState<THREE.Group | null>(null);
 
   useEffect(() => {
-    const loader = new FBXLoader();
-    loader.load(url, (object) => {
+    const loader = new GLTFLoader();
+    loader.load(url, (gltf) => {
+      const object = gltf.scene;
+      
       // Compute bounding box to center and scale the model
       const box = new THREE.Box3().setFromObject(object);
       const size = new THREE.Vector3();
@@ -28,17 +30,6 @@ const FBXModel = ({ url }: FBXModelProps) => {
 
       object.scale.set(scale, scale, scale);
       object.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
-
-      // Apply material to all meshes
-      object.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: '#38bdf8',
-            metalness: 0.3,
-            roughness: 0.4,
-          });
-        }
-      });
 
       setModel(object);
     });
@@ -61,7 +52,8 @@ export const STLViewer = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
-    if (file.name.toLowerCase().endsWith('.fbx')) {
+    const name = file.name.toLowerCase();
+    if (name.endsWith('.glb') || name.endsWith('.gltf')) {
       const url = URL.createObjectURL(file);
       setFileUrl(url);
     }
@@ -101,7 +93,7 @@ export const STLViewer = () => {
           <directionalLight position={[-10, -10, -5]} intensity={0.3} />
           <Suspense fallback={<LoadingPlaceholder />}>
             <Center>
-              <FBXModel url={fileUrl} />
+              <GLBModel url={fileUrl} />
             </Center>
           </Suspense>
           <OrbitControls 
@@ -126,7 +118,7 @@ export const STLViewer = () => {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".fbx"
+            accept=".glb,.gltf"
             className="hidden"
             onChange={handleFileInput}
           />
@@ -134,7 +126,7 @@ export const STLViewer = () => {
             <Upload className="w-8 h-8 text-accent" />
           </div>
           <p className="text-muted-foreground text-sm mb-2">
-            Drag & drop an FBX file here
+            Drag & drop a GLB/glTF file here
           </p>
           <p className="text-muted-foreground/60 text-xs">
             or click to browse
