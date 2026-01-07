@@ -22,7 +22,7 @@ const teamMembers = [{
   initials: "DM"
 }, {
   name: "Hatim Ghadiali",
-  role: "VP of Engineering",
+  role: "Chief Financial Officer",
   bio: "20 years experience in municipal water infrastructure and pipeline system design. Former lead engineer at American Water Works.",
   initials: "HG"
 }, {
