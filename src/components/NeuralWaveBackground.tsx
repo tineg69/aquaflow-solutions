@@ -37,12 +37,12 @@ export const NeuralWaveBackground = () => {
       
       for (let i = 0; i < waveCount; i++) {
         waves.push({
-          amplitude: 15 + Math.random() * 25,
-          frequency: 0.003 + Math.random() * 0.004,
-          speed: 0.02 + Math.random() * 0.03,
+          amplitude: 12 + Math.random() * 20,
+          frequency: 0.004 + Math.random() * 0.005,
+          speed: 0.04 + Math.random() * 0.05,
           phase: Math.random() * Math.PI * 2,
           yOffset: (canvas.height / (waveCount + 1)) * (i + 1),
-          opacity: 0.15 + Math.random() * 0.15,
+          opacity: 0.08 + Math.random() * 0.08,
         });
       }
       wavesRef.current = waves;
@@ -85,9 +85,9 @@ export const NeuralWaveBackground = () => {
           }
         }
         
-        // Wave stroke style
-        ctx.strokeStyle = `rgba(56, 189, 248, ${wave.opacity})`;
-        ctx.lineWidth = 1.5;
+        // Wave stroke style - grey color
+        ctx.strokeStyle = `rgba(140, 150, 160, ${wave.opacity})`;
+        ctx.lineWidth = 1;
         ctx.stroke();
         
         // Add subtle glow effect with second stroke
@@ -105,22 +105,22 @@ export const NeuralWaveBackground = () => {
             ctx.lineTo(x, y);
           }
         }
-        ctx.strokeStyle = `rgba(56, 189, 248, ${wave.opacity * 0.3})`;
-        ctx.lineWidth = 4;
+        ctx.strokeStyle = `rgba(140, 150, 160, ${wave.opacity * 0.2})`;
+        ctx.lineWidth = 3;
         ctx.stroke();
       });
 
-      // Draw connecting pulses between waves
+      // Draw connecting pulses between waves - grey
       const pulseCount = 3;
       for (let i = 0; i < pulseCount; i++) {
-        const pulseX = ((time * 50 + i * (canvas.width / pulseCount)) % (canvas.width + 100)) - 50;
-        const pulseOpacity = 0.1 * (1 - Math.abs(pulseX - canvas.width / 2) / (canvas.width / 2));
+        const pulseX = ((time * 80 + i * (canvas.width / pulseCount)) % (canvas.width + 100)) - 50;
+        const pulseOpacity = 0.06 * (1 - Math.abs(pulseX - canvas.width / 2) / (canvas.width / 2));
         
-        if (pulseOpacity > 0.02) {
+        if (pulseOpacity > 0.01) {
           ctx.beginPath();
           ctx.moveTo(pulseX, 0);
           ctx.lineTo(pulseX, canvas.height);
-          ctx.strokeStyle = `rgba(56, 189, 248, ${pulseOpacity})`;
+          ctx.strokeStyle = `rgba(140, 150, 160, ${pulseOpacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
