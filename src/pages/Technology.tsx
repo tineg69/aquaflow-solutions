@@ -5,13 +5,49 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import { TechGridBackground } from "@/components/TechGridBackground";
 import { STLViewer } from "@/components/STLViewer";
 import { OBJViewer } from "@/components/OBJViewer";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
 const specs = [
-  { label: "Diameter Range", value: "40–200mm", bg: "box-teal" },
-  { label: "Pressure Rating", value: "16 bar", bg: "box-blue" },
-  { label: "Seal Lifespan", value: "5+ years", bg: "box-teal" },
-  { label: "Detection Precision", value: "±2mm", bg: "box-blue" },
-  { label: "Communication", value: "Acoustic", bg: "box-teal" },
-  { label: "Power Source", value: "Flow harvesting", bg: "box-blue" },
+  { 
+    label: "Diameter Range", 
+    value: "40–200mm", 
+    bg: "box-teal",
+    description: "The O-Seal is designed to operate in pipes ranging from 40mm to 200mm in diameter. This covers the majority of municipal water distribution mains, allowing a single device design to address most urban water infrastructure without modification."
+  },
+  { 
+    label: "Pressure Rating", 
+    value: "16 bar", 
+    bg: "box-blue",
+    description: "The O-Seal can withstand operating pressures up to 16 bar (232 psi), which exceeds typical municipal water system pressures of 3-8 bar. This ensures the seal remains intact even during pressure surges or water hammer events."
+  },
+  { 
+    label: "Seal Lifespan", 
+    value: "5+ years", 
+    bg: "box-teal",
+    description: "Once deployed and anchored at a leak site, the O-Seal's inflatable torus and sealing materials are engineered to maintain their integrity for over 5 years, providing a long-term repair solution without requiring excavation or replacement."
+  },
+  { 
+    label: "Detection Precision", 
+    value: "±2mm", 
+    bg: "box-blue",
+    description: "The onboard pressure sensors can pinpoint leak locations with ±2mm accuracy. This precision ensures the O-Seal deploys its sealing mechanism at the exact fracture point, maximizing seal effectiveness and preventing water bypass."
+  },
+  { 
+    label: "Communication", 
+    value: "Acoustic", 
+    bg: "box-teal",
+    description: "O-Seal units communicate via underwater acoustic modems, enabling real-time coordination between multiple capsules. This allows swarm-like behavior for complex repairs and provides status updates to surface monitoring stations."
+  },
+  { 
+    label: "Power Source", 
+    value: "Flow harvesting", 
+    bg: "box-blue",
+    description: "The O-Seal generates power from the water flow itself using a micro-turbine system. This eliminates the need for batteries, enabling indefinite operation within the pipe network and reducing environmental impact."
+  },
 ];
 
 const Technology = () => {
@@ -136,12 +172,24 @@ const Technology = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {specs.map((spec, i) => (
                 <RevealOnScroll key={spec.label} delay={i * 50} className="h-full">
-                  <div className={`${spec.bg} p-8 rounded-lg h-full flex flex-col justify-center`}>
-                    <p className="font-display text-2xl md:text-3xl lg:text-4xl text-white mb-2 tracking-tight">
-                      {spec.value}
-                    </p>
-                    <p className="text-sm text-white/80">{spec.label}</p>
-                  </div>
+                  <HoverCard openDelay={100} closeDelay={100}>
+                    <HoverCardTrigger asChild>
+                      <div className={`${spec.bg} p-8 rounded-lg h-full flex flex-col justify-center cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}>
+                        <p className="font-display text-2xl md:text-3xl lg:text-4xl text-white mb-2 tracking-tight">
+                          {spec.value}
+                        </p>
+                        <p className="text-sm text-white/80">{spec.label}</p>
+                      </div>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-80 bg-background/95 backdrop-blur-sm border-accent/20" side="top">
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-semibold text-accent">{spec.label}</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {spec.description}
+                        </p>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
                 </RevealOnScroll>
               ))}
             </div>
