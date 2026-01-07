@@ -45,8 +45,10 @@ const LoadingPlaceholder = () => (
   </mesh>
 );
 
+const DEFAULT_MODEL_URL = '/models/Iris_-_Full.fbx';
+
 export const STLViewer = () => {
-  const [fileUrl, setFileUrl] = useState<string | null>(null);
+  const [fileUrl, setFileUrl] = useState<string>(DEFAULT_MODEL_URL);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -84,53 +86,24 @@ export const STLViewer = () => {
 
   return (
     <div className="w-full aspect-[16/10] md:aspect-[2/1] rounded-xl overflow-hidden bg-gradient-to-br from-muted/80 to-muted/40 border border-border/20">
-      {fileUrl ? (
-        <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <directionalLight position={[-10, -10, -5]} intensity={0.3} />
-          <Suspense fallback={<LoadingPlaceholder />}>
-            <Center>
-              <FBXModel url={fileUrl} />
-            </Center>
-          </Suspense>
-          <OrbitControls 
-            enablePan={true} 
-            enableZoom={true} 
-            enableRotate={true}
-            autoRotate
-            autoRotateSpeed={1}
-          />
-          <Environment preset="studio" />
-        </Canvas>
-      ) : (
-        <div
-          className={`w-full h-full flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
-            isDragging ? 'bg-accent/10 border-accent' : ''
-          }`}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onClick={handleClick}
-        >
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".fbx"
-            className="hidden"
-            onChange={handleFileInput}
-          />
-          <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mb-6">
-            <Upload className="w-8 h-8 text-accent" />
-          </div>
-          <p className="text-muted-foreground text-sm mb-2">
-            Drag & drop an FBX file here
-          </p>
-          <p className="text-muted-foreground/60 text-xs">
-            or click to browse
-          </p>
-        </div>
-      )}
+      <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <directionalLight position={[-10, -10, -5]} intensity={0.3} />
+        <Suspense fallback={<LoadingPlaceholder />}>
+          <Center>
+            <FBXModel url={fileUrl} />
+          </Center>
+        </Suspense>
+        <OrbitControls 
+          enablePan={true} 
+          enableZoom={true} 
+          enableRotate={true}
+          autoRotate
+          autoRotateSpeed={1}
+        />
+        <Environment preset="studio" />
+      </Canvas>
     </div>
   );
 };
