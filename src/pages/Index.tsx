@@ -11,8 +11,13 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Blank Section */}
-      <section className="min-h-screen" />
+      {/* Hero Brand Section */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.02] via-transparent to-transparent pointer-events-none" />
+        <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none italic">
+          O-Seal
+        </h1>
+      </section>
 
       {/* Hero - Problem Statement Above Fold */}
       <section className="min-h-screen flex items-center pt-16 relative overflow-hidden">
