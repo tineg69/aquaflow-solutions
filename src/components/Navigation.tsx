@@ -22,12 +22,9 @@ export const Navigation = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-2.5"
+            className="flex items-center"
           >
-            <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center">
-              <span className="font-display font-semibold text-background text-sm">O</span>
-            </div>
-            <span className="font-display font-medium text-foreground text-lg">O-Seal</span>
+            <span className="font-display font-semibold text-foreground text-xl">O-Seal</span>
           </Link>
 
           {/* Desktop Navigation */}
