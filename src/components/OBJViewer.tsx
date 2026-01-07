@@ -1,45 +1,41 @@
-import { useRef, useState, Suspense } from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
+import { useRef, useState, Suspense, useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Center, Environment } from '@react-three/drei';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import * as THREE from 'three';
 import { Upload } from 'lucide-react';
 
-interface OBJModelProps {
+interface FBXModelProps {
   url: string;
 }
 
-const OBJModel = ({ url }: OBJModelProps) => {
-  const obj = useLoader(OBJLoader, url);
-  const groupRef = useRef<THREE.Group>(null);
+const FBXModel = ({ url }: FBXModelProps) => {
+  const [model, setModel] = useState<THREE.Group | null>(null);
 
-  // Compute bounding box to center and scale the model
-  const box = new THREE.Box3().setFromObject(obj);
-  const size = new THREE.Vector3();
-  box.getSize(size);
-  const maxDim = Math.max(size.x, size.y, size.z);
-  const scale = 3 / maxDim;
+  useEffect(() => {
+    const loader = new FBXLoader();
+    loader.load(url, (object) => {
+      // Compute bounding box to center and scale the model
+      const box = new THREE.Box3().setFromObject(object);
+      const size = new THREE.Vector3();
+      box.getSize(size);
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const scale = 3 / maxDim;
 
-  // Center the model
-  const center = new THREE.Vector3();
-  box.getCenter(center);
+      // Center the model
+      const center = new THREE.Vector3();
+      box.getCenter(center);
 
-  // Apply material to all meshes
-  obj.traverse((child) => {
-    if (child instanceof THREE.Mesh) {
-      child.material = new THREE.MeshStandardMaterial({
-        color: '#38bdf8',
-        metalness: 0.3,
-        roughness: 0.4,
-      });
-    }
-  });
+      object.scale.set(scale, scale, scale);
+      object.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
 
-  return (
-    <group ref={groupRef} scale={[scale, scale, scale]} position={[-center.x * scale, -center.y * scale, -center.z * scale]}>
-      <primitive object={obj} />
-    </group>
-  );
+      // Preserve original materials/colors from FBX file
+      setModel(object);
+    });
+  }, [url]);
+
+  if (!model) return null;
+  return <primitive object={model} />;
 };
 
 const LoadingPlaceholder = () => (
@@ -50,14 +46,14 @@ const LoadingPlaceholder = () => (
 );
 
 export const OBJViewer = () => {
-  const [objUrl, setObjUrl] = useState<string | null>(null);
+  const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
-    if (file.name.toLowerCase().endsWith('.obj')) {
+    if (file.name.toLowerCase().endsWith('.fbx')) {
       const url = URL.createObjectURL(file);
-      setObjUrl(url);
+      setFileUrl(url);
     }
   };
 
@@ -88,14 +84,14 @@ export const OBJViewer = () => {
 
   return (
     <div className="w-full aspect-[16/10] md:aspect-[2/1] rounded-xl overflow-hidden bg-gradient-to-br from-muted/80 to-muted/40 border border-border/20">
-      {objUrl ? (
+      {fileUrl ? (
         <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <directionalLight position={[-10, -10, -5]} intensity={0.3} />
           <Suspense fallback={<LoadingPlaceholder />}>
             <Center>
-              <OBJModel url={objUrl} />
+              <FBXModel url={fileUrl} />
             </Center>
           </Suspense>
           <OrbitControls 
@@ -120,7 +116,7 @@ export const OBJViewer = () => {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".obj"
+            accept=".fbx"
             className="hidden"
             onChange={handleFileInput}
           />
@@ -128,7 +124,7 @@ export const OBJViewer = () => {
             <Upload className="w-8 h-8 text-accent" />
           </div>
           <p className="text-muted-foreground text-sm mb-2">
-            Drag & drop an OBJ file here
+            Drag & drop an FBX file here
           </p>
           <p className="text-muted-foreground/60 text-xs">
             or click to browse
