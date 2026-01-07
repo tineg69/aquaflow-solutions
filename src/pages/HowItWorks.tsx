@@ -26,7 +26,7 @@ const steps = [
   {
     number: "04",
     title: "Sealing",
-    description: "Upon detection, the inflatable outer torus expands to press against the pipe wall. The ridged membrane conforms to surface irregularities, creating a watertight seal.",
+    description: "Upon detection, the iris mechanism expands outward to anchor the capsule in place within the pipe. This stops flow at the fracture point and creates a secure seal against the pipe wall.",
   },
   {
     number: "05",
