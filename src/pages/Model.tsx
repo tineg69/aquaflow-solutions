@@ -65,13 +65,14 @@ const Model = () => {
       {/* CAD Visualization - Gallery Style */}
       <section className="py-24 md:py-32">
         <div className="container px-6">
-          <RevealOnScroll>
+          <RevealOnScroll direction="left">
             <div className="max-w-4xl mx-auto">
-              <div className="aspect-square md:aspect-[4/3] flex items-center justify-center">
+              <div className="aspect-square md:aspect-[4/3] flex items-center justify-center relative">
+                <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-3xl" />
                 <img
                   src={deviceModel}
                   alt="O-Seal Device Model"
-                  className="max-w-full max-h-full object-contain animate-float-gentle"
+                  className="relative max-w-full max-h-full object-contain animate-float-gentle drop-shadow-2xl"
                 />
               </div>
             </div>

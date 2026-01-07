@@ -6,7 +6,7 @@ interface RevealOnScrollProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  direction?: "up" | "right";
+  direction?: "up" | "right" | "left" | "scale";
 }
 
 export const RevealOnScroll = ({ 
@@ -15,21 +15,27 @@ export const RevealOnScroll = ({
   delay = 0,
   direction = "up",
 }: RevealOnScrollProps) => {
-  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1, triggerOnce: false });
+
+  const getTransform = () => {
+    if (isVisible) return "opacity-100 translate-y-0 translate-x-0 scale-100";
+    switch (direction) {
+      case "right": return "opacity-0 translate-x-12";
+      case "left": return "opacity-0 -translate-x-12";
+      case "scale": return "opacity-0 scale-95";
+      default: return "opacity-0 translate-y-8";
+    }
+  };
 
   return (
     <div 
       ref={ref}
       className={cn(
         "transition-all duration-700 ease-out",
-        isVisible 
-          ? "opacity-100 translate-y-0 translate-x-0" 
-          : direction === "right"
-            ? "opacity-0 translate-x-8"
-            : "opacity-0 translate-y-6",
+        getTransform(),
         className
       )}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: isVisible ? `${delay}ms` : "0ms" }}
     >
       {children}
     </div>
