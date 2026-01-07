@@ -21,7 +21,6 @@ const Technology = () => {
 
       {/* Hero */}
       <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
-        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -44,7 +43,6 @@ const Technology = () => {
 
       {/* Primary CAD Visualization */}
       <section className="py-20 md:py-28 relative section-light snap-start min-h-screen flex items-center">
-        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll direction="left">
             <div className="max-w-6xl mx-auto">
