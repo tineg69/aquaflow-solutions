@@ -1,40 +1,51 @@
-import { useRef, useState, Suspense } from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
+import { useRef, useState, Suspense, useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Center, Environment } from '@react-three/drei';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { ThreeMFLoader } from 'three/examples/jsm/loaders/3MFLoader.js';
 import * as THREE from 'three';
 import { Upload } from 'lucide-react';
 
-interface STLModelProps {
+interface ThreeMFModelProps {
   url: string;
 }
 
-const STLModel = ({ url }: STLModelProps) => {
-  const geometry = useLoader(STLLoader, url);
-  const meshRef = useRef<THREE.Mesh>(null);
+const ThreeMFModel = ({ url }: ThreeMFModelProps) => {
+  const [model, setModel] = useState<THREE.Group | null>(null);
 
-  // Compute bounding box to center and scale the model
-  geometry.computeBoundingBox();
-  const boundingBox = geometry.boundingBox;
-  
-  if (boundingBox) {
-    const size = new THREE.Vector3();
-    boundingBox.getSize(size);
-    const maxDim = Math.max(size.x, size.y, size.z);
-    const scale = 3 / maxDim; // Scale to fit nicely in view
-    geometry.scale(scale, scale, scale);
-    geometry.center();
-  }
+  useEffect(() => {
+    const loader = new ThreeMFLoader();
+    loader.load(url, (object) => {
+      // Compute bounding box to center and scale the model
+      const box = new THREE.Box3().setFromObject(object);
+      const size = new THREE.Vector3();
+      box.getSize(size);
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const scale = 3 / maxDim;
 
-  return (
-    <mesh ref={meshRef} geometry={geometry}>
-      <meshStandardMaterial 
-        color="#38bdf8" 
-        metalness={0.3} 
-        roughness={0.4}
-      />
-    </mesh>
-  );
+      // Center the model
+      const center = new THREE.Vector3();
+      box.getCenter(center);
+
+      object.scale.set(scale, scale, scale);
+      object.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
+
+      // Apply material to all meshes
+      object.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: '#38bdf8',
+            metalness: 0.3,
+            roughness: 0.4,
+          });
+        }
+      });
+
+      setModel(object);
+    });
+  }, [url]);
+
+  if (!model) return null;
+  return <primitive object={model} />;
 };
 
 const LoadingPlaceholder = () => (
@@ -45,14 +56,14 @@ const LoadingPlaceholder = () => (
 );
 
 export const STLViewer = () => {
-  const [stlUrl, setStlUrl] = useState<string | null>(null);
+  const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
-    if (file.name.toLowerCase().endsWith('.stl')) {
+    if (file.name.toLowerCase().endsWith('.3mf')) {
       const url = URL.createObjectURL(file);
-      setStlUrl(url);
+      setFileUrl(url);
     }
   };
 
@@ -83,14 +94,14 @@ export const STLViewer = () => {
 
   return (
     <div className="w-full aspect-[16/10] md:aspect-[2/1] rounded-xl overflow-hidden bg-gradient-to-br from-muted/80 to-muted/40 border border-border/20">
-      {stlUrl ? (
+      {fileUrl ? (
         <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <directionalLight position={[-10, -10, -5]} intensity={0.3} />
           <Suspense fallback={<LoadingPlaceholder />}>
             <Center>
-              <STLModel url={stlUrl} />
+              <ThreeMFModel url={fileUrl} />
             </Center>
           </Suspense>
           <OrbitControls 
@@ -115,7 +126,7 @@ export const STLViewer = () => {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".stl"
+            accept=".3mf"
             className="hidden"
             onChange={handleFileInput}
           />
@@ -123,7 +134,7 @@ export const STLViewer = () => {
             <Upload className="w-8 h-8 text-accent" />
           </div>
           <p className="text-muted-foreground text-sm mb-2">
-            Drag & drop an STL file here
+            Drag & drop a 3MF file here
           </p>
           <p className="text-muted-foreground/60 text-xs">
             or click to browse
