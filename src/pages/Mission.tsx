@@ -106,8 +106,8 @@ const Mission = () => {
                   bg: "box-teal"
                 },
               ].map((item, i) => (
-                <RevealOnScroll key={item.title} delay={i * 100}>
-                  <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full`}>
+                <RevealOnScroll key={item.title} delay={i * 100} className="h-full">
+                  <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col`}>
                     <h3 className="font-display text-xl text-white mb-4 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
@@ -170,8 +170,8 @@ const Mission = () => {
                 { title: "Zero Disruption", desc: "No street closures, no service shutoffs, no weeks of construction.", bg: "box-blue" },
                 { title: "Scalable Solution", desc: "Swarm deployment enables rapid coverage of complex pipe networks.", bg: "box-teal" },
               ].map((item, i) => (
-                <RevealOnScroll key={item.title} delay={i * 75}>
-                  <div className={`${item.bg} p-8 md:p-10 rounded-lg`}>
+                <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
+                  <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col`}>
                     <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>

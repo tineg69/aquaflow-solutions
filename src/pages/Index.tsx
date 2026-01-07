@@ -119,8 +119,8 @@ const Index = () => {
                   bg: "box-teal"
                 },
               ].map((item, i) => (
-                <RevealOnScroll key={item.title} delay={i * 100}>
-                  <div className={`${item.bg} p-8 md:p-10 rounded-lg text-center h-full`}>
+                <RevealOnScroll key={item.title} delay={i * 100} className="h-full">
+                  <div className={`${item.bg} p-8 rounded-lg text-center h-full flex flex-col justify-start`}>
                     <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
                       <span className="font-display text-lg text-white">{String(i + 1).padStart(2, '0')}</span>
                     </div>
@@ -150,8 +150,8 @@ const Index = () => {
                 { value: "30", unit: "%", label: "Water lost in aging systems", bg: "box-blue" },
                 { value: "2", unit: "min", label: "US main break frequency", bg: "box-teal" },
               ].map((stat, i) => (
-                <RevealOnScroll key={stat.label} delay={i * 75}>
-                  <div className={`${stat.bg} p-6 md:p-8 rounded-lg text-center`}>
+                <RevealOnScroll key={stat.label} delay={i * 75} className="h-full">
+                  <div className={`${stat.bg} p-8 rounded-lg text-center h-full flex flex-col justify-center`}>
                     <p className="font-display text-3xl md:text-4xl lg:text-5xl text-white mb-3 tracking-tight">
                       {stat.value}<span className="text-white/80">{stat.unit}</span>
                     </p>
