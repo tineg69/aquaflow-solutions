@@ -117,11 +117,11 @@ const Technology = () => {
             <div className="grid md:grid-cols-2 gap-4">
               {[
                 { title: "Rigid Inner Ring", desc: "Maintains open flow channel for normal water throughput while providing structural support for the capsule.", bg: "box-teal" },
-                { title: "Inflatable Outer Torus", desc: "Flexible membrane with ridged surface that expands to conform and seal against irregular pipe wall surfaces.", bg: "box-blue" },
+                { title: "Flexible Outer Shell", desc: "Durable polymer housing that protects internal components and allows the capsule to navigate through pipe bends and junctions.", bg: "box-blue" },
                 { title: "Pressure Sensors", desc: "Miniaturized sensors continuously monitor local pressure differentials to detect leak signatures with ±2mm precision.", bg: "box-blue" },
                 { title: "Acoustic Communication", desc: "Short-range underwater modems enable real-time coordination between multiple units for complex repairs.", bg: "box-teal" },
-                { title: "Autonomous Control", desc: "Onboard microcontroller regulates inflation timing, propulsion, and navigation decisions independently.", bg: "box-teal" },
-                { title: "Iris Design", desc: "When a fracture is detected, the iris mechanism expands outward to anchor the capsule in place, stopping flow and sealing the fracture.", bg: "box-blue" },
+                { title: "Autonomous Control", desc: "Onboard microcontroller regulates navigation, sensor processing, and iris deployment decisions independently.", bg: "box-teal" },
+                { title: "Iris Mechanism", desc: "When a fracture is detected, the iris expands outward to anchor the capsule against the pipe wall, stopping flow and creating a permanent seal at the leak site.", bg: "box-blue" },
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
                   <div className={`${item.bg} p-8 rounded-lg h-full flex flex-col`}>
