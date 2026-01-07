@@ -78,8 +78,8 @@ const Technology = () => {
                 { title: "Autonomous Control", desc: "Onboard microcontroller regulates inflation timing, propulsion, and navigation decisions independently.", bg: "box-teal" },
                 { title: "Flow Harvesting", desc: "Integrated turbine converts water flow into electrical power, enabling indefinite operation without batteries.", bg: "box-blue" },
               ].map((item, i) => (
-                <RevealOnScroll key={item.title} delay={i * 75}>
-                  <div className={`${item.bg} p-8 md:p-10 rounded-lg`}>
+                <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
+                  <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full flex flex-col`}>
                     <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
                     <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
