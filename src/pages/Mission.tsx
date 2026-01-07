@@ -108,8 +108,8 @@ const Mission = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
                   <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full`}>
-                    <h3 className="font-display text-xl text-white mb-4 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-sky-200 mb-4 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-sky-100/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
@@ -172,8 +172,8 @@ const Mission = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75}>
                   <div className={`${item.bg} p-8 md:p-10 rounded-lg`}>
-                    <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-sky-200 mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-sky-100/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
