@@ -122,29 +122,6 @@ export const TechGridBackground = () => {
         }
       }
       
-      // Draw nodes at intersection points
-      intersections.forEach(({ x, y, distFromCenter, row, col }) => {
-        const brightness = Math.sin(time * 2.5 + row * 0.4 + col * 0.25) * 0.3 + 0.5;
-        const nodeOpacity = Math.max(0.15, (1 - distFromCenter) * brightness * 0.7);
-        const nodeSize = Math.max(1.5, (1 - distFromCenter * 0.5) * 2.5);
-        
-        // Glow
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, nodeSize * 4);
-        gradient.addColorStop(0, `rgba(8, 143, 143, ${nodeOpacity * 0.6})`);
-        gradient.addColorStop(0.5, `rgba(8, 143, 143, ${nodeOpacity * 0.2})`);
-        gradient.addColorStop(1, 'rgba(8, 143, 143, 0)');
-        
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(x, y, nodeSize * 4, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Core dot
-        ctx.fillStyle = `rgba(8, 143, 143, ${nodeOpacity})`;
-        ctx.beginPath();
-        ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
-        ctx.fill();
-      });
       
       // Add traveling light pulses along grid lines
       for (let i = 0; i < 12; i++) {
