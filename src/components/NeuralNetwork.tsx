@@ -2,11 +2,12 @@ import { useEffect, useRef } from 'react';
 
 interface Node {
   x: number;
+  baseY: number;
   y: number;
-  vx: number;
-  vy: number;
   radius: number;
-  pulsePhase: number;
+  phaseOffset: number;
+  waveSpeed: number;
+  amplitude: number;
 }
 
 interface Connection {
@@ -14,7 +15,6 @@ interface Connection {
   to: number;
   flowProgress: number;
   flowSpeed: number;
-  active: boolean;
 }
 
 export const NeuralNetwork = () => {
@@ -37,43 +37,46 @@ export const NeuralNetwork = () => {
     };
 
     const initializeNetwork = () => {
-      const nodeCount = Math.floor((canvas.width * canvas.height) / 25000);
       nodesRef.current = [];
       connectionsRef.current = [];
 
-      // Create nodes
-      for (let i = 0; i < nodeCount; i++) {
-        nodesRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 2 + 1.5,
-          pulsePhase: Math.random() * Math.PI * 2,
-        });
+      const rows = 8;
+      const nodesPerRow = Math.floor(canvas.width / 80);
+      const rowHeight = canvas.height / (rows + 1);
+
+      // Create nodes in wave-like horizontal rows
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < nodesPerRow; col++) {
+          const xSpacing = canvas.width / nodesPerRow;
+          nodesRef.current.push({
+            x: col * xSpacing + xSpacing / 2 + (Math.random() - 0.5) * 30,
+            baseY: (row + 1) * rowHeight,
+            y: (row + 1) * rowHeight,
+            radius: Math.random() * 1.5 + 1,
+            phaseOffset: col * 0.3 + row * 0.5,
+            waveSpeed: 0.8 + Math.random() * 0.4,
+            amplitude: 20 + Math.random() * 15,
+          });
+        }
       }
 
-      // Create connections based on proximity
-      updateConnections();
-    };
-
-    const updateConnections = () => {
-      const maxDistance = 180;
-      connectionsRef.current = [];
-
+      // Create horizontal flowing connections
       for (let i = 0; i < nodesRef.current.length; i++) {
+        const node = nodesRef.current[i];
+        
+        // Connect to nearby nodes (prefer horizontal)
         for (let j = i + 1; j < nodesRef.current.length; j++) {
-          const dx = nodesRef.current[i].x - nodesRef.current[j].x;
-          const dy = nodesRef.current[i].y - nodesRef.current[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < maxDistance) {
+          const other = nodesRef.current[j];
+          const dx = Math.abs(node.x - other.x);
+          const dy = Math.abs(node.baseY - other.baseY);
+          
+          // Prefer horizontal connections, allow some vertical
+          if (dx < 120 && dy < 100 && (dx > dy * 0.5)) {
             connectionsRef.current.push({
               from: i,
               to: j,
               flowProgress: Math.random(),
-              flowSpeed: 0.002 + Math.random() * 0.003,
-              active: Math.random() > 0.6,
+              flowSpeed: 0.003 + Math.random() * 0.004,
             });
           }
         }
@@ -87,7 +90,36 @@ export const NeuralNetwork = () => {
 
       const time = Date.now() * 0.001;
 
-      // Update and draw connections
+      // Update node positions with wave motion
+      nodesRef.current.forEach((node) => {
+        node.y = node.baseY + Math.sin(time * node.waveSpeed + node.phaseOffset) * node.amplitude;
+      });
+
+      // Draw wave gradient layers in background
+      for (let layer = 0; layer < 3; layer++) {
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height);
+        
+        const layerOffset = layer * 0.8;
+        const layerAmplitude = 30 + layer * 20;
+        const layerY = canvas.height * (0.3 + layer * 0.2);
+        
+        for (let x = 0; x <= canvas.width; x += 10) {
+          const y = layerY + Math.sin((x * 0.005) + time * (0.5 + layer * 0.2) + layerOffset) * layerAmplitude;
+          ctx.lineTo(x, y);
+        }
+        
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.closePath();
+        
+        const gradient = ctx.createLinearGradient(0, layerY - 50, 0, canvas.height);
+        gradient.addColorStop(0, `rgba(56, 189, 248, ${0.03 - layer * 0.008})`);
+        gradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      }
+
+      // Draw connections with flowing effect
       connectionsRef.current.forEach((conn) => {
         const fromNode = nodesRef.current[conn.from];
         const toNode = nodesRef.current[conn.to];
@@ -97,92 +129,75 @@ export const NeuralNetwork = () => {
         const dx = toNode.x - fromNode.x;
         const dy = toNode.y - fromNode.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const opacity = Math.max(0, 1 - distance / 180) * 0.4;
+        const opacity = Math.max(0, 1 - distance / 150) * 0.5;
 
-        // Draw base connection line
+        // Draw curved connection line
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
-        ctx.lineTo(toNode.x, toNode.y);
-        ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.3})`;
-        ctx.lineWidth = 0.5;
+        
+        // Create wave-like curve between nodes
+        const midX = (fromNode.x + toNode.x) / 2;
+        const midY = (fromNode.y + toNode.y) / 2 + Math.sin(time * 2 + conn.flowProgress * 10) * 10;
+        ctx.quadraticCurveTo(midX, midY, toNode.x, toNode.y);
+        
+        ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.4})`;
+        ctx.lineWidth = 0.8;
         ctx.stroke();
 
-        // Draw flowing particle along connection
-        if (conn.active) {
-          conn.flowProgress += conn.flowSpeed;
-          if (conn.flowProgress > 1) {
-            conn.flowProgress = 0;
-            conn.active = Math.random() > 0.3;
-          }
+        // Flowing particle
+        conn.flowProgress += conn.flowSpeed;
+        if (conn.flowProgress > 1) conn.flowProgress = 0;
 
-          const particleX = fromNode.x + dx * conn.flowProgress;
-          const particleY = fromNode.y + dy * conn.flowProgress;
+        // Calculate position along curve
+        const t = conn.flowProgress;
+        const particleX = (1 - t) * (1 - t) * fromNode.x + 2 * (1 - t) * t * midX + t * t * toNode.x;
+        const particleY = (1 - t) * (1 - t) * fromNode.y + 2 * (1 - t) * t * midY + t * t * toNode.y;
 
-          // Phosphorescent glow effect
-          const gradient = ctx.createRadialGradient(
-            particleX, particleY, 0,
-            particleX, particleY, 8
-          );
-          gradient.addColorStop(0, `rgba(56, 189, 248, ${opacity * 1.5})`);
-          gradient.addColorStop(0.5, `rgba(14, 165, 233, ${opacity * 0.8})`);
-          gradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
+        // Phosphorescent glow
+        const glowGradient = ctx.createRadialGradient(
+          particleX, particleY, 0,
+          particleX, particleY, 12
+        );
+        glowGradient.addColorStop(0, `rgba(56, 189, 248, ${opacity * 1.2})`);
+        glowGradient.addColorStop(0.4, `rgba(14, 165, 233, ${opacity * 0.6})`);
+        glowGradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
 
-          ctx.beginPath();
-          ctx.arc(particleX, particleY, 8, 0, Math.PI * 2);
-          ctx.fillStyle = gradient;
-          ctx.fill();
+        ctx.beginPath();
+        ctx.arc(particleX, particleY, 12, 0, Math.PI * 2);
+        ctx.fillStyle = glowGradient;
+        ctx.fill();
 
-          // Bright core
-          ctx.beginPath();
-          ctx.arc(particleX, particleY, 2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(224, 242, 254, ${opacity * 2})`;
-          ctx.fill();
-        }
+        // Bright core
+        ctx.beginPath();
+        ctx.arc(particleX, particleY, 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(224, 242, 254, ${opacity * 1.5})`;
+        ctx.fill();
       });
 
-      // Update and draw nodes
+      // Draw nodes with wave motion
       nodesRef.current.forEach((node) => {
-        // Move nodes gently
-        node.x += node.vx;
-        node.y += node.vy;
+        const pulse = Math.sin(time * 2 + node.phaseOffset) * 0.3 + 0.7;
 
-        // Bounce off edges
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
-
-        // Keep in bounds
-        node.x = Math.max(0, Math.min(canvas.width, node.x));
-        node.y = Math.max(0, Math.min(canvas.height, node.y));
-
-        // Pulsing effect
-        const pulse = Math.sin(time * 2 + node.pulsePhase) * 0.3 + 0.7;
-
-        // Draw node with phosphorescent glow
+        // Node glow
         const nodeGradient = ctx.createRadialGradient(
           node.x, node.y, 0,
-          node.x, node.y, node.radius * 4
+          node.x, node.y, node.radius * 5
         );
-        nodeGradient.addColorStop(0, `rgba(56, 189, 248, ${0.9 * pulse})`);
-        nodeGradient.addColorStop(0.3, `rgba(14, 165, 233, ${0.5 * pulse})`);
-        nodeGradient.addColorStop(0.6, `rgba(2, 132, 199, ${0.2 * pulse})`);
+        nodeGradient.addColorStop(0, `rgba(56, 189, 248, ${0.8 * pulse})`);
+        nodeGradient.addColorStop(0.3, `rgba(14, 165, 233, ${0.4 * pulse})`);
         nodeGradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
 
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius * 4, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, node.radius * 5, 0, Math.PI * 2);
         ctx.fillStyle = nodeGradient;
         ctx.fill();
 
         // Bright core
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(224, 242, 254, ${0.95 * pulse})`;
+        ctx.fillStyle = `rgba(224, 242, 254, ${0.9 * pulse})`;
         ctx.fill();
       });
-
-      // Periodically update connections
-      if (Math.random() < 0.01) {
-        updateConnections();
-      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -203,7 +218,7 @@ export const NeuralNetwork = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.7 }}
     />
   );
 };
