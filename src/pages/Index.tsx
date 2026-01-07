@@ -116,7 +116,7 @@ const Index = () => {
       <section className="py-32 md:py-48">
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
-            <RevealOnScroll>
+            <RevealOnScroll direction="scale">
               <div className="text-center mb-16 md:mb-24">
                 <p className="text-sm tracking-widest uppercase text-accent mb-6">The Solution</p>
                 <h2 className="font-display text-foreground max-w-2xl mx-auto">
@@ -125,12 +125,13 @@ const Index = () => {
               </div>
             </RevealOnScroll>
             
-            <RevealOnScroll delay={150}>
+            <RevealOnScroll direction="left" delay={150}>
               <div className="relative aspect-[16/10] md:aspect-[2/1] flex items-center justify-center">
+                <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-3xl" />
                 <img
                   src={deviceModel}
                   alt="O-Seal Device"
-                  className="max-w-full max-h-full object-contain animate-float-gentle"
+                  className="relative max-w-full max-h-full object-contain animate-float-gentle drop-shadow-2xl"
                 />
               </div>
             </RevealOnScroll>
