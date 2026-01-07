@@ -83,8 +83,8 @@ const Technology = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75} className="h-full">
                   <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full flex flex-col`}>
-                    <h3 className="font-display text-xl text-sky-200 mb-3 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-sky-100/80 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
@@ -128,10 +128,10 @@ const Technology = () => {
               {specs.map((spec, i) => (
                 <RevealOnScroll key={spec.label} delay={i * 50}>
                   <div className={`${spec.bg} p-6 md:p-8 rounded-lg`}>
-                    <p className="font-display text-2xl md:text-3xl lg:text-4xl text-sky-200 mb-2 tracking-tight">
+                    <p className="font-display text-2xl md:text-3xl lg:text-4xl text-white mb-2 tracking-tight">
                       {spec.value}
                     </p>
-                    <p className="text-sm text-sky-100/80">{spec.label}</p>
+                    <p className="text-sm text-white/80">{spec.label}</p>
                   </div>
                 </RevealOnScroll>
               ))}

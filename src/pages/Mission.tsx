@@ -55,17 +55,17 @@ const Mission = () => {
                 <div className="space-y-8">
                   <p className="text-muted-foreground leading-relaxed text-lg">
                     Beneath every city lies an aging network of water pipes — many over 50 years old, 
-                    quietly deteriorating. The result: <span className="text-foreground font-medium">126 billion cubic meters</span> of 
+                    quietly deteriorating. The result: <span className="text-teal-400 font-medium">126 billion cubic meters</span> of 
                     treated water lost every year.
                   </p>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    That's enough water to supply <span className="text-foreground font-medium">2 billion people</span>. 
+                    That's enough water to supply <span className="text-teal-400 font-medium">2 billion people</span>. 
                     Instead, it seeps into the ground while communities face shortages, utilities lose revenue, 
                     and infrastructure continues to decay.
                   </p>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    In the United States alone, a water main breaks <span className="text-foreground font-medium">every two minutes</span>. 
-                    Globally, the economic toll exceeds <span className="text-foreground font-medium">$39 billion annually</span>.
+                    In the United States alone, a water main breaks <span className="text-teal-400 font-medium">every two minutes</span>. 
+                    Globally, the economic toll exceeds <span className="text-teal-400 font-medium">$39 billion annually</span>.
                   </p>
                 </div>
               </RevealOnScroll>
@@ -108,8 +108,8 @@ const Mission = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 100}>
                   <div className={`${item.bg} p-8 md:p-10 rounded-lg h-full`}>
-                    <h3 className="font-display text-xl text-sky-200 mb-4 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-sky-100/80 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-white mb-4 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
@@ -172,8 +172,8 @@ const Mission = () => {
               ].map((item, i) => (
                 <RevealOnScroll key={item.title} delay={i * 75}>
                   <div className={`${item.bg} p-8 md:p-10 rounded-lg`}>
-                    <h3 className="font-display text-xl text-sky-200 mb-3 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-sky-100/80 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl text-white mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 </RevealOnScroll>
               ))}
