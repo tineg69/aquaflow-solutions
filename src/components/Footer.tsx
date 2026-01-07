@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import oSealLogo from "@/assets/o-seal-logo-new.png";
+import oSealLogo from "@/assets/o-seal-logo-clean.png";
+import currentEventsLogo from "@/assets/currentevents-logo.png";
 
 const links = [
   { name: "Home", path: "/" },
@@ -59,14 +60,20 @@ export const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} O-Seal
             </p>
-            <span className="text-muted-foreground/50">·</span>
-            <p className="text-sm text-muted-foreground">
-              A <span className="text-accent font-medium">CurrentEvents</span> Innovation
-            </p>
+            <span className="text-muted-foreground/30">·</span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-muted-foreground/70">A</span>
+              <img 
+                src={currentEventsLogo} 
+                alt="CurrentEvents" 
+                className="h-5 w-auto object-contain opacity-80"
+              />
+              <span className="text-xs text-muted-foreground/70">Innovation</span>
+            </div>
           </div>
           <p className="text-sm text-muted-foreground">
             Engineering for resilience
