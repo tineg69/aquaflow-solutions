@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import oSealLogo from "@/assets/o-seal-logo-new.png";
+import oSealLogo from "@/assets/o-seal-logo-clean.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
