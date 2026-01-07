@@ -13,7 +13,12 @@ const Index = () => {
       
       {/* Hero Brand Section */}
       <section className="min-h-screen flex items-start justify-center pt-32 md:pt-40 lg:pt-48 relative overflow-hidden section-dark">
-        <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none">
+        {/* Animated wave background */}
+        <div className="wave-bg" />
+        <div className="wave-layer" />
+        <div className="wave-layer-2" />
+        
+        <h1 className="font-hero text-[12rem] md:text-[18rem] lg:text-[24rem] text-accent uppercase tracking-tight leading-none relative z-10">
           O-Seal
         </h1>
       </section>
