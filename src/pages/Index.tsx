@@ -230,7 +230,7 @@ const Index = () => {
       </section>
 
       {/* CTA - Simple */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-light min-h-screen flex items-center">
+      <section className="py-40 md:py-52 relative overflow-hidden section-light flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>

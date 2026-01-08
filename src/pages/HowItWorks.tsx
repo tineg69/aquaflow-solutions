@@ -6,6 +6,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import deviceModel from "@/assets/device-model.png";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
+import { CosmicBackground } from "@/components/CosmicBackground";
 
 const steps = [
   {
@@ -42,7 +43,7 @@ const HowItWorks = () => {
 
       {/* Hero */}
       <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
-        <NeuralWaveBackground />
+        <CosmicBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
@@ -199,7 +200,7 @@ const HowItWorks = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-blue" },
+                { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-teal" },
                 { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-blue" },
                 { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-teal" },
                 { title: "Scalable", desc: "Swarm deployment for networks", bg: "box-blue" },
@@ -220,7 +221,7 @@ const HowItWorks = () => {
       </section>
 
       {/* CTA - Cinematic Close */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-light min-h-screen flex items-center">
+      <section className="py-40 md:py-52 relative overflow-hidden section-light flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>
