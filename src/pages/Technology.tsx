@@ -9,9 +9,9 @@ import oSealLogo from "@/assets/o-seal-logo-full.png";
 const specs = [
   { 
     label: "Diameter Range", 
-    value: "40–200mm", 
+    value: "25–77mm", 
     bg: "box-teal",
-    description: "The O-Seal is designed to operate in pipes ranging from 40mm to 200mm in diameter. This covers the majority of municipal water distribution mains, allowing a single device design to address most urban water infrastructure without modification."
+    description: "The O-Seal is designed to operate in pipes ranging from 25mm to 77mm in diameter. This covers a significant portion of residential and commercial water distribution lines, allowing targeted deployment in smaller pipe networks."
   },
   { 
     label: "Pressure Rating", 
@@ -157,7 +157,7 @@ const Technology = () => {
       </section>
 
       {/* Technical Specs */}
-      <section className="py-32 md:py-40 relative section-dark snap-start min-h-screen flex items-center">
+      <section className="py-32 md:py-40 relative section-dark min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
