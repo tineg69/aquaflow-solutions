@@ -28,7 +28,7 @@ export const Navigation = () => {
             <img 
               src={currentEventsLogo} 
               alt="CurrentEvents" 
-              className="h-10 object-contain"
+              className="h-14 object-contain"
             />
           </Link>
 

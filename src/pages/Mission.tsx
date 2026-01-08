@@ -153,7 +153,7 @@ const Mission = () => {
       </section>
 
       {/* Impact */}
-      <section className="py-32 md:py-40 relative section-dark min-h-screen flex items-center">
+      <section className="py-32 md:py-40 relative section-dark flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">

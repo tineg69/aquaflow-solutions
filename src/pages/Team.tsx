@@ -11,7 +11,7 @@ const teamMembers = [{
   initials: "TG"
 }, {
   name: "Maneesh Vaddi",
-  role: "CTO & Co-Founder",
+  role: "CTO",
   initials: "MV"
 }, {
   name: "Dhruv Miriyala",
@@ -45,7 +45,7 @@ const Team = () => {
                   <img 
                     src={currentEventsLogo} 
                     alt="CurrentEvents" 
-                    className="h-14 object-contain"
+                    className="h-20 object-contain"
                   />
                 </div>
               </div>
@@ -90,8 +90,8 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="min-h-screen py-24 md:py-32 section-light relative snap-start">
+      {/* Team Section - Just the team slide */}
+      <section className="py-24 md:py-32 section-light relative">
         <NeuralWaveBackground />
         <div className="container px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -112,32 +112,22 @@ const Team = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Team grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
-              {teamMembers.map((member, index) => (
-                <RevealOnScroll key={member.name} delay={index * 75}>
-                  <div className="group text-center">
-                    <div className="aspect-square bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-xl mb-5 overflow-hidden relative border border-white/5 transition-all duration-500 group-hover:border-accent/30">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-display text-3xl md:text-4xl text-muted-foreground/25 group-hover:text-accent/30 transition-colors duration-500">
-                          {member.initials}
-                        </span>
-                      </div>
-                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                    
-                    <h3 className="font-display text-base md:text-lg text-foreground mb-1 tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="text-accent text-xs md:text-sm">{member.role}</p>
+            {/* Team photo placeholder - the main focus */}
+            <RevealOnScroll delay={100}>
+              <div className="aspect-[21/9] max-w-5xl mx-auto bg-gradient-to-br from-secondary/60 to-secondary/30 rounded-2xl border border-white/10 overflow-hidden relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="block font-display text-2xl text-muted-foreground/40 mb-2">Team Photo</span>
+                    <span className="text-sm text-muted-foreground/30">Coming Soon</span>
                   </div>
-                </RevealOnScroll>
-              ))}
-            </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              </div>
+            </RevealOnScroll>
 
             {/* Vision statement */}
-            <RevealOnScroll delay={400}>
-              <div className="mt-24 pt-16 border-t border-white/10">
+            <RevealOnScroll delay={200}>
+              <div className="mt-16 pt-12 border-t border-white/10">
                 <div className="max-w-3xl mx-auto text-center">
                   <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
                     Building technology that ensures no drop goes to waste.
