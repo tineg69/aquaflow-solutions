@@ -153,34 +153,6 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* Visual Diagram - Elevated */}
-      <section className="py-32 md:py-44 relative overflow-hidden section-light min-h-screen flex items-center">
-        <NeuralWaveBackground />
-        <div className="container px-6 relative">
-          <RevealOnScroll>
-            <div className="max-w-3xl mx-auto text-center mb-20">
-              <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">
-                Visualization
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight">
-                Inside the pipe
-              </h2>
-            </div>
-          </RevealOnScroll>
-          
-          <RevealOnScroll direction="scale" delay={150}>
-            <div className="max-w-5xl mx-auto">
-              <div className="relative aspect-[16/10] flex items-center justify-center">
-                <img
-                  src={deviceModel}
-                  alt="O-Seal operation visualization"
-                  className="relative max-w-full max-h-full object-contain"
-                />
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
 
       {/* Key Advantages - Refined Grid */}
       <section className="py-32 md:py-40 relative section-dark min-h-screen flex items-center">
