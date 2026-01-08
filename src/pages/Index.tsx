@@ -10,11 +10,11 @@ import oSealLogo from "@/assets/o-seal-logo-full.png";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
+    <div className="min-h-screen bg-background overflow-y-auto">
       <Navigation />
       
       {/* Hero - CurrentEvents Presents */}
-      <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden section-dark snap-start">
+      <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden section-dark">
         <NeuralNetwork />
         
         <div className="relative z-10 text-center">
@@ -39,7 +39,7 @@ const Index = () => {
       </section>
 
       {/* Problem Statement */}
-      <section className="min-h-screen flex items-center relative overflow-hidden section-light snap-start">
+      <section className="min-h-screen flex items-center relative overflow-hidden section-light">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -108,7 +108,7 @@ const Index = () => {
       </section>
 
       {/* Solution - Clean Typography Focus */}
-      <section className="min-h-screen flex items-center relative section-dark snap-start">
+      <section className="min-h-screen flex items-center relative section-dark">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-5xl mx-auto">
@@ -156,7 +156,7 @@ const Index = () => {
       </section>
 
       {/* Stats - Refined layout */}
-      <section className="min-h-screen flex items-center relative section-lighter snap-start">
+      <section className="min-h-screen flex items-center relative section-lighter">
         <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-5xl mx-auto">
@@ -190,7 +190,7 @@ const Index = () => {
       </section>
 
       {/* O-Seal Visualization Section */}
-      <section className="min-h-screen flex items-center relative section-dark snap-start">
+      <section className="min-h-screen flex items-center relative section-dark">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
