@@ -80,58 +80,6 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="min-h-screen py-24 md:py-32 section-light relative">
-        <NeuralWaveBackground />
-        <div className="container px-6 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            {/* Section header with O-Seal logo */}
-            <RevealOnScroll>
-              <div className="flex items-center justify-between mb-16">
-                <div>
-                  <p className="text-xs tracking-[0.3em] uppercase text-accent mb-3">Leadership</p>
-                  <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight">
-                    Our Team
-                  </h2>
-                </div>
-                <img src={oSealLogo} alt="O-Seal" className="h-14 object-contain opacity-70" />
-              </div>
-            </RevealOnScroll>
-
-            {/* Team grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
-              {teamMembers.map((member, index) => <RevealOnScroll key={member.name} delay={index * 75}>
-                  <div className="group text-center">
-                    <div className="aspect-square bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-xl mb-5 overflow-hidden relative border border-white/5 transition-all duration-500 group-hover:border-accent/30">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-display text-3xl md:text-4xl text-muted-foreground/25 group-hover:text-accent/30 transition-colors duration-500">
-                          {member.initials}
-                        </span>
-                      </div>
-                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                    
-                    <h3 className="font-display text-base md:text-lg text-foreground mb-1 tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="text-accent text-xs md:text-sm">{member.role}</p>
-                  </div>
-                </RevealOnScroll>)}
-            </div>
-
-            {/* Vision statement */}
-            <RevealOnScroll delay={400}>
-              <div className="mt-24 pt-16 border-t border-white/10">
-                <div className="max-w-3xl mx-auto text-center">
-                  <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-                    Building technology that ensures no drop goes to waste.
-                  </p>
-                </div>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>;
