@@ -40,22 +40,23 @@ const HowItWorks = () => {
     <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
       <Navigation />
 
-      {/* Hero - Cinematic Opening */}
+      {/* Hero */}
       <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
+        <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <RevealOnScroll>
-              <p className="text-xs tracking-[0.3em] uppercase text-accent/70 mb-8">
+              <p className="text-xs tracking-[0.4em] uppercase text-accent/80 mb-10 font-medium">
                 The Process
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
-              <h1 className="font-display text-foreground mb-8 tracking-tight">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-10 tracking-tight leading-[1.1]">
                 How It Works
               </h1>
             </RevealOnScroll>
             <RevealOnScroll delay={200}>
-              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 From deployment to repair, O-Seal operates autonomously inside live water systems.
               </p>
             </RevealOnScroll>
@@ -199,7 +200,7 @@ const HowItWorks = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-blue" },
-                { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-teal" },
+                { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-blue" },
                 { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-teal" },
                 { title: "Scalable", desc: "Swarm deployment for networks", bg: "box-blue" },
               ].map((item, i) => (
@@ -219,7 +220,7 @@ const HowItWorks = () => {
       </section>
 
       {/* CTA - Cinematic Close */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
+      <section className="py-40 md:py-52 relative overflow-hidden section-light min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>
