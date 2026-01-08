@@ -10,7 +10,7 @@ const teamMembers = [{
   initials: "TG"
 }, {
   name: "Maneesh Vaddi",
-  role: "CTO & Co-Founder",
+  role: "CTO",
   initials: "MV"
 }, {
   name: "Dhruv Miriyala",
@@ -26,11 +26,11 @@ const teamMembers = [{
   initials: "ZI"
 }];
 const Team = () => {
-  return <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
+  return <div className="min-h-screen bg-background overflow-y-auto">
       <Navigation />
       
       {/* Hero - Full viewport */}
-      <section className="h-screen flex flex-col justify-center relative overflow-hidden section-dark snap-start">
+      <section className="h-screen flex flex-col justify-center relative overflow-hidden section-dark">
         <NeuralWaveBackground />
         <div className="container px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
@@ -39,7 +39,7 @@ const Team = () => {
               <div className="flex items-center justify-center mb-10">
                 <div className="flex items-center gap-4">
                   <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">A Project by</span>
-                  <img src={currentEventsLogo} alt="CurrentEvents" className="h-14 object-contain" />
+                  <img src={currentEventsLogo} alt="CurrentEvents" className="h-24 object-contain" />
                 </div>
               </div>
             </RevealOnScroll>
@@ -81,7 +81,7 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section className="min-h-screen py-24 md:py-32 section-light relative snap-start">
+      <section className="min-h-screen py-24 md:py-32 section-light relative">
         <NeuralWaveBackground />
         <div className="container px-6 relative z-10">
           <div className="max-w-6xl mx-auto">

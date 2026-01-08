@@ -9,11 +9,11 @@ import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 
 const Mission = () => {
   return (
-    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
+    <div className="min-h-screen bg-background overflow-y-auto">
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark min-h-screen flex items-center">
         <VortexBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
@@ -39,7 +39,7 @@ const Mission = () => {
       </section>
 
       {/* The Problem */}
-      <section className="py-32 md:py-44 relative section-light snap-start min-h-screen flex items-center">
+      <section className="py-32 md:py-44 relative section-light min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6">
           <div className="max-w-6xl mx-auto">
@@ -77,7 +77,7 @@ const Mission = () => {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-32 md:py-40 relative section-lighter snap-start min-h-screen flex items-center">
+      <section className="py-32 md:py-40 relative section-lighter min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
@@ -121,7 +121,7 @@ const Mission = () => {
       </section>
 
       {/* Our Goal */}
-      <section className="py-40 md:py-52 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
+      <section className="py-40 md:py-52 relative overflow-hidden section-light min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-3xl mx-auto text-center">

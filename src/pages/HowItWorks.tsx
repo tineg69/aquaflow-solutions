@@ -38,11 +38,11 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <div className="min-h-screen bg-background overflow-y-auto snap-y snap-mandatory h-screen">
+    <div className="min-h-screen bg-background overflow-y-auto">
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark snap-start min-h-screen flex items-center">
+      <section className="pt-40 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden section-dark min-h-screen flex items-center">
         <CosmicBackground />
         <div className="container px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
@@ -66,7 +66,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Demo Video Section - Refined */}
-      <section className="py-20 md:py-28 relative section-light snap-start min-h-screen flex items-center">
+      <section className="py-20 md:py-28 relative section-light min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6">
           <RevealOnScroll direction="scale">
@@ -89,7 +89,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Step-by-Step Process - Cinematic Redesign */}
-      <section className="py-32 md:py-44 relative overflow-hidden section-lighter snap-start min-h-screen flex items-center">
+      <section className="py-32 md:py-44 relative overflow-hidden section-lighter min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
@@ -154,7 +154,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Visual Diagram - Elevated */}
-      <section className="py-32 md:py-44 relative overflow-hidden section-light snap-start min-h-screen flex items-center">
+      <section className="py-32 md:py-44 relative overflow-hidden section-light min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <RevealOnScroll>
@@ -183,7 +183,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Key Advantages - Refined Grid */}
-      <section className="py-32 md:py-40 relative section-dark snap-start min-h-screen flex items-center">
+      <section className="py-32 md:py-40 relative section-dark min-h-screen flex items-center">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
@@ -200,7 +200,7 @@ const HowItWorks = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-teal" },
+                { title: "No Excavation", desc: "Works entirely inside existing pipes", bg: "box-blue" },
                 { title: "No Shutdown", desc: "Operates in live water systems", bg: "box-blue" },
                 { title: "Real-Time", desc: "Detects and seals in minutes", bg: "box-teal" },
                 { title: "Scalable", desc: "Swarm deployment for networks", bg: "box-blue" },
