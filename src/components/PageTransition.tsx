@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect, ReactNode, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import waterTransition from "@/assets/water-transition.webp";
@@ -11,8 +11,15 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
   const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [displayChildren, setDisplayChildren] = useState(children);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    // Skip transition on initial load
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     setIsTransitioning(true);
     
     const timeout = setTimeout(() => {
