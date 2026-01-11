@@ -211,7 +211,7 @@ const Index = () => {
                 <div>
                   <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Device</p>
                   <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight font-light mb-6">
-                    Engineered for precision
+                    O-Seal Torus Design
                   </h2>
                   <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                     O-Seal navigates through active pipelines, detecting micro-fractures and 
