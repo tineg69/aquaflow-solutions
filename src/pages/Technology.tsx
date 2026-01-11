@@ -4,8 +4,8 @@ import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import { TechGridBackground } from "@/components/TechGridBackground";
 import { STLViewer } from "@/components/STLViewer";
-import { OBJViewer } from "@/components/OBJViewer";
 import oSealLogo from "@/assets/o-seal-logo-full.png";
+import osealTorusTech from "@/assets/oseal-torus-tech.png";
 const specs = [
   { 
     label: "Diameter Range", 
@@ -94,8 +94,14 @@ const Technology = () => {
             </div>
           </RevealOnScroll>
           <RevealOnScroll direction="left">
-            <div className="max-w-6xl mx-auto">
-              <OBJViewer />
+            <div className="max-w-4xl mx-auto">
+              <div className="aspect-[4/3] rounded-2xl border border-border/20 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10">
+                <img
+                  src={osealTorusTech}
+                  alt="O-Seal Torus Design"
+                  className="w-full h-full object-contain p-8"
+                />
+              </div>
             </div>
           </RevealOnScroll>
         </div>
