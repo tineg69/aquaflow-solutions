@@ -65,28 +65,6 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* Demo Video Section - Refined */}
-      <section className="py-20 md:py-28 relative section-light min-h-screen flex items-center">
-        <NeuralWaveBackground />
-        <div className="container px-6">
-          <RevealOnScroll direction="scale">
-            <div className="max-w-5xl mx-auto">
-              <div className="relative aspect-video rounded-2xl overflow-hidden">
-                <div className="relative h-full bg-gradient-to-br from-muted/80 to-muted/40 backdrop-blur-sm border border-border/20">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 cursor-pointer hover:bg-accent/20 transition-all duration-500 hover:scale-105 group">
-                        <Play className="w-10 h-10 text-accent ml-1 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                      <p className="text-sm text-muted-foreground/60 tracking-wide">Demo coming soon</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
 
       {/* Step-by-Step Process - Cinematic Redesign */}
       <section className="py-32 md:py-44 relative overflow-hidden section-lighter min-h-screen flex items-center">

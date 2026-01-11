@@ -4,6 +4,7 @@ import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import currentEventsLogo from "@/assets/currentevents-logo.png";
 import oSealLogo from "@/assets/o-seal-logo-full.png";
+import teamPhoto from "@/assets/team-photo.png";
 const teamMembers = [{
   name: "Tanish Gottimukkula",
   role: "Director of Operations",
@@ -59,13 +60,12 @@ const Team = () => {
 
             {/* Team photo placeholder */}
             <RevealOnScroll delay={300}>
-              <div className="aspect-[21/9] max-w-4xl mx-auto bg-gradient-to-br from-secondary/60 to-secondary/30 rounded-2xl border border-white/10 overflow-hidden relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="block font-display text-2xl text-muted-foreground/40 mb-2">Team Photo</span>
-                    <span className="text-sm text-muted-foreground/30">Coming Soon</span>
-                  </div>
-                </div>
+              <div className="aspect-[21/9] max-w-4xl mx-auto rounded-2xl border border-white/10 overflow-hidden relative">
+                <img
+                  src={teamPhoto}
+                  alt="The O-Seal Team"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
               </div>
             </RevealOnScroll>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { NeuralNetwork } from "@/components/NeuralNetwork";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import oSealLogo from "@/assets/o-seal-logo-full.png";
+import osealTorus from "@/assets/oseal-torus.png";
 
 const Index = () => {
   return (
@@ -189,20 +190,20 @@ const Index = () => {
         </div>
       </section>
 
-      {/* O-Seal Visualization Section */}
+      {/* O-Seal Torus Design Section */}
       <section className="min-h-screen flex items-center relative section-dark">
         <NeuralWaveBackground />
         <div className="container px-6 relative">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Visualization placeholder */}
+              {/* Torus Design Image */}
               <RevealOnScroll>
-                <div className="aspect-[4/3] bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-2xl border border-white/10 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-accent/5" />
-                  <div className="text-center relative z-10">
-                    <span className="block font-display text-2xl text-muted-foreground/40 mb-2">3D Model</span>
-                    <span className="text-sm text-muted-foreground/30">Interactive Visualization</span>
-                  </div>
+                <div className="aspect-[4/3] rounded-2xl border border-white/10 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10">
+                  <img
+                    src={osealTorus}
+                    alt="O-Seal Torus Design"
+                    className="w-full h-full object-contain p-4"
+                  />
                 </div>
               </RevealOnScroll>
               

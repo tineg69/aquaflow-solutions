@@ -20,6 +20,9 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
       return;
     }
 
+    // Scroll to top when navigating
+    window.scrollTo(0, 0);
+
     setIsTransitioning(true);
     
     const timeout = setTimeout(() => {
