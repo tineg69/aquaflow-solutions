@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { NeuralNetwork } from "@/components/NeuralNetwork";
 import { NeuralWaveBackground } from "@/components/NeuralWaveBackground";
 import oSealLogo from "@/assets/o-seal-logo-full.png";
-import osealTorus from "@/assets/oseal-torus.png";
+
 
 const Index = () => {
   return (
@@ -190,45 +190,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* O-Seal Torus Design Section */}
-      <section className="min-h-screen flex items-center relative section-dark">
-        <NeuralWaveBackground />
-        <div className="container px-6 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Torus Design Image */}
-              <RevealOnScroll>
-                <div className="aspect-[4/3] rounded-2xl border border-white/10 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10">
-                  <img
-                    src={osealTorus}
-                    alt="O-Seal Torus Design"
-                    className="w-full h-full object-contain p-4"
-                  />
-                </div>
-              </RevealOnScroll>
-              
-              <RevealOnScroll delay={150}>
-                <div>
-                  <p className="text-xs tracking-[0.3em] uppercase text-accent/60 mb-6">The Device</p>
-                  <h2 className="font-display text-3xl md:text-4xl text-foreground tracking-tight font-light mb-6">
-                    O-Seal Torus Design
-                  </h2>
-                  <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                    O-Seal navigates through active pipelines, detecting micro-fractures and 
-                    deploying targeted sealant compounds — all without interrupting water flow.
-                  </p>
-                  <Button asChild variant="outline" className="border-accent/30 text-accent hover:bg-accent/10">
-                    <Link to="/technology">
-                      Explore Technology
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </Button>
-                </div>
-              </RevealOnScroll>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA - Simple */}
       <section className="py-40 md:py-52 relative overflow-hidden section-light flex items-center">
